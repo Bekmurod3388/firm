@@ -13,9 +13,9 @@ Route::view('index', 'index')->name('index');
 Route::view('contact', 'contact')->name('contact');
 Route::view('about-us', 'about-us')->name('about-us');
 Route::view('vendors', 'vendors')->name('vendors');
-Route::view('news', 'news')->name('news');
-Route::view('news', 'news')->name('news');
-Route::view('news-item', 'news-item.news-item')->name('news-item');
+
+Route::get('news', [PostController::class,'news'])->name('news');
+Route::get('news-item/{post}', [PostController::class,'show'])->name('news-item');
 Route::view('products', 'products')->name('products');
 Route::view('products-item', 'product-item.product-item')->name('products-item');
 
@@ -44,4 +44,5 @@ Route::prefix('admin')->name('admin.')->middleware(['web', 'auth'])->group(funct
     Route::resource('messages', MessageController::class);
     Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
     Route::resource('posts', PostController::class);
+    Route::resource('contacts', \App\Http\Controllers\ContactController::class);
 });

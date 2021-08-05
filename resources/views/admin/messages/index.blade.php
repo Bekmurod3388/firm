@@ -27,7 +27,7 @@
                             <td>{{$message->phone}}</td>
                             <td>{{$message->email}}</td>
                             <td class="col-md-3">
-                                <form action="{{ route('messages.destroy',$message->id) }}" method="POST">
+                                <form action="{{ route('admin.messages.destroy',$message->id) }}" method="POST">
                                     @csrf
                                     @method('DELETE')
                                     <button type="submit" class="btn btn-danger"><span class="btn-label">

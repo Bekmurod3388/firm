@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Post;
 use App\Models\ShopAd;
 use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 
 class PostController extends Controller
@@ -16,8 +18,14 @@ class PostController extends Controller
      */
     public function index()
     {
-        $posts = Post::orderBy('id','desc');
-        return view('posts.index')->with('posts', $posts);
+        $posts = Post::orderBy('id','desc')->get();
+        return view('admin.posts.index')->with('posts', $posts);
+    }
+
+    public function news()
+    {
+        $posts = Post::orderBy('id','desc')->get();
+        return view('news')->with('posts', $posts);
     }
 
     /**
@@ -27,7 +35,7 @@ class PostController extends Controller
      */
     public function create()
     {
-        return view('posts.create');
+        return view('admin.posts.create');
     }
 
     /**
@@ -55,7 +63,8 @@ class PostController extends Controller
             'img' => $fileName,
             'uri'=>$request->uri,
         ]);
-        return redirect()->route('posts.index')->with('success','Post created successfully.');
+        addAlert('success');
+        return redirect()->route('admin.posts.index')->with('success','Новости успешно созданы.');
     }
 
     /**
@@ -66,7 +75,13 @@ class PostController extends Controller
      */
     public function show(Post $post)
     {
-        return view('posts.show',compact('post'));
+        Post::where('id', $post->id)
+            ->update([
+                'viewed'=> DB::raw('viewed+1'),
+
+            ]);
+
+        return view('news-item.news-item',compact('post'));
     }
 
     /**
@@ -77,7 +92,7 @@ class PostController extends Controller
      */
     public function edit(Post $post)
     {
-        return view('posts.edit',compact('post'));
+        return view('admin.posts.edit',compact('post'));
     }
 
     /**
@@ -93,7 +108,6 @@ class PostController extends Controller
             'header' => 'required',
             'header2' => 'required',
             'description' => 'required',
-            'img' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:16000',
             'uri' => 'required| unique:posts',
         ]);
         $uuid = Str::uuid()->toString();
@@ -107,8 +121,8 @@ class PostController extends Controller
             'uri'=>$request->uri,
         ]);
 
-        return redirect()->route('posts.index')
-            ->with('success','Post updated successfully');
+        return redirect()->route('admin.posts.index')
+            ->with('success','Новости успешно обновлено');
     }
 
     /**
@@ -121,7 +135,7 @@ class PostController extends Controller
     {
         $post->delete();
 
-        return redirect()->route('posts.index')
-            ->with('success','Post deleted successfully');
+        return redirect()->route('admin.posts.index')
+            ->with('success','Новости успешно удалено');
     }
 }

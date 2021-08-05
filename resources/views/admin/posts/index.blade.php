@@ -1,12 +1,14 @@
 @extends('admin.master')
+
 @section('content')
+
     <div class="col-md-12">
         <div class="card">
             <div class="card-header">
                 <div class="row">
-                    <div class="col-10"><h1 class="card-title">Новости</h1></div>
-                    <div class="col-2">
-                        <a class="btn btn-primary" href="{{route('posts.create')}}">
+                    <div class="col-9"><h1 class="card-title">Новости</h1></div>
+                    <div class="col-md-1">
+                        <a class="btn btn-primary" href="{{route('admin.posts.create')}}">
                             <span class="btn-label">
                                 <i class="fa fa-plus"></i>
                             </span>
@@ -29,23 +31,23 @@
                         <tbody>
                         @foreach($posts as $post)
                         <tr>
-                            <th scope="row" class="col-md-1">{{$post->id}}</th>
+                            <th scope="row" class="col-1">{{$post->id}}</th>
                             <td>{{$post->header}}</td>
                             <td>{{$post->description}}</td>
                             <td>{{$post->viewed}}</td>
-                            <td class="col-md-3">
-                                <form action="{{ route('posts.destroy',$post->id) }}" method="POST">
-                                <a class="btn btn-warning" href="{{ route('posts.edit',$post->id) }}">
+                            <td class="col-2">
+                                <form action="{{ route('admin.posts.destroy',$post->id) }}" method="POST">
+                                <a class="btn btn-warning btn-sm" href="{{ route('admin.posts.edit',$post->id) }}">
                                     <span class="btn-label">
                                         <i class="fa fa-pen"></i>
                                     </span>
-                                    Изменить
+
                                 </a>
                                     @csrf
                                     @method('DELETE')
-                                    <button type="submit" class="btn btn-danger"><span class="btn-label">
+                                    <button type="submit" class="btn btn-danger btn-sm"><span class="btn-label">
                                         <i class="fa fa-trash"></i>
-                                    </span>Удалить</button>
+                                    </span></button>
                                 </form>
                             </td>
                         </tr>

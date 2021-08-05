@@ -21,7 +21,7 @@
                     @endif
 
 
-                    <form action="{{route('posts.store')}}" method="POST" accept-charset="UTF-8" enctype="multipart/form-data">
+                    <form action="{{route('admin.posts.store')}}" method="POST" accept-charset="UTF-8" enctype="multipart/form-data">
                         @csrf
                     <div class="form-group">
                         <label for="header">Титул</label>
@@ -43,12 +43,50 @@
                         <label for="uri">URL адресс</label>
                         <input type="text" name="uri" class="form-control" id="uri" placeholder="Здесь только слеш и текст без пробел">
                     </div>
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <button type="submit" id="alert" class="btn btn-primary">Submit</button>
                     <input type="reset" class="btn btn-danger" value="Очистить">
                     </form>
                 </div>
             </div>
         </div>
     </div>
+{{$message = \Illuminate\Support\Facades\Session::get('success')}}
+    <script>
+        //== Class definition
+        var SweetAlert2Demo = function() {
+
+            //== Demos
+            var initDemos = function() {
+
+                $('alert').click(function(e) {
+                    swal({
+                        title: "{{$message}}",
+                        text: "You clicked the button!",
+                        icon: "success",
+                        buttons: {
+                            confirm: {
+                                text: "OK",
+                                value: true,
+                                visible: true,
+                                className: "btn btn-success",
+                                closeModal: true
+                            }
+                        }
+                    });
+                });};
+
+            return {
+                //== Init
+                init: function() {
+                    initDemos();
+                },
+            };
+        }();
+
+        //== Class Initialization
+        jQuery(document).ready(function() {
+            SweetAlert2Demo.init();
+        });
+    </script>
 
 @endsection

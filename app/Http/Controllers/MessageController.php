@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Message;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Validator;
+
 
 class MessageController extends Controller
 {
@@ -15,7 +17,7 @@ class MessageController extends Controller
     public function index()
     {
         $messages = Message::orderBy('id','desc')->get();
-        return view('messages.index')->with('messages', $messages);;
+        return view('admin.messages.index')->with('messages', $messages);;
     }
 
     /**
@@ -40,7 +42,7 @@ class MessageController extends Controller
         $request->validate([
             'name' => 'required',
             'email' => 'required',
-            'phone' => ['required|digits:9'],
+            'phone' => 'required|min:9',
         ]);
 
         Message::create($request->all());
@@ -93,7 +95,7 @@ class MessageController extends Controller
     {
         $message->delete();
 
-        return redirect()->route('messages.index')
+        return redirect()->route('admin.messages.index')
             ->with('success','Данные успешно удалены');
     }
 }
