@@ -36,13 +36,14 @@ class MessageController extends Controller
      */
     public function store(Request $request)
     {
+
         $request->validate([
             'name' => 'required',
             'email' => 'required',
-            'phone' => ['required', 'digits:10'],
+            'phone' => ['required|regex:/^([0-9\s\-\+\(\)]*)$/|min:9'],
         ]);
 
-        Post::create($request->all());
+        Message::create($request->all());
 
         return redirect()->route('index')
             ->with('success','Ваши данные успешно отправлены!');
