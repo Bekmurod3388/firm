@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\MessageController;
 use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -35,3 +36,4 @@ Auth::routes();
 //Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/home',[App\Http\Controllers\HomeController::class,'index'])->name('home');
 Route::resource('/admin/posts', PostController::class);
+Route::resource('/admin/messages', MessageController::class);
