@@ -15,7 +15,7 @@ class PostController extends Controller
     public function index()
     {
         $posts = Post::orderBy('id','desc')->paginate(6);
-        return view('admin.posts.index',['posts'=>$posts]);
+        return view('admin.posts.index')->with('posts', $posts);;
     }
 
     /**
@@ -25,7 +25,7 @@ class PostController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.posts.create');
     }
 
     /**
@@ -42,7 +42,7 @@ class PostController extends Controller
             'img' => 'required',
             'description' => 'required',
         ]);
-
+dd($request->all);
         Post::create($request->all());
 
         return redirect()->route('admin.posts.index')->with('success','Post created successfully.');

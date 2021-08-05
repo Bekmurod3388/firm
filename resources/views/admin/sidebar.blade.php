@@ -18,7 +18,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a data-toggle="collapse" href="#forms">
+                    <a data-toggle="collapse" href="{{route('posts.index')}}">
                         <i class="fas fa-pen-square"></i>
                         <p>Новости</p>
                     </a>

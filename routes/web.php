@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\PostController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -31,5 +33,5 @@ Route::group(['prefix' => 'about-vendor', 'as' => 'about-vendor.'], function () 
 Auth::routes();
 
 //Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::get('/home',[\App\Http\Controllers\HomeController::class,'index'])->name('home');
-Route::get('/admin/posts/index',[\App\Http\Controllers\PostController::class,'index'])->name('admin.posts.index');
+Route::get('/home',[App\Http\Controllers\HomeController::class,'index'])->name('home');
+Route::resource('/admin/posts', PostController::class);
