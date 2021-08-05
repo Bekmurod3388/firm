@@ -13,7 +13,7 @@
         <div class="container-min">
             <div class="card__blur form">
                 <p class="form__title">Оставить заявку</p>
-                <form action="{{route('messages.store')}}" method="POST",  accept-charset="UTF-8">
+                <form action="{{route('admin.messages.store')}}" method="POST",  accept-charset="UTF-8">
                     @csrf
                     <ul class="form__list">
                         <li class="form__item"><input type="text" class="form__input" name="name" placeholder="Ф.И.О"></li>

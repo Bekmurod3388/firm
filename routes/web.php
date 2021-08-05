@@ -41,7 +41,7 @@ Auth::routes([
 ]);
 
 Route::prefix('admin')->name('admin.')->middleware(['web', 'auth'])->group(function () {
-    Route::resource('/admin/messages', MessageController::class);
+    Route::resource('messages', MessageController::class);
     Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
     Route::resource('posts', PostController::class);
 });
