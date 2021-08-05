@@ -13,11 +13,12 @@
         <div class="container-min">
             <div class="card__blur form">
                 <p class="form__title">Оставить заявку</p>
-                <form action="https://blabla.com">
+                <form action="{{route('messages.store')}}" method="POST",  accept-charset="UTF-8">
+                    @csrf
                     <ul class="form__list">
-                        <li class="form__item"><input type="text" class="form__input" placeholder="Ф.И.О"></li>
-                        <li class="form__item"><input type="tel" class="form__input" placeholder="+998 (__) ___-__-__"></li>
-                        <li class="form__item"><input type="email" class="form__input" placeholder="Email"></li>
+                        <li class="form__item"><input type="text" class="form__input" name="name" placeholder="Ф.И.О"></li>
+                        <li class="form__item"><input type="tel" class="form__input" name="phone" placeholder="+998 (__) ___-__-__"></li>
+                        <li class="form__item"><input type="email" class="form__input" name="email" placeholder="Email"></li>
                     </ul>
                     <input type="submit" class="form__submit" value="Отправить">
                 </form>

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\MessageController;
 use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -17,7 +18,6 @@ Route::view('news', 'news')->name('news');
 Route::view('news-item', 'news-item.news-item')->name('news-item');
 Route::view('products', 'products')->name('products');
 Route::view('products-item', 'product-item.product-item')->name('products-item');
-
 
 Route::group(['prefix' => 'about-vendor', 'as' => 'about-vendor.'], function () {
     Route::view('about-vendor--axis', 'about-vendor.about-vendor--axis')->name('about-vendor--axis');
@@ -41,7 +41,7 @@ Auth::routes([
 ]);
 
 Route::prefix('admin')->name('admin.')->middleware(['web', 'auth'])->group(function () {
-
+    Route::resource('/admin/messages', MessageController::class);
     Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
     Route::resource('posts', PostController::class);
 });
