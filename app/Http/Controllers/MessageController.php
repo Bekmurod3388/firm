@@ -10,11 +10,11 @@ class MessageController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\Response
      */
     public function index()
     {
-        $messages = Message::orderBy('id','desc')->paginate(6);
+        $messages = Message::orderBy('id','desc')->get();
         return view('messages.index')->with('messages', $messages);;
     }
 
@@ -32,14 +32,14 @@ class MessageController extends Controller
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function store(Request $request)
     {
         $request->validate([
             'name' => 'required',
             'email' => 'required',
-            'phone' => 'required',
+            'phone' => ['required', 'digits:10'],
         ]);
 
         Post::create($request->all());
@@ -86,10 +86,13 @@ class MessageController extends Controller
      * Remove the specified resource from storage.
      *
      * @param  \App\Models\Message  $message
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function destroy(Message $message)
     {
-        //
+        $message->delete();
+
+        return redirect()->route('messages.index')
+            ->with('success','Данные успешно удалены');
     }
 }

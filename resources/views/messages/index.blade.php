@@ -23,9 +23,9 @@
                         @foreach($messages as $message)
                         <tr>
                             <th scope="row" class="col-md-1">{{$message->id}}</th>
-                            <td>{{$message->header}}</td>
-                            <td>{{$message->description}}</td>
-                            <td>{{$message->viewed}}</td>
+                            <td>{{$message->name}}</td>
+                            <td>{{$message->phone}}</td>
+                            <td>{{$message->email}}</td>
                             <td class="col-md-3">
                                 <form action="{{ route('messages.destroy',$message->id) }}" method="POST">
                                     @csrf
