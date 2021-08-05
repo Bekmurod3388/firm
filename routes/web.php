@@ -18,6 +18,7 @@ Route::view('news-item', 'news-item.news-item')->name('news-item');
 Route::view('products', 'products')->name('products');
 Route::view('products-item', 'product-item.product-item')->name('products-item');
 
+
 Route::group(['prefix' => 'about-vendor', 'as' => 'about-vendor.'], function () {
     Route::view('about-vendor--axis', 'about-vendor.about-vendor--axis')->name('about-vendor--axis');
     Route::view('about-vendor--acer', 'about-vendor.about-vendor--acer')->name('about-vendor--acer');
@@ -30,8 +31,17 @@ Route::group(['prefix' => 'about-vendor', 'as' => 'about-vendor.'], function () 
     Route::view('about-vendor--samsung', 'about-vendor.about-vendor--samsung')->name('about-vendor--samsung');
 });
 
-Auth::routes();
+Auth::routes([
+    'confirm' => false,
+    'login' => true,
+    'logout' => true,
+    'register' => false,
+    'reset' => false,
+    'verify' => false
+]);
 
-//Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::get('/home',[App\Http\Controllers\HomeController::class,'index'])->name('home');
-Route::resource('/admin/posts', PostController::class);
+Route::prefix('admin')->name('admin.')->middleware(['web', 'auth'])->group(function () {
+
+    Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+    Route::resource('posts', PostController::class);
+});
