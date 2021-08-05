@@ -34,18 +34,19 @@
                             <td>{{$post->description}}</td>
                             <td>{{$post->viewed}}</td>
                             <td class="col-md-3">
-                                <a class="btn btn-warning" href="#">
+                                <form action="{{ route('posts.destroy',$post->id) }}" method="POST">
+                                <a class="btn btn-warning" href="{{ route('posts.edit',$post->id) }}">
                                     <span class="btn-label">
                                         <i class="fa fa-pen"></i>
                                     </span>
                                     Изменить
                                 </a>
-                                <a class="btn btn-danger" href="#">
-                                    <span class="btn-label">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="btn btn-danger"><span class="btn-label">
                                         <i class="fa fa-trash"></i>
-                                    </span>
-                                    Удалить
-                                </a>
+                                    </span>Удалить</button>
+                                </form>
                             </td>
                         </tr>
                         @endforeach
