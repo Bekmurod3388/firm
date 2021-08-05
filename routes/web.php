@@ -31,9 +31,17 @@ Route::group(['prefix' => 'about-vendor', 'as' => 'about-vendor.'], function () 
     Route::view('about-vendor--samsung', 'about-vendor.about-vendor--samsung')->name('about-vendor--samsung');
 });
 
-Auth::routes();
+Auth::routes([
+    'confirm' => false,
+    'login' => true,
+    'logout' => true,
+    'register' => false,
+    'reset' => false,
+    'verify' => false
+]);
 
-//Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::get('/home',[App\Http\Controllers\HomeController::class,'index'])->name('home');
-Route::resource('/admin/posts', PostController::class);
-Route::resource('/admin/messages', MessageController::class);
+Route::prefix('admin')->name('admin.')->middleware(['web', 'auth'])->group(function () {
+    Route::resource('/admin/messages', MessageController::class);
+    Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+    Route::resource('posts', PostController::class);
+});
