@@ -40,7 +40,7 @@ class MessageController extends Controller
         $request->validate([
             'name' => 'required',
             'email' => 'required',
-            'phone' => ['required|regex:/^([0-9\s\-\+\(\)]*)$/|min:9'],
+            'phone' => ['required|digits:9'],
         ]);
 
         Message::create($request->all());

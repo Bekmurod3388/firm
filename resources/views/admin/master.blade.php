@@ -1,18 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <title>Atlantis Lite - Bootstrap 4 Admin Dashboard</title>
-    <meta content='width=device-width, initial-scale=1.0, shrink-to-fit=no' name='viewport' />
+    <meta content='width=device-width, initial-scale=1.0, shrink-to-fit=no' name='viewport'/>
     <link rel="icon" href="{{asset('/assets/img/icon.ico')}}" type="image/x-icon"/>
 
     <!-- Fonts and icons -->
     <script src="{{asset('/assets/js/plugin/webfont/webfont.min.js')}}"></script>
     <script>
         WebFont.load({
-            google: {"families":["Lato:300,400,700,900"]},
-            custom: {"families":["Flaticon", "Font Awesome 5 Solid", "Font Awesome 5 Regular", "Font Awesome 5 Brands", "simple-line-icons"], urls: ['{{asset("/assets/css/fonts.min.css")}}']},
-            active: function() {
+            google: {"families": ["Lato:300,400,700,900"]},
+            custom: {
+                "families": ["Flaticon", "Font Awesome 5 Solid", "Font Awesome 5 Regular", "Font Awesome 5 Brands", "simple-line-icons"],
+                urls: ['{{asset("/assets/css/fonts.min.css")}}']
+            },
+            active: function () {
                 sessionStorage.fonts = true;
             }
         });
@@ -30,10 +33,11 @@
         <!-- Logo Header -->
         <div class="logo-header" data-background-color="blue">
 
-            <a href="{{route('home')}}" class="logo">
+            <a href="{{route('admin.home')}}" class="logo">
                 <img src="{{asset('/assets/img/logo.svg')}}" alt="navbar brand" class="navbar-brand">
             </a>
-            <button class="navbar-toggler sidenav-toggler ml-auto" type="button" data-toggle="collapse" data-target="collapse" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler sidenav-toggler ml-auto" type="button" data-toggle="collapse"
+                    data-target="collapse" aria-expanded="false" aria-label="Toggle navigation">
 					<span class="navbar-toggler-icon">
 						<i class="icon-menu"></i>
 					</span>
@@ -48,21 +52,21 @@
         <!-- End Logo Header -->
 
         <!-- Navbar Header -->
-@include('admin.nav')
-        <!-- End Navbar -->
+    @include('admin.nav')
+    <!-- End Navbar -->
     </div>
 
     <!-- Sidebar -->
 @include('admin.sidebar')
-    <!-- End Sidebar -->
+<!-- End Sidebar -->
     <div class="main-panel">
         <div class="content">
 
-                <div class="page-inner py-5">
+            <div class="page-inner py-5">
 
-                           @yield('content')
+                @yield('content')
 
-                </div>
+            </div>
 
         </div>
     </div>
