@@ -24,7 +24,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a data-toggle="collapse" href="#forms">
+                    <a data-toggle="collapse" href="{{route('messages.index')}}">
                         <i class="fas fa-envelope"></i>
                         <p>Сообщении</p>
                     </a>
