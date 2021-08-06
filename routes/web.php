@@ -9,7 +9,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::view('index', 'index')->name('index');
+
 Route::view('contact', 'contact')->name('contact');
 Route::view('about-us', 'about-us')->name('about-us');
 Route::view('vendors', 'vendors')->name('vendors');
@@ -46,3 +46,5 @@ Route::prefix('admin')->name('admin.')->middleware(['web', 'auth'])->group(funct
     Route::resource('posts', PostController::class);
     Route::resource('contacts', \App\Http\Controllers\ContactController::class);
 });
+Route::get('index', [\App\Http\Controllers\LocalizationController::class,'index'])->name('index');
+Route::get('change/lang', 'LocalizationController@lang_change')->name('LangChange');

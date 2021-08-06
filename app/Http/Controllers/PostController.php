@@ -47,21 +47,26 @@ class PostController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'header' => 'required',
-            'header2' => 'required',
-            'description' => 'required',
+            'header_ru' => 'required',
+            'header2_ru' => 'required',
+            'description_ru' => 'required',
             'img' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:16000',
-            'uri' => 'required| unique:posts',
         ]);
         $uuid = Str::uuid()->toString();
         $fileName = $uuid.'-'.time().'.'.$request->img->extension();
         $request->img->move(public_path('../storage/app/public/posts'), $fileName);
         Post::create([
-            'header'=>$request->header,
-            'header2'=>$request->header2,
-            'description'=>$request->description,
+            'header_ru'=>$request->header_ru,
+            'header2_ru'=>$request->header2_ru,
+            'description_ru'=>$request->description_ru,
+            'header_uz'=>$request->header_uz,
+            'header2_uz'=>$request->header2_uz,
+            'description_uz'=>$request->description_uz,
+            'header_en'=>$request->header_en,
+            'header2_en'=>$request->header2_en,
+            'description_en'=>$request->description_en,
             'img' => $fileName,
-            'uri'=>$request->uri,
+
         ]);
         addAlert('success');
         return redirect()->route('admin.posts.index')->with('success','Новости успешно созданы.');
@@ -105,21 +110,34 @@ class PostController extends Controller
     public function update(Request $request, Post $post)
     {
         $request->validate([
-            'header' => 'required',
-            'header2' => 'required',
-            'description' => 'required',
-            'uri' => 'required| unique:posts',
+            'header_ru' => 'required',
+            'header2_ru' => 'required',
+            'description_ru' => 'required',
         ]);
-        $uuid = Str::uuid()->toString();
-        $fileName = $uuid.'-'.time().'.'.$request->img->extension();
-        $request->img->move(public_path('../storage/app/public/posts'), $fileName);
-        $post->update([
-            'header'=>$request->header,
-            'header2'=>$request->header2,
-            'description'=>$request->description,
-            'img' => $fileName,
-            'uri'=>$request->uri,
-        ]);
+        if($request->hasFile('imng'))
+        {
+            $uuid = Str::uuid()->toString();
+            $fileName = $uuid.'-'.time().'.'.$request->img->extension();
+            $request->img->move(public_path('../storage/app/public/posts'), $fileName);
+            $post->update([
+                'header_ru'=>$request->header_ru,
+                'header2_ru'=>$request->header2_ru,
+                'description_ru'=>$request->description_ru,
+                'header_uz'=>$request->header_uz,
+                'header2_uz'=>$request->header2_uz,
+                'description_uz'=>$request->description_uz,
+                'header_en'=>$request->header_en,
+                'header2_en'=>$request->header2_en,
+                'description_en'=>$request->description_en,
+                'img' => $fileName,
+
+            ]);
+        }else
+        {
+            $post->update($request->all());
+        }
+
+
 
         return redirect()->route('admin.posts.index')
             ->with('success','Новости успешно обновлено');

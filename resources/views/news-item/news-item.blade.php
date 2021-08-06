@@ -8,10 +8,10 @@
             <div class=" news-item__card card__blur">
                 <time class="news-item__time">{{$post->created_at}}</time>
                 <h2 class="card__title news-item__card-title">
-                    <span class="">{{$post->header}}</span>
-                    <span class="">{{$post->header2}}</span>
+                    <span class="">{{ $post->{'header_'.app()->getLocale()} }}</span>
+                    <span class="">{{ $post->{'header2_'.app()->getLocale()} }}</span>
                 </h2>
-                <p class="card__text news-item__card-text--top  ">{{$post->description}}</p>
+                <p class="card__text news-item__card-text--top  ">{{ $post->{'description_'.app()->getLocale()} }}</p>
             </div>
         </div>
     </section>

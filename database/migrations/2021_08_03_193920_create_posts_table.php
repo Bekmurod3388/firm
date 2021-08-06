@@ -15,11 +15,16 @@ class CreatePostsTable extends Migration
     {
         Schema::create('posts', function (Blueprint $table) {
             $table->id();
-            $table->string('header')->nullable();
-            $table->string('header2')->nullable();
-            $table->longText('description')->nullable();
+            $table->string('header_ru')->nullable();
+            $table->string('header2_ru')->nullable();
+            $table->longText('description_ru')->nullable();
+            $table->string('header_uz')->nullable();
+            $table->string('header2_uz')->nullable();
+            $table->longText('description_uz')->nullable();
+            $table->string('header_en')->nullable();
+            $table->string('header2_en')->nullable();
+            $table->longText('description_en')->nullable();
             $table->string('img')->nullable();
-            $table->string('uri')->unique()->nullable();
             $table->integer('viewed')->default(0);
             $table->timestamps();
         });

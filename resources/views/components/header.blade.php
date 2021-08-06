@@ -44,8 +44,15 @@
 
             <div class="nav-bar__right-wrapper">
                 <ul class="lang-list">
-                    <li>RUS</li>
+                @foreach (config('app.available_locales') as $locale)
+                        <li><a href="{{ request()->url() }}?language={{ $locale }}"
+                       class="@if (app()->getLocale() == $locale) border-indigo-400 @endif inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium leading-5 focus:outline-none transition duration-150 ease-in-out">
+                        [{{ strtoupper($locale) }}]
+                            </a>
+                        </li>
+                @endforeach
                 </ul>
+
                 <a href="search" class="--svg__search"></a>
             </div>
         </div>

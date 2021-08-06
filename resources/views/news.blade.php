@@ -15,8 +15,8 @@
                         <div class="card news__wrapper">
                             <div class="card__blur">
                                 <p class="news__date">{{$post->created_at}}</p>
-                                <h3 class="news__title">{{$post->header}}</h3>
-                                <p class="news__sub-title">{{$post->header2}}</p>
+                                <h3 class="news__title">{{ $post->{'header_'.app()->getLocale()} }}</h3>
+                                <p class="news__sub-title">{{ $post->{'header2_'.app()->getLocale()} }}</p>
                             </div>
                             <a href="{{route('news-item',$post->id)}}" class="news__link link --svg__link-icon-before">Читать</a>
                         </div>

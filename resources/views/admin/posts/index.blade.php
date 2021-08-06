@@ -32,8 +32,8 @@
                         @foreach($posts as $post)
                         <tr>
                             <th scope="row" class="col-1">{{$post->id}}</th>
-                            <td>{{$post->header}}</td>
-                            <td>{{$post->description}}</td>
+                            <td>{{$post->header_ru}}</td>
+                            <td>{{$post->description_ru}}</td>
                             <td>{{$post->viewed}}</td>
                             <td class="col-2">
                                 <form action="{{ route('admin.posts.destroy',$post->id) }}" method="POST">
