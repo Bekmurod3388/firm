@@ -61,23 +61,20 @@
         <div class="header__card card">
         <div class="header__card-blur card__blur">
             <h2 class="header__card-title card__title">
-                <span class="card__title--small header__card-title--small">Доступные</span>
-                <span class="header__card-title--big card__title--big">ИТ-решения</span></h2>
-            <p class="header__card-text card__text">Мы используем максимальный спектр современных информационных
-                технологий и управленческих подходов для решения задач наших партнеров. Наша работа повышает
-                эффективность бизнеса и создает основу для его дальнейшего развития.</p>
+                <span class="card__title--small header__card-title--small">{{__('index.carousel.header')}}</span>
+                <span class="header__card-title--big card__title--big">{{__('index.carousel.header2')}}</span></h2>
+            <p class="header__card-text card__text">{{__('index.carousel.desc')}}</p>
         </div>
-        <a href="{{route('about-us')}}" class="header__card-link link card__link --svg__link-icon-before">О компании</a>
+        <a href="{{route('about-us')}}" class="header__card-link link card__link --svg__link-icon-before">{{__('index.carousel.about_button')}}</a>
     </div>
     @else
         <div class="header-component__bottom-side --svg__adras-before">
             <div class="header-component__left-side wow slideInLeft">
                 <h1 class="header-component__title">
                     <span class="header-component__title--small">Central Asia Distribution</span>
-                    <span class="header-component__title--big">Продукция</span>
+                    <span class="header-component__title--big">{{__('index.carousel.production')}}</span>
                 </h1>
-                <p class="header-component__text">Партнерство с мировыми лидерами позволяет нам
-                    предлагать лучшие решения на рынке Узбекистана</p>
+                <p class="header-component__text">{{__('index.carousel.desc2')}}</p>
             </div>
             <img class="header-component__img" src="img/header-background.jpg" alt="видео">
 

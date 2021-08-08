@@ -19,7 +19,7 @@
 						</span>
 						<p class="advantages__text-wrapper">
 							<span class="advantages__numbers" data-calc="25+">00+</span>
-							<span class="advantages__text">лет опыта</span>
+							<span class="advantages__text">{{__('index.services.experience')}}</span>
 						</p>
 					</li>
 					<li class="advantages__item advantages__item--small">
@@ -30,7 +30,7 @@
 						</span>
 						<p class="advantages__text-wrapper">
 							<span class="advantages__numbers" data-calc="50+">00+</span>
-							<span class="advantages__text">брендов</span>
+							<span class="advantages__text">{{__('index.services.brand')}}</span>
 						</p>
 					</li>
 					<li class="advantages__item advantages__item--small">
@@ -41,7 +41,7 @@
 						</span>
 						<p class="advantages__text-wrapper">
 							<span class="advantages__numbers" data-calc="11">00</span>
-							<span class="advantages__text">стран</span>
+							<span class="advantages__text">{{__('index.services.country')}}</span>
 						</p>
 					</li>
 					<li class="advantages__item advantages__item--big">
@@ -52,7 +52,7 @@
 						</span>
 						<p class="advantages__text-wrapper">
 							<span class="advantages__numbers" data-calc="1000+">0+</span>
-							<span class="advantages__text">партнеров</span>
+							<span class="advantages__text">{{__('index.services.partner')}}</span>
 						</p>
 					</li>
 					<li class="advantages__item advantages__item--big">
@@ -63,7 +63,7 @@
 						</span>
 						<p class="advantages__text-wrapper">
 							<span class="advantages__numbers" data-calc="300+">0+</span>
-							<span class="advantages__text">сотрудников</span>
+							<span class="advantages__text">{{__('index.services.worker')}}</span>
 						</p>
 					</li>
 				</ul>
@@ -71,16 +71,12 @@
 			<div class="about-us__wrapper ">
 				<div class=" about-us__card card__blur wow fadeIn --svg__adras-after wow slideInRight">
 					<h2 class="card__title about-us__card-title">
-						<span class="card__title--small  about-us__card--small">несколько слов о</span>
-						<span class="card__title--big">компании</span>
+						<span class="card__title--small  about-us__card--small">{{__('index.about.header')}}</span>
+						<span class="card__title--big">{{__('index.about.header2')}}</span>
 					</h2>
-					<p class="card__text about-us__card-text--top ">Мы сплоченная команда профессионалов, которая
-						развивает ИТ рынок и
-						делает доступными ИТ-решения для Узбекистана. Мы гарантируем полную поддержку каждому
-						Партнеру. </p>
+					<p class="card__text about-us__card-text--top ">{{__('index.about.desc1')}}</p>
 					<p class="card__text about-us__card-text--bottom wow slideInRight " data-wow-delay="0.8s" >
-						Наша команда объединяет специалистов с высшим профильным образованием и международной
-						сертификацией, которые имеют огромный опыт работы в области ИТ и Телеком индустрии.
+                    {{__('index.about.desc2')}}
 					</p>
 				</div>
 			</div>
@@ -88,11 +84,10 @@
 		<section class="vendors">
 			<div class="section-title__wrapper --svg__adras-before wow slideInLeft">
 				<h2 class="section-title__header">
-					<span class="section-title--small">кто нам доверяет</span>
-					<span class="section-title--big">вендоры</span>
+					<span class="section-title--small">{{__('index.trust.header')}}</span>
+					<span class="section-title--big">{{__('index.trust.header2')}}</span>
 				</h2>
-				<p class="section-title__text">Партнерство с мировыми лидерами позволяет нам
-					предлагать лучшие IT-решения на рынке
+				<p class="section-title__text">{{__('index.trust.desc')}}
 				</p>
 			</div>
 
@@ -197,7 +192,7 @@
 							</a>
 						</li>
 					</ul>
-					<a href="vendors.blade.php" class="vendors__link link --svg__link-icon-before"> Все вендоры</a>
+					<a href="vendors.blade.php" class="vendors__link link --svg__link-icon-before">{{__('index.trust.vendors')}}</a>
 
 				</div>
 			</div>
@@ -205,51 +200,35 @@
 		<section class="news">
 			<div class="section-title__wrapper --svg__adras-before wow slideInLeft">
 				<h2 class="section-title__header">
-					<span class="section-title--small">Будьте в курсе</span>
-					<span class="section-title--big">Новости</span>
+					<span class="section-title--small">{{__('index.news.header')}}</span>
+					<span class="section-title--big">{{__('index.news.header2')}}</span>
 				</h2>
-				<p class="section-title__text">В этом разделе вы найдете полезные статьи, новости,
-					а также акции компании</p>
+				<p class="section-title__text">{{__('index.news.desc')}}</p>
 			</div>
 
 			<div class="container-min">
 				<ul class="news__list">
-
+                @foreach($posts as $post)
 					<li class="news__item news__item-1 wow">
 						<picture>
-							<source srcset="img/news/news-img-1.webp">
-							<img src="img/news/news-img-1.jpg" alt="News 1">
+							<source srcset="/storage/posts/{{$post->img}}">
+							<img src="/storage/posts/{{$post->img}}" alt="News 1">
 						</picture>
 
 						<div class="card news__wrapper">
 							<div class="card__blur">
-								<p class="news__date">17.03.2021</p>
-								<h3 class="news__title">Скидка 50% на покупку <br> Solidworks</h3>
-								<p class="news__sub-title">Специальное предложение до 31 марта</p>
+								<p class="news__date">{{$post->crated_at}}</p>
+								<h3 class="news__title">{{ $post->{'header_'.app()->getLocale()} }}</h3>
+								<p class="news__sub-title">{{ $post->{'header2_'.app()->getLocale()} }}</p>
 							</div>
-							<a href="" class="news__link link --svg__link-icon-before">Читать</a>
+							<a href="{{route('news-item',[$post->id])}}" class="news__link link --svg__link-icon-before">{{__('index.news.read')}}</a>
 						</div>
 					</li>
+                    @endforeach
 
-					<li class="news__item news__item-2 wow ">
-						<picture>
-							<source srcset="img/news/news-img-2.webp">
-							<img src="img/news/news-img-2.jpg" alt="News 1">
-						</picture>
-						<div class="card news__wrapper">
-							<div class="card__blur">
-								<p class="news__date">11.03.2021</p>
-								<h3 class="news__title">Специальные предложения <br> от Solidworks</h3>
-								<p class="news__sub-title">На восстановление доступа к технической поддержке и на
-									дополнительные модули SOLIDWORKS</p>
-							</div>
-							<a href="" class="news__link link --svg__link-icon-before">Читать</a>
-						</div>
-					</li>
 				</ul>
 			</div>
 		</section>
-
     @section('footer')
         <x-footer></x-footer>
     @endsection

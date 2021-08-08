@@ -17,7 +17,8 @@ class ContactSeeder extends Seeder
     public function run()
     {
         Contact::query()->create([
-            'address' => 'Ташкент, Фаргона йули, 15',
+            'address_ru' => 'Ташкент, Фаргона йули, 15',
+            'address_en' => 'Tashkent, Fergana street, 15',
             'phone' => '+998 (78) 148 53 00',
             'email' => 'info@ca-dc.uz'
         ]);

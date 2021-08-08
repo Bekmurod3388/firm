@@ -25,9 +25,13 @@
                         @csrf
                         @method('PUT')
                     <div class="form-group">
-                        <label for="address">Адрес</label>
-                        <input type="text" name="address" class="form-control" id="address" placeholder="Адрес" value="{{$contact->address}}">
+                        <label for="address_ru">Адрес РУ</label>
+                        <input type="text" name="address_ru" class="form-control" id="address_ru" placeholder="Адрес" value="{{$contact->address_ru}}">
                     </div>
+                        <div class="form-group">
+                            <label for="address_en">Адрес En</label>
+                            <input type="text" name="address_en" class="form-control" id="address_en" placeholder="Адрес En" value="{{$contact->address_en}}">
+                        </div>
                     <div class="form-group">
                         <label for="phone">Телефонный номер</label>
                         <input type="text" name="phone" class="form-control" id="phone" placeholder="Телефонный номер" value="{{$contact->phone}}">
