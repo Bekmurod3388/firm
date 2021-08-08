@@ -396,7 +396,7 @@
                             </a>
                         </li>
                     </ul>
-                    <a href="#ven" class="vendors__link link --svg__link-icon-before"> Все вендоры</a>
+                    <a href="#ven" class="vendors__link link --svg__link-icon-before"> {{__('index.trust.vendors')}}</a>
 
                 </div>
             </div>

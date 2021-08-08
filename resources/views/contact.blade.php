@@ -6,16 +6,19 @@
 			<div class="container-min">
 				<ul class="contacts__info-list">
 					<li class="contacts__info-item">
-						<p class="contacts__info-title">Адрес</p>
-						<p class="contacts__info-text">Ташкент, Фаргона йули, 15</p>
+                        @php
+                            $contact = \App\Models\Contact::first();
+                        @endphp
+						<p class="contacts__info-title">{{__('index.contact.address')}}</p>
+						<p class="contacts__info-text">{{$contact->{'address_'.app()->getLocale()} }}</p>
 					</li>
 					<li class="contacts__info-item">
-						<p class="contacts__info-title">Телефон</p>
-						<p class="contacts__info-text">+998 (78) 148 53 00</p>
+						<p class="contacts__info-title">{{__('index.contact.phone')}}</p>
+						<p class="contacts__info-text">{{$contact->phone}}</p>
 					</li>
 					<li class="contacts__info-item">
 						<p class="contacts__info-title">Email</p>
-						<p class="contacts__info-text">info@ca-dc.uz</p>
+						<p class="contacts__info-text">{{$contact->email}}</p>
 					</li>
 				</ul>
 
@@ -29,7 +32,7 @@
 			</div>
 
 			<div class="container-min">
-				<p class="contacts__author">© 2021 <br> Central Asia Distribution</p>
+				<p class="contacts__author">© {{now()->year}} <br> Central Asia Distribution</p>
 			</div>
 
 		</section>
