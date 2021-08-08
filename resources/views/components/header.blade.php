@@ -6,39 +6,39 @@
             <img width="182" height="92" src="{{asset('img/header-logo.png')}}" alt="Central Asia Distribution">
         </picture>
 
-        <button class="header__menu-btn">Меню</button>
+        <button class="header__menu-btn">{{__('index.menu.menu')}}</button>
 
         <div class="nav-bar">
             <ul class="nav-list nav-list--disable">
                 <li class="nav-list__item @if (request()->is('index'))
                     nav-list__item--active
                 @endif">
-                    <a href="{{ route('index') }}">Главная</a>
+                    <a href="{{ route('index') }}">{{__('index.menu.gen')}}</a>
                 </li>
                 <li class="nav-list__item @if (request()->is('about-us'))
                     nav-list__item--active
                 @endif">
-                    <a href="{{route('about-us')}}">О нас</a>
+                    <a href="{{route('about-us')}}">{{__('index.menu.about')}}</a>
                 </li>
                 <li class="nav-list__item @if (request()->is('vendors'))
                     nav-list__item--active
                 @endif">
-                    <a href="{{route('vendors')}}">Вендоры</a>
+                    <a href="{{route('vendors')}}">{{__('index.menu.vendor')}}</a>
                 </li>
                 <li class="nav-list__item @if (request()->is('products'))
                     nav-list__item--active
                 @endif">
-                    <a href="{{route('products')}}">Продукция</a>
+                    <a href="{{route('products')}}">{{__('index.menu.product')}}</a>
                 </li>
                 <li class="nav-list__item @if (request()->is('news'))
                     nav-list__item--active
                 @endif">
-                    <a href="{{route('news')}}">Новости</a>
+                    <a href="{{route('news')}}">{{__('index.menu.new')}}</a>
                 </li>
                 <li class="nav-list__item @if (request()->is('contact'))
                     nav-list__item--active
                 @endif">
-                    <a href="{{route('contact')}}">Контакты</a>
+                    <a href="{{route('contact')}}">{{__('index.menu.contact')}}</a>
                 </li>
             </ul>
 

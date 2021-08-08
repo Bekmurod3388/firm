@@ -44,6 +44,15 @@ return [
         'phone'=>'Phone',
     ],
 
+    'menu'=>[
+        'gen'=>'Head',
+        'menu'=>'Menu',
+        'about'=>'About us',
+        'vendor'=>'Vendors',
+        'product'=>'Products and services',
+        'new'=>'News',
+        'contact'=>'Contacts',
+    ]
 
 ];
 
