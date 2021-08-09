@@ -91,7 +91,7 @@
                         <img src="img/activities_2.jpg" alt="News 1">
                         <div class="card activities__wrapper card__blur">
                             <h3 class="activities__title">{{__('about.direction.vol')}}</h3>
-                            <p class="activities__sub-title">Д{{__('about.direction.vol_desc')}}
+                            <p class="activities__sub-title">{{__('about.direction.vol_desc')}}
                             </p>
                         </div>
                     </li>
