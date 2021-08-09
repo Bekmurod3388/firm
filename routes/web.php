@@ -16,7 +16,8 @@ Route::view('vendors', 'vendors')->name('vendors');
 
 Route::get('news', [PostController::class,'news'])->name('news');
 Route::get('news-item/{post}', [PostController::class,'show'])->name('news-item');
-Route::view('products', 'products')->name('products');
+Route::get('products', [\App\Http\Controllers\ProductController::class,'products_show'])->name('products');
+
 Route::view('products-item', 'product-item.product-item')->name('products-item');
 
 Route::group(['prefix' => 'about-vendor', 'as' => 'about-vendor.'], function () {

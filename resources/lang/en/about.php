@@ -43,5 +43,10 @@ return [
         'vol_desc4'=>'Successful experience in sales of project and channel solutions',
         'vol5'=>'ENGINEERS',
         'vol_desc5'=>'Confirmed competencies by world leaders, project support',
+    ],
+    'product'=>[
+        'more'=>'In detail',
+        'donate'=>'Request',
+        'consult'=>'Request for consultation',
     ]
 ];

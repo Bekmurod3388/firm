@@ -73,6 +73,12 @@ class ProductController extends Controller
         //
     }
 
+    public function products_show(){
+        $categories = Category::all();
+        $products = Product::all();
+        return view ('products',compact('categories','products'));
+    }
+
     /**
      * Show the form for editing the specified resource.
      *
