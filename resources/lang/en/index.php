@@ -45,7 +45,7 @@ return [
     ],
 
     'menu'=>[
-        'gen'=>'Head',
+        'gen'=>'Main',
         'menu'=>'Menu',
         'about'=>'About us',
         'vendor'=>'Vendors',
