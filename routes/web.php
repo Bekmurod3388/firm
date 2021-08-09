@@ -45,6 +45,11 @@ Route::prefix('admin')->name('admin.')->middleware(['web', 'auth'])->group(funct
     Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
     Route::resource('posts', PostController::class);
     Route::resource('contacts', \App\Http\Controllers\ContactController::class);
+    Route::resource('category', \App\Http\Controllers\CategoryController::class);
+    Route::resource('products', \App\Http\Controllers\ProductController::class);
 });
 Route::get('index', [\App\Http\Controllers\LocalizationController::class,'index'])->name('index');
 Route::get('change/lang', 'LocalizationController@lang_change')->name('LangChange');
+Route::get('/', function (){
+    return redirect('index');
+});

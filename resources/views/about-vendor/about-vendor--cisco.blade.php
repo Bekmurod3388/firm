@@ -4,10 +4,10 @@
     @section('header')
         <x-header/>
     @endsection
-        <section class="vendor-info">
+        <section class="vendor-info about-vendor-page--cisco">
             <div class="vendor-info__wrapper">
                 <div class=" vendor-info__card card__blur">
-                    <img class="card__title vendor-info__card-title" src="img/about-vendors/cisco_logo.png" alt="cisco">
+                    <img class="card__title vendor-info__card-title" src="../img/about-vendors/cisco_logo.png" alt="cisco">
                     <p class="card__text vendor-info__card-text ">Cisco – мировой лидер в области сетевых технологий,
                         меняющих способы человеческого общения, связи и совместной работы. Компания начала свою работу в
                         1984 в США. Сегодня деятельность компании сосредоточена на пяти основных технологических
@@ -43,22 +43,22 @@
 
                 <ul class="links__list">
                     <li class="links__item">
-                        <a href="" class="link link__a --svg__download-icon-before">Презентация</a>
+                        <a href="" class="link link__a svg__download-icon-before">Презентация</a>
                     </li>
                     <li class="links__item">
-                        <a href="" class="link link__a --svg__download-icon-before">Техническая документация</a>
+                        <a href="" class="link link__a svg__download-icon-before">Техническая документация</a>
                     </li>
                     <li class="links__item">
-                        <a href="" class="link link__a --svg__download-icon-before">Каталог товаров</a>
+                        <a href="" class="link link__a svg__download-icon-before">Каталог товаров</a>
                     </li>
                     <li class="links__item">
-                        <a href="" class="link link__a --svg__download-icon-before">Прайс-лист</a>
+                        <a href="" class="link link__a svg__download-icon-before">Прайс-лист</a>
                     </li>
                 </ul>
             </div>
         </section>
         <section class="video">
-            <div class="section-title__wrapper --svg__adras-before">
+            <div class="section-title__wrapper svg__adras-before">
                 <h2 class="section-title__header">
                     <span class="section-title--small">Смотрите</span>
                     <span class="section-title--big">Видео</span>
@@ -68,7 +68,8 @@
             <div class="container-min">
                 <ul class="video__list">
                     <li class="video__item">
-                        <img class="video__img" src="./img/video-img.jpg" alt="видео">
+                    <iframe class="video__img" width="560" height="300" src="https://www.youtube.com/embed/Ptk_1Dc2iPY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
                         <time class="video__time">02.19.2021</time>
                         <h3 class="video__title">
                             Портативный сканер <br>
@@ -77,7 +78,8 @@
                             в любом месте.</p>
                     </li>
                     <li class="video__item">
-                        <img class="video__img" src="./img/video-img_2.jpg" alt="видео">
+                    <iframe class="video__img" width="560" height="300" src="https://www.youtube.com/embed/Ptk_1Dc2iPY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
                         <time class="video__time">09.04.2020</time>
                         <h3 class="video__title">
                             Меняя будущее. Презентация <br>

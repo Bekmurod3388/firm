@@ -69,7 +69,7 @@
 				</ul>
 			</div>
 			<div class="about-us__wrapper ">
-				<div class=" about-us__card card__blur wow fadeIn --svg__adras-after wow slideInRight">
+				<div class=" about-us__card card__blur wow fadeIn svg__adras-after wow slideInRight">
 					<h2 class="card__title about-us__card-title">
 						<span class="card__title--small  about-us__card--small">{{__('index.about.header')}}</span>
 						<span class="card__title--big">{{__('index.about.header2')}}</span>
@@ -82,7 +82,7 @@
 			</div>
 		</section>
 		<section class="vendors">
-			<div class="section-title__wrapper --svg__adras-before wow slideInLeft">
+			<div class="section-title__wrapper svg__adras-before wow slideInLeft">
 				<h2 class="section-title__header">
 					<span class="section-title--small">{{__('index.trust.header')}}</span>
 					<span class="section-title--big">{{__('index.trust.header2')}}</span>
@@ -192,13 +192,13 @@
 							</a>
 						</li>
 					</ul>
-					<a href="vendors.blade.php" class="vendors__link link --svg__link-icon-before">{{__('index.trust.vendors')}}</a>
+					<a href="vendors.blade.php" class="vendors__link link svg__link-icon-before">{{__('index.trust.vendors')}}</a>
 
 				</div>
 			</div>
 		</section>
 		<section class="news">
-			<div class="section-title__wrapper --svg__adras-before wow slideInLeft">
+			<div class="section-title__wrapper svg__adras-before wow slideInLeft">
 				<h2 class="section-title__header">
 					<span class="section-title--small">{{__('index.news.header')}}</span>
 					<span class="section-title--big">{{__('index.news.header2')}}</span>
@@ -221,7 +221,7 @@
 								<h3 class="news__title">{{ $post->{'header_'.app()->getLocale()} }}</h3>
 								<p class="news__sub-title">{{ $post->{'header2_'.app()->getLocale()} }}</p>
 							</div>
-							<a href="{{route('news-item',[$post->id])}}" class="news__link link --svg__link-icon-before">{{__('index.news.read')}}</a>
+							<a href="{{route('news-item',[$post->id])}}" class="news__link link svg__link-icon-before">{{__('index.news.read')}}</a>
 						</div>
 					</li>
                     @endforeach
