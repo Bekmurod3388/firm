@@ -53,11 +53,11 @@
                             <input type="text" name="header_en" class="form-control" id="header_en" placeholder="Титул" value="{{$post->header_en}}">
                         </div>
                         <div class="form-group">
-                            <label for="header2_en">Титул 2(Уз)</label>
+                            <label for="header2_en">Титул 2(En)</label>
                             <input type="text" name="header2_en" class="form-control" id="header2_en" placeholder="Титул 2" value="{{$post->header2_en}}">
                         </div>
                         <div class="form-group">
-                            <label for="description_en">Текст (Уз)</label>
+                            <label for="description_en">Текст (En)</label>
                             <textarea  class="form-control"  name="description_en" id="description_en" rows="10">{{$post->description_en}}</textarea>
                         </div>
                         <div class="form-group">

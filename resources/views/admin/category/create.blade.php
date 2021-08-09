@@ -21,15 +21,14 @@
                     @endif
 
 
-                    <form action="{{route('admin.category.store')}}" method="POST" accept-charset="UTF-8"
-                          >
+                    <form action="{{route('admin.category.store')}}" method="POST" accept-charset="UTF-8">
                         @csrf
                         <div class="form-group">
                             <label for="name">Наименование</label>
                             <input type="text" name="name" class="form-control" id="name" placeholder="Наименование">
                         </div>
 
-                        <button type="submit" id="alert" class="btn btn-primary">Submit</button>
+                        <button type="submit" id="alert" class="btn btn-primary">Сохранить</button>
                         <input type="reset" class="btn btn-danger" value="Очистить">
                     </form>
                 </div>

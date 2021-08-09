@@ -4,7 +4,7 @@
         <div class="card">
             <div class="card-header">
                 <div class="row">
-                    <div class="col-10"><h1 class="card-title">Добавить новости</h1></div>
+                    <div class="col-10"><h1 class="card-title">Изсменит продукты</h1></div>
                 </div>
                 <hr>
                 <div class="card-body">
@@ -21,44 +21,33 @@
                     @endif
 
 
-                    <form action="{{route('admin.posts.update',$post)}}" method="POST" accept-charset="UTF-8" enctype="multipart/form-data">
+                    <form action="{{route('admin.products.update',$product)}}" method="POST" accept-charset="UTF-8" enctype="multipart/form-data">
                         @csrf
                         @method('PUT')
                     <div class="form-group">
                         <label for="header_ru">Титул(Ру)</label>
-                        <input type="text" name="header_ru" class="form-control" id="header_ru" placeholder="Титул" value="{{$post->header_ru}}">
-                    </div>
-                    <div class="form-group">
-                        <label for="header2_ru">Титул 2(Ру)</label>
-                        <input type="text" name="header2_ru" class="form-control" id="header2_ru" placeholder="Титул 2" value="{{$post->header2_ru}}">
+                        <input type="text" name="head_ru" class="form-control" id="header_ru" placeholder="Титул" value="{{$product->head_ru}}">
                     </div>
                     <div class="form-group">
                         <label for="description_ru">Текст (Ру)</label>
-                        <textarea  class="form-control"  name="description_ru" id="description_ru" rows="10">{{$post->description_ru}}</textarea>
+                        <textarea  class="form-control"  name="description_ru" id="description_ru" rows="10">{{$product->description_ru}}</textarea>
                     </div>
                         <div class="form-group">
-                            <label for="header_uz">Титул(Уз)</label>
-                            <input type="text" name="header_uz" class="form-control" id="header_uz" placeholder="Титул" value="{{$post->header_uz}}">
-                        </div>
-                        <div class="form-group">
-                            <label for="header2_uz">Титул 2(Уз)</label>
-                            <input type="text" name="header2_uz" class="form-control" id="header2_uz" placeholder="Титул 2" value="{{$post->header2_uz}}">
-                        </div>
-                        <div class="form-group">
-                            <label for="description_uz">Текст (Уз)</label>
-                            <textarea  class="form-control" name="description_uz" id="description_uz" rows="10">{{$post->description_uz}}</textarea>
-                        </div>
-                        <div class="form-group">
                             <label for="header_en">Титул(En)</label>
-                            <input type="text" name="header_en" class="form-control" id="header_en" placeholder="Титул" value="{{$post->header_en}}">
+                            <input type="text" name="head_en" class="form-control" id="header_en" placeholder="Титул" value="{{$product->head_en}}">
                         </div>
                         <div class="form-group">
-                            <label for="header2_en">Титул 2(Уз)</label>
-                            <input type="text" name="header2_en" class="form-control" id="header2_en" placeholder="Титул 2" value="{{$post->header2_en}}">
+                            <label for="description_en">Текст (En)</label>
+                            <textarea  class="form-control"  name="description_en" id="description_en" rows="10">{{$product->description_en}}</textarea>
                         </div>
                         <div class="form-group">
-                            <label for="description_en">Текст (Уз)</label>
-                            <textarea  class="form-control"  name="description_en" id="description_en" rows="10">{{$post->description_en}}</textarea>
+                            <label for="category">Выберите категория</label>
+                            <select class="form-control" name="category_id">
+                                <option></option>
+                                @foreach($categories as $category)
+                                    <option value="{{$category->id}}" >{{$category->name}}</option>
+                                @endforeach
+                            </select>
                         </div>
                         <div class="form-group">
                         <label for="img">Добавьте рисунок</label>

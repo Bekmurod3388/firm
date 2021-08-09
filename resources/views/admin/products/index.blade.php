@@ -6,13 +6,13 @@
         <div class="card">
             <div class="card-header">
                 <div class="row">
-                    <div class="col-9"><h1 class="card-title">Новости</h1></div>
+                    <div class="col-9"><h1 class="card-title">Продукты</h1></div>
                     <div class="col-md-1">
-                        <a class="btn btn-primary" href="{{route('admin.posts.create')}}">
+                        <a class="btn btn-primary" href="{{route('admin.products.create')}}">
                             <span class="btn-label">
                                 <i class="fa fa-plus"></i>
                             </span>
-                            Добавить новости
+                            Добавить продукты
                         </a>
                     </div>
                 </div>
@@ -24,20 +24,18 @@
                             <th scope="col">#</th>
                             <th scope="col">Титул</th>
                             <th scope="col">Текст</th>
-                            <th scope="col">Просмотрено</th>
                             <th scope="col">Действие</th>
                         </tr>
                         </thead>
                         <tbody>
-                        @foreach($posts as $post)
+                        @foreach($products as $product)
                         <tr>
-                            <th scope="row" class="col-1">{{$post->id}}</th>
-                            <td>{{$post->header_ru}}</td>
-                            <td>{{$post->description_ru}}</td>
-                            <td>{{$post->viewed}}</td>
+                            <th scope="row" class="col-1">{{$product->id}}</th>
+                            <td>{{$product->head_ru }}</td>
+                            <td>{{$product->description_ru }}</td>
                             <td class="col-2">
-                                <form action="{{ route('admin.posts.destroy',$post->id) }}" method="POST">
-                                <a class="btn btn-warning btn-sm" href="{{ route('admin.posts.edit',$post->id) }}">
+                                <form action="{{ route('admin.products.destroy',$product->id) }}" method="POST">
+                                <a class="btn btn-warning btn-sm" href="{{ route('admin.products.edit',$product->id) }}">
                                     <span class="btn-label">
                                         <i class="fa fa-pen"></i>
                                     </span>
