@@ -7,11 +7,11 @@
             <div class="container-min">
                 <div class="products__wrapper">
                     <ul class="filter-list">
-                        {{--@foreach($categories as $category)
+                        @foreach($categories as $category)
                         <li class="filter-item filter-item--active">
                             <button data-listToggle="solution" class="filter-btn">{{$category->name}}</button>
                         </li>
-                        @endforeach--}}
+                        @endforeach
                     </ul>
                     <ul class="products__list" data-filteredlist data-list="solution">
 						<li class="products__item">
