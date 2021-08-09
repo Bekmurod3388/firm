@@ -5,7 +5,7 @@
 
         <div class="container-min">
             <div class="products__wrapper">
-                <a class="link products-item-link --svg__link-icon-before" href="../products.blade.php">Назад</a>
+                <a class="link products-item-link svg__link-icon-before" href="../products.blade.php">Назад</a>
                 <div class="products__item products__item--only">
                     <div class="products__item-top">
                         <svg class="products__svg--network_hardware products__svg " width="200" height="200">
@@ -24,7 +24,7 @@
                 </div>
                 <ul class="breadcrumbs-list">
                     <li class="breadcrumbs-item breadcrumbs-item--active" ><a class="link ">1</a></li>
-                    <li class="breadcrumbs-item"><a class="link --svg__next-icon-before"  href="product-item-2.html"><span class="breadcrumbs-number">2</span></a></li>
+                    <li class="breadcrumbs-item"><a class="link svg__next-icon-before"  href="product-item-2.html"><span class="breadcrumbs-number">2</span></a></li>
                 </ul>
             </div>
         </div>

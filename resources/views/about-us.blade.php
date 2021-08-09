@@ -13,7 +13,7 @@
             </div>
         </section>
         <section class="our-values">
-            <div class="section-title__wrapper --svg__adras-before wow slideInLeft">
+            <div class="section-title__wrapper svg__adras-before wow slideInLeft">
                 <h2 class="section-title__header">
                     <span class="section-title--small">{{__('about.value.header')}}</span>
                     <span class="section-title--big">{{__('about.value.header2')}}</span>
@@ -69,7 +69,7 @@
         </section>
 
         <section class="activities">
-            <div class="section-title__wrapper --svg__adras-before wow slideInLeft">
+            <div class="section-title__wrapper svg__adras-before wow slideInLeft">
                 <h2 class="section-title__header">
                     <span class="section-title--small">{{__('about.direction.head')}}</span>
                     <span class="section-title--big">{{__('about.direction.head2')}}</span>
@@ -108,7 +108,7 @@
         </section>
 
         <section class="lead">
-            <div class="section-title__wrapper --svg__adras-after wow slideInRight">
+            <div class="section-title__wrapper svg__adras-after wow slideInRight">
                 <h2 class="section-title__header">
                     <span class="section-title--small">{{__('about.benefit.header')}}</span>
                     <span class="section-title--big">{{__('about.benefit.header2')}}</span>

@@ -45,22 +45,22 @@
 
                 <ul class="links__list">
                     <li class="links__item">
-                        <a href="" class="link link__a --svg__download-icon-before">Презентация</a>
+                        <a href="" class="link link__a svg__download-icon-before">Презентация</a>
                     </li>
                     <li class="links__item">
-                        <a href="" class="link link__a --svg__download-icon-before">Техническая документация</a>
+                        <a href="" class="link link__a svg__download-icon-before">Техническая документация</a>
                     </li>
                     <li class="links__item">
-                        <a href="" class="link link__a --svg__download-icon-before">Каталог товаров</a>
+                        <a href="" class="link link__a svg__download-icon-before">Каталог товаров</a>
                     </li>
                     <li class="links__item">
-                        <a href="" class="link link__a --svg__download-icon-before">Прайс-лист</a>
+                        <a href="" class="link link__a svg__download-icon-before">Прайс-лист</a>
                     </li>
                 </ul>
             </div>
         </section>
         <section class="video">
-            <div class="section-title__wrapper --svg__adras-before">
+            <div class="section-title__wrapper svg__adras-before">
                 <h2 class="section-title__header">
                     <span class="section-title--small">Смотрите</span>
                     <span class="section-title--big">Видео</span>

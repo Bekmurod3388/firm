@@ -16,11 +16,23 @@
                         <p>Новости</p>
                     </a>
                 </li>
-                <li class="nav-item {{  request()->routeIs('admin.messages.index') ? 'active' : '' }}"">
+                <li class="nav-item {{  request()->routeIs('admin.messages.index') ? 'active' : '' }}">
                     <a href="{{route('admin.messages.index')}}">
                         <i class="fas fa-envelope"></i>
                         <p>Сообщении</p>
                     </a>
+                </li>
+                <li class="nav-item {{  request()->routeIs('admin.category.index') ? 'active' : '' }}">
+                <a href="{{route('admin.category.index')}}">
+                    <i class="fas fa-envelope"></i>
+                    <p>Категория</p>
+                </a>
+                </li>
+                <li class="nav-item {{  request()->routeIs('admin.products.index') ? 'active' : '' }}">
+                <a href="{{route('admin.products.index')}}">
+                    <i class="fas fa-envelope"></i>
+                    <p>Продукты</p>
+                </a>
                 </li>
             </ul>
 

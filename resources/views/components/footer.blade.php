@@ -1,5 +1,5 @@
 <footer class="footer">
-    <div class="section-title__wrapper --svg__adras-before wow slideInLeft">
+    <div class="section-title__wrapper svg__adras-before wow slideInLeft">
         <h2 class="section-title__header">
             <span class="section-title--small">{{__('index.contact.header')}}</span>
             <span class="section-title--big">{{__('index.contact.header2')}}</span>

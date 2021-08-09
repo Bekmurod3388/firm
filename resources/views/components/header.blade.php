@@ -46,14 +46,15 @@
                 <ul class="lang-list">
                 @foreach (config('app.available_locales') as $locale)
                         <li><a href="{{ request()->url() }}?language={{ $locale }}"
-                       class="@if (app()->getLocale() == $locale) border-indigo-400 @endif inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium leading-5 focus:outline-none transition duration-150 ease-in-out">
-                        [{{ strtoupper($locale) }}]
+
+                       class="@if (app()->getLocale() == $locale) border-indigo-400 active @endif ">
+                        {{ strtoupper($locale) }}
                             </a>
                         </li>
                 @endforeach
                 </ul>
 
-                <a href="search" class="--svg__search"></a>
+                <a href="search" class="svg__search"></a>
             </div>
         </div>
     </nav>
@@ -65,10 +66,10 @@
                 <span class="header__card-title--big card__title--big">{{__('index.carousel.header2')}}</span></h2>
             <p class="header__card-text card__text">{{__('index.carousel.desc')}}</p>
         </div>
-        <a href="{{route('about-us')}}" class="header__card-link link card__link --svg__link-icon-before">{{__('index.carousel.about_button')}}</a>
+        <a href="{{route('about-us')}}" class="header__card-link link card__link svg__link-icon-before">{{__('index.carousel.about_button')}}</a>
     </div>
     @else
-        <div class="header-component__bottom-side --svg__adras-before">
+        <div class="header-component__bottom-side svg__adras-before">
             <div class="header-component__left-side wow slideInLeft">
                 <h1 class="header-component__title">
                     <span class="header-component__title--small">Central Asia Distribution</span>

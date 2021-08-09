@@ -68,11 +68,11 @@
 					<ul class="lang-list">
 						<li>RUS</li>
 					</ul>
-					<a href="search" class="--svg__search"></a>
+					<a href="search" class="svg__search"></a>
 				</div>
 			</div>
 		</nav>
-		<div class="header-component__bottom-side --svg__adras-before">
+		<div class="header-component__bottom-side svg__adras-before">
 			<div class="header-component__left-side wow slideInLeft">
 				<h1 class="header-component__title ">
 					<span class="header-component__title--small">Central Asia Distribution</span>
@@ -111,22 +111,22 @@
 
 				<ul class="links__list">
 					<li class="links__item">
-						<a href="" class="link link__a --svg__download-icon-before">Презентация</a>
+						<a href="" class="link link__a svg__download-icon-before">Презентация</a>
 					</li>
 					<li class="links__item">
-						<a href="" class="link link__a --svg__download-icon-before">Техническая документация</a>
+						<a href="" class="link link__a svg__download-icon-before">Техническая документация</a>
 					</li>
 					<li class="links__item">
-						<a href="" class="link link__a --svg__download-icon-before">Каталог товаров</a>
+						<a href="" class="link link__a svg__download-icon-before">Каталог товаров</a>
 					</li>
 					<li class="links__item">
-						<a href="" class="link link__a --svg__download-icon-before">Прайс-лист</a>
+						<a href="" class="link link__a svg__download-icon-before">Прайс-лист</a>
 					</li>
 				</ul>
 			</div>
 		</section>
 		<section class="video">
-			<div class="section-title__wrapper --svg__adras-before">
+			<div class="section-title__wrapper svg__adras-before">
 				<h2 class="section-title__header">
 					<span class="section-title--small">Смотрите</span>
 					<span class="section-title--big">Видео</span>
@@ -160,7 +160,7 @@
 		</section>
 	</main>
 	<footer class="footer">
-	<div class="section-title__wrapper --svg__adras-before wow slideInLeft">
+	<div class="section-title__wrapper svg__adras-before wow slideInLeft">
 		<h2 class="section-title__header">
 			<span class="section-title--small">Свяжитесь с нами</span>
 			<span class="section-title--big">Контакты</span>
