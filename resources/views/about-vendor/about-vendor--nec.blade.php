@@ -85,7 +85,7 @@
 		</div>
 	</header>
 	<main class="main">
-		<section class="vendor-info">
+		<section class="vendor-info about-vendor-page--nec">
 			<div class="vendor-info__wrapper">
 				<div class=" vendor-info__card card__blur">
 					<img class="card__title vendor-info__card-title" src="img/about-vendors/nec_logo.png" alt="nec">
@@ -136,7 +136,7 @@
 			<div class="container-min">
 				<ul class="video__list">
 					<li class="video__item">
-						<img class="video__img" src="./img/video-img.jpg" alt="видео">
+                        <iframe class="video__img" width="560" height="300" src="https://www.youtube.com/embed/Ptk_1Dc2iPY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 						<time class="video__time">02.19.2021</time>
 						<h3 class="video__title">
 							Портативный сканер <br>
@@ -145,7 +145,7 @@
 							в любом месте.</p>
 					</li>
 					<li class="video__item">
-						<img class="video__img" src="./img/video-img_2.jpg" alt="видео">
+					<iframe class="video__img" width="560" height="300" src="https://www.youtube.com/embed/Ptk_1Dc2iPY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 						<time class="video__time">09.04.2020</time>
 						<h3 class="video__title">
 							Меняя будущее. Презентация <br>

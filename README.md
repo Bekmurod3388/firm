@@ -10,6 +10,7 @@ CMD commands
 2. php artisan key:generate
 3. php artisan migrate
 4. php artisan db:seed
+5. php artisan serve
 
 ADMIN ROUTE:
 http://127.0.0.1:8000/admin

@@ -1,4 +1,4 @@
-<header class="header">
+<header class="{{url()->current() == route('index') ? 'header' : 'header-component' }}">
     {{$slot}}
     <nav class="main-nav">
         <picture class="main-logo">
@@ -77,8 +77,11 @@
                 </h1>
                 <p class="header-component__text">{{__('index.carousel.desc2')}}</p>
             </div>
-            <img class="header-component__img" src="img/header-background.jpg" alt="видео">
-
+            <video autoplay="" muted="" loop="" id="myVideo" class="header-component__img" poster="img/header-background.jpg">
+				<source src="img/videos/video-header.mp4" type="video/mp4">
+				<source src="img/videos/video-header.webm" type="video/webm">
+				<source src="img/videos/video-header.ogv" type="video/ogg">
+			</video>
         </div>
     @endif
 </header>
