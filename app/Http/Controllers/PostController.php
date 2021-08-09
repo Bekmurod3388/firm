@@ -114,7 +114,7 @@ class PostController extends Controller
             'header2_ru' => 'required',
             'description_ru' => 'required',
         ]);
-        if($request->hasFile('imng'))
+        if($request->hasFile('img'))
         {
             $uuid = Str::uuid()->toString();
             $fileName = $uuid.'-'.time().'.'.$request->img->extension();

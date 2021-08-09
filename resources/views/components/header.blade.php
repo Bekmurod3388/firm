@@ -2,8 +2,8 @@
     {{$slot}}
     <nav class="main-nav">
         <picture class="main-logo">
-            <source srcset="{{asset('img/header-logo.webp')}}">
-            <img width="182" height="92" src="{{asset('img/header-logo.png')}}" alt="Central Asia Distribution">
+           <a href="{{route('index')}}"> <source srcset="{{asset('img/header-logo.webp')}}">
+            <img width="182" height="92" src="{{asset('img/header-logo.png')}}" alt="Central Asia Distribution"></a>
         </picture>
 
         <button class="header__menu-btn">{{__('index.menu.menu')}}</button>
