@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\MessageController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -18,7 +19,7 @@ Route::get('news', [PostController::class,'news'])->name('news');
 Route::get('news-item/{post}', [PostController::class,'show'])->name('news-item');
 Route::get('products', [\App\Http\Controllers\ProductController::class,'products_show'])->name('products');
 
-Route::view('products-item', 'product-item.product-item')->name('products-item');
+Route::get('products-item/{product}', [\App\Http\Controllers\ProductController::class,'show'])->name('products-item');
 
 Route::group(['prefix' => 'about-vendor', 'as' => 'about-vendor.'], function () {
     Route::view('about-vendor--axis', 'about-vendor.about-vendor--axis')->name('about-vendor--axis');
@@ -48,9 +49,12 @@ Route::prefix('admin')->name('admin.')->middleware(['web', 'auth'])->group(funct
     Route::resource('contacts', \App\Http\Controllers\ContactController::class);
     Route::resource('category', \App\Http\Controllers\CategoryController::class);
     Route::resource('products', \App\Http\Controllers\ProductController::class);
+    Route::resource('users', \App\Http\Controllers\UserController::class);
+
 });
 Route::get('index', [\App\Http\Controllers\LocalizationController::class,'index'])->name('index');
 Route::get('change/lang', 'LocalizationController@lang_change')->name('LangChange');
 Route::get('/', function (){
     return redirect('index');
 });
+

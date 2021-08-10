@@ -1,4 +1,5 @@
 <x-layout>
+    @include('alerts')
     @section('header')
         <x-header>
             <video autoplay muted loop id="myVideo" class="header__video" poster="{{asset('img/main-preview.jpg')}}">
