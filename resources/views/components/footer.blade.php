@@ -11,12 +11,12 @@
         <div class="container-min">
             <div class="card__blur form">
                 <p class="form__title">{{__('index.contact.form')}}</p>
-                <form action="{{route('admin.messages.store')}}" method="POST",  accept-charset="UTF-8">
+                <form id="contactForm"  accept-charset="UTF-8">
                     @csrf
                     <ul class="form__list">
-                        <li class="form__item"><input type="text" class="form__input" name="name" placeholder="{{__('index.contact.name')}}"></li>
-                        <li class="form__item"><input type="tel" class="form__input" name="phone" placeholder="+998 (__) ___-__-__"></li>
-                        <li class="form__item"><input type="email" class="form__input" name="email" placeholder="Email"></li>
+                        <li class="form__item"><input type="text" class="form__input" name="name" required id="name" placeholder="{{__('index.contact.name')}}"></li>
+                        <li class="form__item"><input type="tel" class="form__input" name="phone" required id="phone" placeholder="+998 (__) ___-__-__"></li>
+                        <li class="form__item"><input type="email" class="form__input" name="email" required id="email" placeholder="Email"></li>
                     </ul>
                     <input type="submit" class="form__submit" value="{{__('index.contact.send')}}">
                 </form>
@@ -44,4 +44,34 @@
             </div>
         </div>
     </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
+    <script type="text/javascript">
+
+        $('#contactForm').on('submit',function(e){
+            e.preventDefault();
+
+            let name = $('#name').val();
+            let phone = $('#phone').val();
+            let email = $('#email').val();
+
+            $.ajax({
+                url: "{{route('messages.store')}}",
+                type:"POST",
+                data:{
+                    "_token": "{{ csrf_token() }}",
+                    name:name,
+                    phone:phone,
+                    email:email,
+                },
+                success:function(response){
+                    Swal.fire({
+                        icon: 'success',
+
+                        title: '{{__("about.success")}}',
+
+                    })
+                },
+            });
+        });
+    </script>
 </footer>

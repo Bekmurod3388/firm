@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Message;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Validator;
+use RealRashid\SweetAlert\Facades\Alert;
 
 
 class MessageController extends Controller
@@ -34,7 +35,7 @@ class MessageController extends Controller
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\RedirectResponse
+     * @return \Illuminate\Http\JsonResponse
      */
     public function store(Request $request)
     {
@@ -46,9 +47,9 @@ class MessageController extends Controller
         ]);
 
         Message::create($request->all());
+        return response()->json(['success'=>'Form is successfully submitted!']);
 
-        return redirect()->route('index')
-            ->with('success','Ваши данные успешно отправлены!');
+
     }
 
     /**

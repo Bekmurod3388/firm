@@ -50,5 +50,5 @@ return [
         'consult'=>'Request for consultation',
     ],
     'back'=>'back',
-
+    'success'=>'The application has been successfully sent!'
 ];

@@ -53,37 +53,43 @@
                     <button class="modal__close">x</button>
                 </div>
 
-                <form action="https://example.com">
+                <form id="contactForm">
                     <ul class="form__list">
-                        <li class="form__item"><input type="text" class="form__input"
-                                                      placeholder="{{__('index.contact.name')}}"></li>
-                        <li class="form__item"><input type="tel" class="form__input" placeholder="+998 (__) ___-__-__">
-                        </li>
-                        <li class="form__item"><input type="email" class="form__input" placeholder="Email"></li>
+                        <li class="form__item"><input type="text" class="form__input" name="name"  id="name" required placeholder="{{__('index.contact.name')}}"></li>
+                        <li class="form__item"><input type="tel" class="form__input" name="phone" id="phone" required placeholder="+998 (__) ___-__-__"></li>
+                        <li class="form__item"><input type="email" class="form__input" name="email" id="email" required placeholder="Email"></li>
                     </ul>
                     <input type="submit" class="form__submit" value="{{__('index.contact.send')}}">
                 </form>
             </div>
-            {{--<script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
+            <script type="text/javascript">
 
-                var js_array = [<?php echo '"'.implode('","', $p_array).'"' ?>];
-                alert(js_array[0]);
+                $('#contactForm').on('submit',function(e){
+                    e.preventDefault();
 
-                var filterList = document.querySelector(".filter-list"),
-                    filterItems = document.querySelectorAll(".filter-item"),
-                    lists = document.querySelectorAll("[data-filteredlist]");
-                filterList && filterList.addEventListener("click", (function (e) {
+                    let name = $('#name').val();
+                    let phone = $('#phone').val();
+                    let email = $('#email').val();
 
-                    /* if (e.target.dataset.listtoggle) {
-                         for (var t = e.target, r = 0; r < filterItems.length; r++) filterItems[r].classList.remove("filter-item--active");
-                         t.parentElement.classList.add("filter-item--active");
-                         for (var n = e.target.dataset.listtoggle, a = document.querySelector('[data-list="'.concat(n, '"]')), o = 0; o < lists.length; o++) lists[o].classList.add("list--hidden");
-                         a.classList.remove("list--hidden")
-                     }*/
-                }));
+                    $.ajax({
+                        url: "{{route('messages.store')}}",
+                        type:"POST",
+                        data:{
+                            "_token": "{{ csrf_token() }}",
+                            name:name,
+                            phone:phone,
+                            email:email,
+                        },
+                        success:function(response){
+                            Swal.fire({
+                                icon: 'success',
 
-                function categoryFilter(id) {
-                    console.log(products ,id)
-                }
-            </script>--}}
+                                title: '{{__("about.success")}}',
+
+                            })
+                        },
+                    });
+                });
+            </script>
 </x-layout>

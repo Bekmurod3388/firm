@@ -5,7 +5,7 @@ use App\Http\Controllers\PostController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
-use RealRashid\SweetAlert\Facades\Alert;
+
 
 
 
@@ -42,7 +42,7 @@ Auth::routes([
 ]);
 
 Route::prefix('admin')->name('admin.')->middleware(['web', 'auth'])->group(function () {
-    Route::resource('messages', MessageController::class);
+    Route::get('messages/index', [MessageController::class,'index'])->name('messages.index');
     Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
     Route::resource('posts', PostController::class);
     Route::resource('contacts', \App\Http\Controllers\ContactController::class);
@@ -51,12 +51,10 @@ Route::prefix('admin')->name('admin.')->middleware(['web', 'auth'])->group(funct
     Route::resource('users', \App\Http\Controllers\UserController::class);
 
 });
+Route::post('index', [MessageController::class,'store'])->name('messages.store');
 Route::get('index', [\App\Http\Controllers\LocalizationController::class,'index'])->name('index');
 Route::get('change/lang', 'LocalizationController@lang_change')->name('LangChange');
 Route::get('/', function (){
-    if($message = Session::get('success'))
-        Alert::success('Отправлено', $message);
-
     return redirect('index');
 });
 Route::get('products/categories/{category}',[\App\Http\Controllers\ProductController::class,'get_category_products'])->name('get_category_products');
