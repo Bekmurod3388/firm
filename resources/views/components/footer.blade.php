@@ -12,7 +12,6 @@
             <div class="card__blur form">
                 <p class="form__title">{{__('index.contact.form')}}</p>
                 <form id="contactForm"  accept-charset="UTF-8">
-                    @csrf
                     <ul class="form__list">
                         <li class="form__item"><input type="text" class="form__input" name="name" required id="name" placeholder="{{__('index.contact.name')}}"></li>
                         <li class="form__item"><input type="tel" class="form__input" name="phone" required id="phone" placeholder="+998 (__) ___-__-__"></li>

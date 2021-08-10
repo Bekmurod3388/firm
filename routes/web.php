@@ -43,7 +43,7 @@ Auth::routes([
 
 Route::prefix('admin')->name('admin.')->middleware(['web', 'auth'])->group(function () {
     Route::get('messages/index', [MessageController::class,'index'])->name('messages.index');
-    Route::delete('messages/delete/{message}', [MessageController::class,'destroy'])->name('messages.delete');
+    Route::delete('messages/delete/{message}', [MessageController::class,'destroy'])->name('messages.destroy');
     Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
     Route::resource('posts', PostController::class);
     Route::resource('contacts', \App\Http\Controllers\ContactController::class);

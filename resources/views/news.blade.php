@@ -18,7 +18,7 @@
                                 <h3 class="news__title">{{ $post->{'header_'.app()->getLocale()} }}</h3>
                                 <p class="news__sub-title">{{ $post->{'header2_'.app()->getLocale()} }}</p>
                             </div>
-                            <a href="{{route('news-item',$post->id)}}" class="news__link link svg__link-icon-before">Читать</a>
+                            <a href="{{route('news-item',$post->id)}}" class="news__link link svg__link-icon-before">{{__('index.news.read')}}</a>
                         </div>
                     </li>
                     @endforeach
