@@ -7,7 +7,7 @@
                 <a class="link products-item-link svg__link-icon-before" href="{{url()->previous() }}">{{__('about.back')}}</a>
                 <div class="products__item products__item--only">
                     <div class="products__item-top">
-                        <img src="/storage/products/{{$product->img}}">
+                        <img src="/storage/products/{{$product->img}}" class="products__svg" width="200" height="200">
                         <h3 class="products__item-title">
 
                             <span class="products__item-title--big">{{$product->{'head_'.app()->getLocale()} }}</span></h3>
