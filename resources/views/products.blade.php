@@ -17,7 +17,7 @@
                         @foreach($products as $product)
                         <li class="products__item">
 							<div class="products__item-top">
-								<img src="/storage/products/{{$product->img}}">
+								<img src="/storage/products/{{$product->img}}" class="products__svg" width="82" height="82">
 								<h3 class="products__item-title">
 									<span class="products__item-title--big">{{$product->{'head_'.app()->getLocale()} }}</span></h3>
 							</div>
@@ -48,7 +48,7 @@
 		<form action="https://example.com">
 			<ul class="form__list">
 				<li class="form__item"><input type="text" class="form__input" placeholder="{{__('index.contact.name')}}"></li>
-				<li class="form__item"><input type="tel" class="form__input" placeholder="+998 (__) ___-__-__"></li>
+				<li class="form__item"><input type="tel" class="form__input" placeholder="+998 (__) ___-__-__" required></li>
 				<li class="form__item"><input type="email" class="form__input" placeholder="Email"></li>
 			</ul>
 			<input type="submit" class="form__submit" value="{{__('index.contact.send')}}">

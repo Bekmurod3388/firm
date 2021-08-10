@@ -7,9 +7,7 @@
                 <a class="link products-item-link svg__link-icon-before" href="../products.blade.php">Назад</a>
                 <div class="products__item products__item--only">
                     <div class="products__item-top">
-                        <svg class="products__svg--network_hardware products__svg " width="200" height="200">
-                            <use xlink:href="img/sprite.svg#network_hardware"></use>
-                        </svg>
+                        <img class="products__svg--network_hardware products__svg " src="img/svg/network_hardware.svg" alt="network_hardware" width="82" height="82">
                         <h3 class="products__item-title">
                             <span class="products__item-title--small">Сетевое</span>
                             <span class="products__item-title--big">Оборудование</span></h3>
@@ -42,7 +40,7 @@
                 <form action="https://example.com">
                     <ul class="form__list">
                         <li class="form__item"><input type="text" class="form__input" placeholder="Ф.И.О"></li>
-                        <li class="form__item"><input type="tel" class="form__input" placeholder="+998 (__) ___-__-__"></li>
+                        <li class="form__item"><input type="tel" class="form__input" placeholder="+998 (__) ___-__-__" required></li>
                         <li class="form__item"><input type="email" class="form__input" placeholder="Email"></li>
                     </ul>
                     <input type="submit" class="form__submit" value="Отправить">

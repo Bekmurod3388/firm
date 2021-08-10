@@ -14,9 +14,9 @@
                 <form action="{{route('admin.messages.store')}}" method="POST",  accept-charset="UTF-8">
                     @csrf
                     <ul class="form__list">
-                        <li class="form__item"><input type="text" class="form__input" name="name" placeholder="{{__('index.contact.name')}}"></li>
-                        <li class="form__item"><input type="tel" class="form__input" name="phone" placeholder="+998 (__) ___-__-__"></li>
-                        <li class="form__item"><input type="email" class="form__input" name="email" placeholder="Email"></li>
+                        <li class="form__item"><input type="text" class="form__input" name="name" placeholder="{{__('index.contact.name')}}" ></li>
+                        <li class="form__item"><input type="tel" class="form__input" name="phone" placeholder="+998 (__) ___-__-__" required></li>
+                        <li class="form__item"><input type="email" class="form__input" name="email" placeholder="Email" ></li>
                     </ul>
                     <input type="submit" class="form__submit" value="{{__('index.contact.send')}}">
                 </form>
