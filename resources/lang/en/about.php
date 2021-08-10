@@ -48,5 +48,7 @@ return [
         'more'=>'In detail',
         'donate'=>'Request',
         'consult'=>'Request for consultation',
-    ]
+    ],
+    'back'=>'back',
+
 ];

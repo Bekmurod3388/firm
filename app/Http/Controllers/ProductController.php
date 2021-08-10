@@ -29,14 +29,14 @@ class ProductController extends Controller
     public function create()
     {
         $categories = Category::all();
-        return view('admin.products.create')->with('categories',$categories);
+        return view('admin.products.create')->with('categories', $categories);
 
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\RedirectResponse
      */
     public function store(Request $request)
@@ -45,57 +45,60 @@ class ProductController extends Controller
             'head_ru' => 'required',
             'description_ru' => 'required',
             'img' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:16000',
-            'category_id'=>'required'
+            'category_id' => 'required'
         ]);
         $uuid = Str::uuid()->toString();
-        $fileName = $uuid.'-'.time().'.'.$request->img->extension();
+        $fileName = $uuid . '-' . time() . '.' . $request->img->extension();
         $request->img->move(public_path('../storage/app/public/products'), $fileName);
         Product::create([
-            'head_ru'=>$request->head_ru,
-            'description_ru'=>$request->description_ru,
-            'head_en'=>$request->head_en,
-            'description_en'=>$request->description_en,
+            'head_ru' => $request->head_ru,
+            'description_ru' => $request->description_ru,
+            'head_en' => $request->head_en,
+            'description_en' => $request->description_en,
             'img' => $fileName,
-            'category_id'=>$request->category_id
+            'category_id' => $request->category_id
         ]);
         addAlert('success');
-        return redirect()->route('admin.products.index')->with('success','Продукт успешно созданы.');
+        return redirect()->route('admin.products.index')->with('success', 'Продукт успешно созданы.');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Product  $product
-     * @return \Illuminate\Http\Response
+     * @param \App\Models\Product $product
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\Response
      */
     public function show(Product $product)
     {
-        //
+
+        return view('product-item.product-item', compact('product'));
     }
 
-    public function products_show(){
+    public function products_show()
+    {
         $categories = Category::all();
         $products = Product::all();
-        return view ('products',compact('categories','products'));
+        $p_array = $products->toArray();
+        return view('products', compact('categories', 'products', 'p_array'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Product  $product
+     * @param \App\Models\Product $product
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\Response
      */
     public function edit(Product $product)
     {
         $categories = Category::all();
-        return view('admin.products.edit',compact('product','categories'));
+        return view('admin.products.edit', compact('product', 'categories'));
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Product  $product
+     * @param \Illuminate\Http\Request $request
+     * @param \App\Models\Product $product
      * @return \Illuminate\Http\RedirectResponse
      */
     public function update(Request $request, Product $product)
@@ -104,38 +107,36 @@ class ProductController extends Controller
             'head_ru' => 'required',
             'description_ru' => 'required',
         ]);
-        if($request->hasFile('img'))
-        {
+        if ($request->hasFile('img')) {
             $uuid = Str::uuid()->toString();
-            $fileName = $uuid.'-'.time().'.'.$request->img->extension();
+            $fileName = $uuid . '-' . time() . '.' . $request->img->extension();
             $request->img->move(public_path('../storage/app/public/products'), $fileName);
             $product->update([
-                'head_ru'=>$request->head_ru,
-                'description_ru'=>$request->description_ru,
-                'head_en'=>$request->head_en,
-                'description_en'=>$request->description_en,
+                'head_ru' => $request->head_ru,
+                'description_ru' => $request->description_ru,
+                'head_en' => $request->head_en,
+                'description_en' => $request->description_en,
                 'img' => $fileName,
-                'category_id'=>$request->category_id
+                'category_id' => $request->category_id
             ]);
-        }else
-        {
+        } else {
             $product->update($request->all());
         }
         return redirect()->route('admin.products.index')
-            ->with('success','Продукт успешно обновлено');
+            ->with('success', 'Продукт успешно обновлено');
 
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Product  $product
+     * @param \App\Models\Product $product
      * @return \Illuminate\Http\RedirectResponse
      */
     public function destroy(Product $product)
     {
         $product->delete();
         return redirect()->route('admin.products.index')
-            ->with('success','Новости успешно удалено');
+            ->with('success', 'Новости успешно удалено');
     }
 }

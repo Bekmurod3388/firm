@@ -33,6 +33,7 @@
 <div class="container">
     @yield('header')
     <main class="main">
+
         {{ $slot }}
     </main>
 
