@@ -2,8 +2,10 @@
     {{$slot}}
     <nav class="main-nav">
         <picture class="main-logo">
-           <a href="{{route('index')}}"> <source srcset="{{asset('img/header-logo.webp')}}">
-            <img width="182" height="92" src="{{asset('img/header-logo.png')}}" alt="Central Asia Distribution"></a>
+            <a href="{{route('index')}}">
+                <source type="image/webp" srcset="{{asset('img/header-logo.webp')}}">
+                <img width="182" height="92" src="{{asset('img/header-logo.png')}}" alt="Central Asia Distribution">
+            </a>
         </picture>
 
         <button class="header__menu-btn">{{__('index.menu.menu')}}</button>
@@ -44,14 +46,14 @@
 
             <div class="nav-bar__right-wrapper">
                 <ul class="lang-list">
-                @foreach (config('app.available_locales') as $locale)
-                        <li><a href="{{ request()->url() }}?language={{ $locale }}"
+                    @foreach (config('app.available_locales') as $locale)
+                    <li><a href="{{ request()->url() }}?language={{ $locale }}"
 
-                       class="@if (app()->getLocale() == $locale) border-indigo-400 active @endif ">
-                        {{ strtoupper($locale) }}
-                            </a>
-                        </li>
-                @endforeach
+                           class="@if (app()->getLocale() == $locale) border-indigo-400 active @endif ">
+                            {{ strtoupper($locale) }}
+                        </a>
+                    </li>
+                    @endforeach
                 </ul>
 
                 <a href="search" class="svg__search"></a>
@@ -59,7 +61,7 @@
         </div>
     </nav>
     @if (request()->is('index'))
-        <div class="header__card card">
+    <div class="header__card card">
         <div class="header__card-blur card__blur">
             <h2 class="header__card-title card__title">
                 <span class="card__title--small header__card-title--small">{{__('index.carousel.header')}}</span>
@@ -69,19 +71,19 @@
         <a href="{{route('about-us')}}" class="header__card-link link card__link svg__link-icon-before">{{__('index.carousel.about_button')}}</a>
     </div>
     @else
-        <div class="header-component__bottom-side svg__adras-before">
-            <div class="header-component__left-side wow slideInLeft">
-                <h1 class="header-component__title">
-                    <span class="header-component__title--small">Central Asia Distribution</span>
-                    <span class="header-component__title--big">{{__('index.carousel.production')}}</span>
-                </h1>
-                <p class="header-component__text">{{__('index.carousel.desc2')}}</p>
-            </div>
-            <video autoplay="" muted="" loop="" id="myVideo" class="header-component__img" poster="img/header-background.jpg">
-				<source src="img/videos/video-header.mp4" type="video/mp4">
-				<source src="img/videos/video-header.webm" type="video/webm">
-				<source src="img/videos/video-header.ogv" type="video/ogg">
-			</video>
+    <div class="header-component__bottom-side svg__adras-before">
+        <div class="header-component__left-side wow slideInLeft">
+            <h1 class="header-component__title">
+                <span class="header-component__title--small">Central Asia Distribution</span>
+                <span class="header-component__title--big">{{__('index.carousel.production')}}</span>
+            </h1>
+            <p class="header-component__text">{{__('index.carousel.desc2')}}</p>
         </div>
+        <video autoplay="" muted="" loop="" id="myVideo" class="header-component__img" poster="img/header-background.jpg">
+            <source src="img/videos/video-header.mp4" type="video/mp4">
+            <source src="img/videos/video-header.webm" type="video/webm">
+            <source src="img/videos/video-header.ogv" type="video/ogg">
+        </video>
+    </div>
     @endif
 </header>
