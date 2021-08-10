@@ -10,12 +10,16 @@
                     @foreach($categories as $category)
                         <li class="filter-item ">
                             <button data-listToggle="solution" onclick="categoryFilter({{$category->id}})"
-                                    class="filter-btn">{{$category->name}}</button>
+                                    class="filter-btn">
+                                <a href="{{route('get_category_products',['category'=>$category->id])}}">
+                                {{$category->name}}
+                                </a>
+                            </button>
                         </li>
                     @endforeach
                 </ul>
                 <ul class="products__list" data-filteredlist data-list="solution">
-                    @foreach($category->products as $product)
+                    @foreach($products as $product)
                         <li class="products__item">
                             <div class="products__item-top">
                                 <img src="/storage/products/{{$product->img}}">
@@ -60,8 +64,11 @@
                     <input type="submit" class="form__submit" value="{{__('index.contact.send')}}">
                 </form>
             </div>
-            <script>
-                var products = toArray({{json_encode($p_array)}})
+            {{--<script>
+
+                var js_array = [<?php echo '"'.implode('","', $p_array).'"' ?>];
+                alert(js_array[0]);
+
                 var filterList = document.querySelector(".filter-list"),
                     filterItems = document.querySelectorAll(".filter-item"),
                     lists = document.querySelectorAll("[data-filteredlist]");
@@ -78,5 +85,5 @@
                 function categoryFilter(id) {
                     console.log(products ,id)
                 }
-            </script>
+            </script>--}}
 </x-layout>

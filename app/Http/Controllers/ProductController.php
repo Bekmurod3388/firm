@@ -93,7 +93,11 @@ class ProductController extends Controller
         $categories = Category::all();
         return view('admin.products.edit', compact('product', 'categories'));
     }
+    public function get_category_products(Category $category){
 
+        $categories = Category::all();
+        return view('products',['products'=>$category->products, 'categories'=>$categories]);
+    }
     /**
      * Update the specified resource in storage.
      *

@@ -5,10 +5,9 @@ use App\Http\Controllers\PostController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use RealRashid\SweetAlert\Facades\Alert;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
 
 
 Route::view('contact', 'contact')->name('contact');
@@ -55,6 +54,11 @@ Route::prefix('admin')->name('admin.')->middleware(['web', 'auth'])->group(funct
 Route::get('index', [\App\Http\Controllers\LocalizationController::class,'index'])->name('index');
 Route::get('change/lang', 'LocalizationController@lang_change')->name('LangChange');
 Route::get('/', function (){
+    if($message = Session::get('success'))
+        Alert::success('Отправлено', $message);
+
     return redirect('index');
 });
+Route::get('products/categories/{category}',[\App\Http\Controllers\ProductController::class,'get_category_products'])->name('get_category_products');
+
 

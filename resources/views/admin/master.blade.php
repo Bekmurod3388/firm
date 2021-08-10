@@ -66,7 +66,7 @@
         <div class="content">
 
             <div class="page-inner py-5">
-                @include('sweet')
+                @include('alerts')
                 @yield('content')
 
             </div>

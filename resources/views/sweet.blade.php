@@ -1,8 +1,16 @@
+@php
+use RealRashid\SweetAlert\Facades\Alert;
+@endphp
 @if ($message = Session::get('success'))
-    <div class="alert alert-success alert-block">
-        <button type="button" class="close" data-dismiss="alert">×</button>
-        <strong>{{ $message }}</strong>
-    </div>
+
+
+<script>
+    import Swal from 'sweetalert2'
+
+    // CommonJS
+    Alert::success('Success Title', 'Success Message');
+
+</script>
 @endif
 
 
