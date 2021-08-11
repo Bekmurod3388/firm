@@ -16,6 +16,7 @@
                             <th scope="col">Имя</th>
                             <th scope="col">Телефонный номер</th>
                             <th scope="col">Email</th>
+                            <th scope="col">Когда</th>
                             <th scope="col">Действие</th>
                         </tr>
                         </thead>
@@ -26,6 +27,7 @@
                             <td>{{$message->name}}</td>
                             <td>{{$message->phone}}</td>
                             <td>{{$message->email}}</td>
+                            <td>{{$message->created_at}}</td>
                             <td class="col-md-3">
                                 <form action="{{ route('admin.messages.destroy',$message->id) }}" method="POST">
                                     @csrf
