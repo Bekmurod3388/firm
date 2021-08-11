@@ -1,4 +1,5 @@
 <footer class="footer">
+
     <div class="section-title__wrapper svg__adras-before wow slideInLeft">
         <h2 class="section-title__header">
             <span class="section-title--small">{{__('index.contact.header')}}</span>
@@ -70,6 +71,14 @@
 
                     })
                 },
+                fail:function (response){
+                    Swal.fire({
+                        icon: 'fail',
+
+                        title: '{{__("about.success")}}',
+
+                    })
+                }
             });
         });
     </script>

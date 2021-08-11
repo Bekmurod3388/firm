@@ -43,7 +43,7 @@ class MessageController extends Controller
         $request->validate([
             'name' => 'required',
             'email' => 'required',
-            'phone' => 'required|min:9',
+            'phone' => 'required',
         ]);
 
         Message::create($request->all());
