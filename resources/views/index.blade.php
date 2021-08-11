@@ -34,17 +34,6 @@
 							<span class="advantages__text">{{__('index.services.brand')}}</span>
 						</p>
 					</li>
-					<li class="advantages__item advantages__item--small">
-						<span class="svg-container--worldwide wow fadeIn">
-							<svg class="svg__worldwide" width="118" height="118">
-								<use xlink:href="img/sprite.svg#worldwide"></use>
-							</svg>
-						</span>
-						<p class="advantages__text-wrapper">
-							<span class="advantages__numbers" data-calc="11">00</span>
-							<span class="advantages__text">{{__('index.services.country')}}</span>
-						</p>
-					</li>
 					<li class="advantages__item advantages__item--big">
 						<span class="svg-container--handshake wow fadeIn">
 							<svg class="svg__handshake" width="127" height="118">
