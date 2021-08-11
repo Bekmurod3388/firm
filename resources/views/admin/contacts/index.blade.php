@@ -18,7 +18,7 @@
                 </div>
                 <hr>
                 <div class="card-body">
-                        <h4>Адрес: {{$contact->address}}</h4>
+                        <h4>Адрес: {{$contact->address_ru}}</h4>
                         <h4>Тел: {{$contact->phone}}</h4>
                         <h4>Email: {{$contact->email}}</h4>
                 </div>
