@@ -56,7 +56,7 @@
                     @endforeach
                 </ul>
 
-                <a href="search" class="svg__search"></a>
+               {{-- <a href="search" class="svg__search"></a>--}}
             </div>
         </div>
     </nav>
