@@ -17,7 +17,7 @@ class MessageController extends Controller
      */
     public function index()
     {
-        $messages = Message::orderBy('id','desc')->get();
+        $messages = Message::orderBy('id','desc')->paginate(10);
         return view('admin.messages.index')->with('messages', $messages);;
     }
 

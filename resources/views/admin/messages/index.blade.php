@@ -21,9 +21,9 @@
                         </tr>
                         </thead>
                         <tbody>
-                        @foreach($messages as $message)
+                        @foreach($messages as $counter => $message)
                         <tr>
-                            <th scope="row" class="col-md-1">{{$message->id}}</th>
+                            <th scope="row" class="col-md-1">{{ ($messages->total()) - (($messages->currentPage()-1) * $messages->perPage() + $counter)  }}</th>
                             <td>{{$message->name}}</td>
                             <td>{{$message->phone}}</td>
                             <td>{{$message->email}}</td>
@@ -39,8 +39,10 @@
                             </td>
                         </tr>
                         @endforeach
+
                         </tbody>
                     </table>
+                    {!! $messages->links() !!}
                 </div>
             </div>
         </div>
