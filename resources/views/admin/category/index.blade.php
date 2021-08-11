@@ -32,19 +32,19 @@
                             <th scope="row" class="col-1">{{$category->id}}</th>
                             <td>{{$category->name}}</td>
                             <td class="col-2">
-                                <form action="{{ route('admin.category.destroy',$category->id) }}" method="POST">
+                                {{--<form action="{{ route('admin.category.destroy',$category->id) }}" method="POST">--}}
                                 <a class="btn btn-warning btn-sm" href="{{ route('admin.category.edit',$category->id) }}">
                                     <span class="btn-label">
                                         <i class="fa fa-pen"></i>
                                     </span>
 
                                 </a>
-                                    @csrf
+                                   {{-- @csrf
                                     @method('DELETE')
                                     <button type="submit" class="btn btn-danger btn-sm"><span class="btn-label">
                                         <i class="fa fa-trash"></i>
-                                    </span></button>
-                                </form>
+                                    </span></button>--}}
+                                {{--</form>--}}
                             </td>
                         </tr>
                         @endforeach
