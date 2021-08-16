@@ -79,10 +79,10 @@
             </h1>
             <p class="header-component__text">{{__('index.carousel.desc2')}}</p>
         </div>
-        <video autoplay="" muted="" loop="" id="myVideo" class="header-component__img" poster="img/header-background.jpg">
-            <source src="img/videos/video-header.mp4" type="video/mp4">
-            <source src="img/videos/video-header.webm" type="video/webm">
-            <source src="img/videos/video-header.ogv" type="video/ogg">
+        <video autoplay="" muted="" loop="" id="myVideo" class="header-component__img" poster="{{asset('img/header-background.jpg')}}">
+            <source src="{{asset('/img/videos/video-header.mp4')}}" type="video/mp4">
+            <source src="{{asset('/img/videos/video-header.webm')}}" type="video/webm">
+            <source src="{{asset('/img/videos/video-header.ogv')}}" type="video/ogg">
         </video>
     </div>
     @endif

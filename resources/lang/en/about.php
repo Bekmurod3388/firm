@@ -40,8 +40,8 @@ return [
         'vol3'=>'MARKETING',
         'vol_desc3'=>'We implement lead generation and brand promotion campaigns',
         'vol4'=>'SALES',
-        'vol_desc4'=>'Successful experience in sales of project and channel solutions',
-        'vol5'=>'ENGINEERS',
+        'vol_desc4'=>'Broad sales channel covering design and retail partners',
+        'vol5'=>'PRE-SALES',
         'vol_desc5'=>'Confirmed competencies by world leaders, project support',
     ],
     'product'=>[

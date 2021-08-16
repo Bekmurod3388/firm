@@ -8,7 +8,7 @@
             <div class="products__wrapper">
                 <ul class="filter-list">
                     @foreach($categories as $category)
-                        <li class="filter-item ">
+                        <li class="filter-item {{ request()->segment(3) == $category->id ? 'filter-item--active' : '' }}">
                             <button data-listToggle="solution" onclick="categoryFilter({{$category->id}})"
                                     class="filter-btn">
                                 <a href="{{route('get_category_products',['category'=>$category->id])}}">
