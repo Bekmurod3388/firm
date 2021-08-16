@@ -28,7 +28,7 @@
                                         class="products__item-title--big">{{$product->{'head_'.app()->getLocale()} }}</span>
                                 </h3>
                             </div>
-                            <p class="products__item-text">{{substr($product->{'description_'.app()->getLocale()} ,0,150)}}</p>
+                            <p class="products__item-text">{{ \Illuminate\Support\Str::limit($product->{'description_'.app()->getLocale()}, 150)}}</p>
                             <div class="products__item-bottom">
                                 <a class="products__more btn"
                                    href="{{route('products-item',[$product->id])}}">{{__('about.product.more')}}</a>
