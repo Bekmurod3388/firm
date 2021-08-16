@@ -41,7 +41,7 @@
 							</svg>
 						</span>
 						<p class="advantages__text-wrapper">
-							<span class="advantages__numbers" data-calc="1000+">0+</span>
+							<span class="advantages__numbers" data-calc="100+">0+</span>
 							<span class="advantages__text">{{__('index.services.partner')}}</span>
 						</p>
 					</li>
@@ -52,7 +52,7 @@
 							</svg>
 						</span>
 						<p class="advantages__text-wrapper">
-							<span class="advantages__numbers" data-calc="300+">0+</span>
+							<span class="advantages__numbers" data-calc="80+">0+</span>
 							<span class="advantages__text">{{__('index.services.worker')}}</span>
 						</p>
 					</li>
