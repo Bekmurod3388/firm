@@ -28,6 +28,10 @@
                         <label for="header_ru">Титул(Ру)</label>
                         <input type="text" name="head_ru" class="form-control" id="header_ru" placeholder="Титул" value="{{$product->head_ru}}">
                     </div>
+                        <div class="form-group">
+                            <label for="header2_ru">Титул 2(Ру)</label>
+                            <input type="text" name="head2_ru" class="form-control" id="header2_ru" placeholder="Титул" value="{{$product->head2_ru}}">
+                        </div>
                     <div class="form-group">
                         <label for="description_ru">Текст (Ру)</label>
                         <textarea  class="form-control"  name="description_ru" id="description_ru" rows="10">{{$product->description_ru}}</textarea>
@@ -35,6 +39,10 @@
                         <div class="form-group">
                             <label for="header_en">Титул(En)</label>
                             <input type="text" name="head_en" class="form-control" id="header_en" placeholder="Титул" value="{{$product->head_en}}">
+                        </div>
+                        <div class="form-group">
+                            <label for="header2_en">Титул(En)</label>
+                            <input type="text" name="head2_en" class="form-control" id="header2_en" placeholder="Титул" value="{{$product->head2_en}}">
                         </div>
                         <div class="form-group">
                             <label for="description_en">Текст (En)</label>
@@ -50,9 +58,13 @@
                             </select>
                         </div>
                         <div class="form-group">
-                        <label for="img">Добавьте рисунок</label>
+                        <label for="img">Добавьте иконок</label>
                         <input type="file" name="img" class="form-control" id="img">
                     </div>
+                        <div class="form-group">
+                            <label for="img2">Добавьте рисунок</label>
+                            <input type="file" name="img2" class="form-control" id="img2">
+                        </div>
                     <button type="submit" class="btn btn-primary">Сохранить</button>
                     <input type="reset" class="btn btn-danger" value="Очистить">
                     </form>

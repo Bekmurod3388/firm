@@ -29,12 +29,20 @@
                             <input type="text" name="head_ru" class="form-control" id="header_ru" placeholder="Титул">
                         </div>
                         <div class="form-group">
+                            <label for="header2_ru">Титул (Ру)</label>
+                            <input type="text" name="head2_ru" class="form-control" id="header2_ru" placeholder="Титул">
+                        </div>
+                        <div class="form-group">
                             <label for="description">Текст (Ру)</label>
                             <textarea class="form-control" name="description_ru" id="description" rows="10"></textarea>
                         </div>
                         <div class="form-group">
                             <label for="header">Титул (En)</label>
                             <input type="text" name="head_en" class="form-control" id="header" placeholder="Титул">
+                        </div>
+                        <div class="form-group">
+                            <label for="header2">Титул 2 (En)</label>
+                            <input type="text" name="head2_en" class="form-control" id="header2" placeholder="Титул">
                         </div>
                         <div class="form-group">
                             <label for="description">Текст (En)</label>
@@ -50,8 +58,12 @@
                             </select>
                         </div>
                         <div class="form-group">
-                            <label for="img">Добавьте рисунок</label>
+                            <label for="img">Добавьте иконки</label>
                             <input type="file" name="img" class="form-control" id="img">
+                        </div>
+                        <div class="form-group">
+                            <label for="img2">Добавьте рисунок</label>
+                            <input type="file" name="img2" class="form-control" id="img2">
                         </div>
 
                         <button type="submit" id="alert" class="btn btn-primary">Сохранить</button>

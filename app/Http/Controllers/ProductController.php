@@ -43,19 +43,26 @@ class ProductController extends Controller
     {
         $request->validate([
             'head_ru' => 'required',
+            'head2_ru' => 'required',
             'description_ru' => 'required',
             'img' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:16000',
+            'img2' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:16000',
             'category_id' => 'required'
         ]);
         $uuid = Str::uuid()->toString();
         $fileName = $uuid . '-' . time() . '.' . $request->img->extension();
+        $fileName2 = $uuid . '-' . time() . '.' . $request->img2->extension();
         $request->img->move(public_path('../storage/app/public/products'), $fileName);
+        $request->img2->move(public_path('../storage/app/public/products'), $fileName2);
         Product::create([
             'head_ru' => $request->head_ru,
+            'head2_ru' => $request->head2_ru,
             'description_ru' => $request->description_ru,
             'head_en' => $request->head_en,
+            'head2_en' => $request->head2_en,
             'description_en' => $request->description_en,
             'img' => $fileName,
+            'img2' => $fileName,
             'category_id' => $request->category_id
         ]);
         addAlert('success');
@@ -117,13 +124,29 @@ class ProductController extends Controller
             $request->img->move(public_path('../storage/app/public/products'), $fileName);
             $product->update([
                 'head_ru' => $request->head_ru,
+                'head2_ru' => $request->head2_ru,
                 'description_ru' => $request->description_ru,
                 'head_en' => $request->head_en,
+                'head2_en' => $request->head2_en,
                 'description_en' => $request->description_en,
                 'img' => $fileName,
                 'category_id' => $request->category_id
             ]);
-        } else {
+        } elseif($request->hasFile('img2')) {
+            $uuid = Str::uuid()->toString();
+            $fileName2 = $uuid . '-' . time() . '.' . $request->img2->extension();
+            $request->img2->move(public_path('../storage/app/public/products'), $fileName2);
+            $product->update([
+                'head_ru' => $request->head_ru,
+                'head2_ru' => $request->head2_ru,
+                'description_ru' => $request->description_ru,
+                'head_en' => $request->head_en,
+                'head2_en' => $request->head2_en,
+                'description_en' => $request->description_en,
+                'img2' => $fileName2,
+                'category_id' => $request->category_id
+            ]);
+        }else{
             $product->update($request->all());
         }
         return redirect()->route('admin.products.index')

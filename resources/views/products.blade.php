@@ -37,7 +37,6 @@
                         </li>
                     @endforeach
                 </ul>
-
             </div>
         </div>
     </section>
@@ -52,7 +51,6 @@
                     <p class="form__title">{{__('about.product.consult')}}</p>
                     <button class="modal__close">x</button>
                 </div>
-
                 <form id="contactForm">
                     <ul class="form__list">
                         <li class="form__item"><input type="text" class="form__input" name="name"  id="name" required placeholder="{{__('index.contact.name')}}"></li>
@@ -64,14 +62,11 @@
             </div>
             <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
             <script type="text/javascript">
-
                 $('#contactForm').on('submit',function(e){
                     e.preventDefault();
-
                     let name = $('#name').val();
                     let phone = $('#phone').val();
                     let email = $('#email').val();
-
                     $.ajax({
                         url: "{{route('messages.store')}}",
                         type:"POST",
@@ -84,9 +79,7 @@
                         success:function(response){
                             Swal.fire({
                                 icon: 'success',
-
                                 title: '{{__("about.success")}}',
-
                             })
                         },
                     });
