@@ -6,21 +6,26 @@
             <div class="products__wrapper">
                 <a class="link products-item-link svg__link-icon-before" href="{{url()->previous() }}">{{__('about.back')}}</a>
                 <div class="products__item products__item--only">
-                    <div class="products__item-top">
-                        <img src="/storage/products/{{$product->img}}" class="products__svg" width="200" height="200">
-                        <h3 class="products__item-title">
-
-                            <span class="products__item-title--big">{{$product->{'head_'.app()->getLocale()} }}</span></h3>
+                    <div class="products__item-top products__item-top--one">
+                        <h1 class="products__item-title">
+                            <span class="products__item-title--big">{{$product->{'head_'.app()->getLocale()} }}</span>
+                        </h1>
+                    <!--<img src="/storage/products/{{$product->img}}" class="products__svg" width="200" height="200">-->
+                        <img src="/storage/products/network_hardware.jpg" class="products__svg" width="1200" height="500">
                     </div>
+                    <p class="products__item--sub-title">
+                        Комплекс аппаратных и программных средств, который предназначен для хранения и оперативной обработки информации любого объема.
+                    </p>
                     <p class="products__item-text">{{$product->{'description_'.app()->getLocale()} }}</p>
                     <div class="products__item-bottom">
                         <button class="products__get btn">{{__('about.product.donate')}}</button>
                     </div>
+
+                    <ul class="breadcrumbs-list">
+                        <li class="breadcrumbs-item breadcrumbs-item--active" ><a class="link ">1</a></li>
+                        <li class="breadcrumbs-item"><a class="link svg__next-icon-before"  href="product-item-2.html"><span class="breadcrumbs-number">2</span></a></li>
+                    </ul>
                 </div>
-                <ul class="breadcrumbs-list">
-                    <li class="breadcrumbs-item breadcrumbs-item--active" ><a class="link ">1</a></li>
-                    <li class="breadcrumbs-item"><a class="link svg__next-icon-before"  href="product-item-2.html"><span class="breadcrumbs-number">2</span></a></li>
-                </ul>
             </div>
         </div>
 
