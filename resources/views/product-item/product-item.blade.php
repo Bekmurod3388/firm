@@ -11,10 +11,10 @@
                             <span class="products__item-title--big">{{$product->{'head_'.app()->getLocale()} }}</span>
                         </h1>
                     <!--<img src="/storage/products/{{$product->img}}" class="products__svg" width="200" height="200">-->
-                        <img src="/storage/products/network_hardware.jpg" class="products__svg" width="1200" height="500">
+                        <img src="/storage/products/{{$product->img2}}" class="products__svg" width="1200" height="500">
                     </div>
                     <p class="products__item--sub-title">
-                        Комплекс аппаратных и программных средств, который предназначен для хранения и оперативной обработки информации любого объема.
+                        {{$product->{'head2_'.app()->getLocale()} }}
                     </p>
                     <p class="products__item-text">{{$product->{'description_'.app()->getLocale()} }}</p>
                     <div class="products__item-bottom">
