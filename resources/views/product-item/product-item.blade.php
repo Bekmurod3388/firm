@@ -22,8 +22,9 @@
                     </div>
 
                     <ul class="breadcrumbs-list">
-                        <li class="breadcrumbs-item breadcrumbs-item--active" ><a class="link ">1</a></li>
-                        <li class="breadcrumbs-item"><a class="link svg__next-icon-before"  href="product-item-2.html"><span class="breadcrumbs-number">2</span></a></li>
+                        <li class="breadcrumbs-item breadcrumbs-item--active" ><a class="link ">{{$product->id}}</a></li>
+                        <li class="breadcrumbs-item"><a class="link svg__next-icon-before"  href="{{route('products-item',[$product->id+1])}}"><span class="breadcrumbs-number">{{$product->id+1}}</span></a></li>
+
                     </ul>
                 </div>
             </div>

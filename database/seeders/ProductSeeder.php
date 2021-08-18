@@ -246,7 +246,7 @@ Headphones are a device for personal listening to music, speech or other sound s
                'head2_en' => 'A colossal assortment of a wide variety of products: computer mice, USB drives, surge protectors, printer cartridges and much more.',
                'description_en' => 'Accessories are just a colossal assortment of a wide variety of products: computer mice, USB drives, surge protectors, printer cartridges and much more.',
                'img'=>'safety.svg',
-               'img2'=>'safety.jpg',
+               'img2'=>'safety.png',
                'category_id'=>'2',
                'created_at' => date('Y-m-d H:i:s'),
                'updated_at' => date('Y-m-d H:i:s'),
