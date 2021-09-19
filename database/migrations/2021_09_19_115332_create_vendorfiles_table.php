@@ -13,10 +13,13 @@ class CreateVendorfilesTable extends Migration
      */
     public function up()
     {
-        Schema::create('vendorfiles', function (Blueprint $table) {
+        Schema::create('vendor_files', function (Blueprint $table) {
             $table->id();
-            $table->bigint('vendor_id');
-            $table->string('file');
+            $table->foreignId('vendor_id')
+                ->constrained('vendors')
+                ->cascadeOnUpdate()
+                ->cascadeOnDelete();
+            $table->string('path');
             $table->timestamps();
         });
     }
@@ -28,6 +31,6 @@ class CreateVendorfilesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('vendorfiles');
+        Schema::dropIfExists('vendor_files');
     }
 }
