@@ -48,6 +48,7 @@ Route::prefix('admin')->name('admin.')->middleware(['web', 'auth'])->group(funct
     Route::resource('posts', PostController::class);
     Route::resource('contacts', \App\Http\Controllers\ContactController::class);
     Route::resource('category', \App\Http\Controllers\CategoryController::class);
+    Route::resource('vendors', \App\Http\Controllers\VendorController::class);
     Route::resource('products', \App\Http\Controllers\ProductController::class);
     Route::resource('users', \App\Http\Controllers\UserController::class);
 

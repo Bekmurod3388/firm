@@ -4,7 +4,7 @@
         <div class="card">
             <div class="card-header">
                 <div class="row">
-                    <div class="col-10"><h1 class="card-title">Добавить продукты</h1></div>
+                    <div class="col-10"><h1 class="card-title">Добавить вендоры</h1></div>
                 </div>
                 <hr>
                 <div class="card-body">
@@ -21,51 +21,27 @@
                     @endif
 
 
-                    <form action="{{route('admin.products.store')}}" method="POST" accept-charset="UTF-8"
+                    <form action="{{route('admin.vendors.store')}}" method="POST" accept-charset="UTF-8"
                           enctype="multipart/form-data">
                         @csrf
                         <div class="form-group">
-                            <label for="header_ru">Титул (Ру)</label>
-                            <input type="text" name="head_ru" class="form-control" id="header_ru" placeholder="Титул">
+                            <label for="img">Загрузите логотип</label>
+                            <input type="file" name="img" class="form-control" id="img">
                         </div>
+
                         <div class="form-group">
-                            <label for="header2_ru">Титул (Ру)</label>
-                            <input type="text" name="head2_ru" class="form-control" id="header2_ru" placeholder="Титул">
-                        </div>
-                        <div class="form-group">
-                            <label for="description">Текст (Ру)</label>
+                            <label for="description">Текст</label>
                             <textarea class="form-control" name="description_ru" id="description" rows="10"></textarea>
                         </div>
                         <div class="form-group">
-                            <label for="header">Титул (En)</label>
-                            <input type="text" name="head_en" class="form-control" id="header" placeholder="Титул">
+                            <label for="files">Загрузите файлы</label>
+                            <input type="file" name="files[]" class="form-control" id="files" multiple>
                         </div>
                         <div class="form-group">
-                            <label for="header2">Титул 2 (En)</label>
-                            <input type="text" name="head2_en" class="form-control" id="header2" placeholder="Титул">
+                            <label for="links">Ссылки
+                                Поместите каждую ссылку в новую строку</label>
+                            <textarea class="form-control" name="links" id="Links" rows="5"></textarea>
                         </div>
-                        <div class="form-group">
-                            <label for="description">Текст (En)</label>
-                            <textarea  class="form-control" name="description_en" id="description" rows="10"></textarea>
-                        </div>
-                        <div class="form-group">
-                            <label for="category">Выберите категория</label>
-                            <select class="form-control" name="category_id">
-                                <option></option>
-                                @foreach($categories as $category)
-                                    <option value="{{$category->id}}" >{{$category->name}}</option>
-                                @endforeach
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="img">Добавьте иконки</label>
-                            <input type="file" name="img" class="form-control" id="img">
-                        </div>
-                        <div class="form-group">
-                            <label for="img2">Добавьте рисунок</label>
-                            <input type="file" name="img2" class="form-control" id="img2">
-                        </div>
-
                         <button type="submit" id="alert" class="btn btn-primary">Сохранить</button>
                         <input type="reset" class="btn btn-danger" value="Очистить">
                     </form>
