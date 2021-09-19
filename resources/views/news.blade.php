@@ -9,7 +9,7 @@
                     @foreach($posts as $post)
                     <li class="news__item news__item-1  wow">
                         <picture>
-                            <source srcset="/storage/posts/{{$post->img}}">
+                            <source srcset="/storage/posts/{{$post->img}}" type="image/webp">
                             <img src="/storage/posts/{{$post->img}}" alt="News 1">
                         </picture>
                         <div class="card news__wrapper">

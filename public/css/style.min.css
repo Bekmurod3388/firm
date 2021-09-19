@@ -11,6 +11,20 @@ body, html {
     line-height: 25px;
     color: #00456d
 }
+@media screen and (max-width: 1440px) {
+    body, html {
+        font-size: 14px;
+        line-height: 22px;
+    }
+}
+@media screen and (max-width: 768px) {
+    body, html {
+        font-size: 12px;
+        line-height: 16px;
+    }
+}
+
+
 
 h1, h2, h3, h4, h5, h6, li, ol, p, ul {
     margin: 0
@@ -21,7 +35,6 @@ h1, h2, h3, h4, h5, h6, li, ol, p, ul {
     border: 1px solid #ff8767;
     text-decoration: none;
     font-family: Proxima Nova, Arial, sans-serif;
-    font-size: 14px;
     line-height: 29px;
     text-align: center;
     text-transform: uppercase;
@@ -64,47 +77,24 @@ ul.list--hidden {
 }
 
 @media screen and (max-width: 1920px) {
-    .container {
-        margin: 0 auto
-    }
-
     .container-min {
         max-width: 66%;
-        margin: 0 auto
-    }
-}
-
-@media screen and (max-width: 1440px) {
-    .container-min {
-        margin: 0 auto
     }
 }
 
 @media screen and (max-width: 1200px) {
-    .container {
-        margin: 0 auto
-    }
-
     .container-min {
         max-width: 64.4%;
-        margin: 0 auto
     }
 }
 
 @media screen and (max-width: 768px) {
-    .container {
-        margin: 0 auto
-    }
-
     .container-min {
         max-width: 63.8%;
-        margin: 0 auto
     }
 }
 
 .nav-list {
-    font-size: 14px;
-    line-height: 19px;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -113,8 +103,10 @@ ul.list--hidden {
     justify-content: space-between;
     list-style: none;
     padding: 0;
-    width: 600px;
-    margin: 0 103px 0 0
+    margin: 0px 100px 0 0;
+
+    max-width: 650px;
+    flex-grow: 1;
 }
 
 .nav-list a {
@@ -122,9 +114,7 @@ ul.list--hidden {
     text-decoration: none
 }
 
-.header-component .nav-list {
-    max-width: 500px
-}
+
 
 .nav-list__item {
     position: relative
@@ -133,8 +123,10 @@ ul.list--hidden {
 .nav-list__item a:hover, .nav-list__item--active a {
     text-shadow: 0 0 .65px #00456d, 0 0 .65px #00456d
 }
-
-.nav-list__item a:active::before, .nav-list__item a:focus::before, .nav-list__item a:hover::before, .nav-list__item--active a::before {
+.nav-list__item span{
+    position: relative;
+}
+.nav-list__item a:active span::before, .nav-list__item span a:focus span::before, .nav-list__item a:hover span::before, .nav-list__item--active a span::before {
     content: '';
     width: 5px;
     height: 5px;
@@ -153,14 +145,13 @@ ul.list--hidden {
 
 @media screen and (max-width: 1920px) {
     .nav-list {
-        margin: 0 70px 0 0
+        margin-right: 70px;
     }
 }
 
 @media screen and (max-width: 1440px) {
     .nav-list {
-        width: 460px;
-        margin: 0 40px 0 0
+        margin-right:40px
     }
 }
 
@@ -188,7 +179,8 @@ ul.list--hidden {
         transition: .5s;
         background: rgba(255, 255, 255, .7);
         -webkit-backdrop-filter: blur(25px);
-        backdrop-filter: blur(25px)
+        backdrop-filter: blur(25px);
+        max-width: none;
     }
 
     .nav-list--active {
@@ -217,9 +209,9 @@ ul.list--hidden {
         backdrop-filter: blur(25px)
     }
 
-    .nav-list__item a:active::before, .nav-list__item a:focus::before, .nav-list__item a:hover::before, .nav-list__item--active a::before {
-        right: 44%;
-        bottom: 15px
+    .nav-list__item a:active span::before, .nav-list__item span a:focus span::before, .nav-list__item a:hover span::before, .nav-list__item--active a span::before {
+        right: -15px;
+        bottom: 3px
     }
 }
 
@@ -243,16 +235,14 @@ ul.list--hidden {
 .header-component__left-side {
     -ms-flex-item-align: end;
     align-self: flex-end;
-    margin-left: 411px;
-    margin-bottom: 95px
+    margin: 0 30px 95px 300px;
 }
 
 .header-component__title {
     margin-right: auto;
     margin-bottom: 20px;
     font-weight: 300;
-    font-size: 24px;
-    line-height: 52px;
+    font-size: 1.34rem;
     text-transform: uppercase;
     -webkit-animation-name: slideInLeft;
     animation-name: slideInLeft
@@ -264,7 +254,8 @@ ul.list--hidden {
 
 .header-component__title--big {
     font-weight: 700;
-    font-size: 52px
+    font-size:2.89rem;
+    line-height: 1;
 }
 
 .header-component__img {
@@ -307,17 +298,9 @@ ul.list--hidden {
 }
 
 .header-component .nav-bar {
-    width: 50%;
-    padding: 0 15% 0 0
+    padding: 0;
 }
 
-.header-component .header-component__text {
-    max-width: 400px;
-    margin-right: 20px;
-    font-size: 18px;
-    line-height: 25px;
-    font-weight: 400
-}
 
 .about-us-page .header-component {
     margin-bottom: 200px
@@ -335,21 +318,12 @@ ul.list--hidden {
     }
 
     .header-component__title {
-        font-size: 18px;
-        line-height: 39px
+        font-size: 1.2rem;
+        line-height: 1;
     }
 
     .header-component__title--big {
-        font-size: 39px
-    }
-
-    .header-component .nav-bar {
-        padding-right: 10%
-    }
-
-    .header-component .header-component__text {
-        font-size: 16px;
-        line-height: 22px
+        font-size: 2.5rem
     }
 
     .header-component__bottom-side::before {
@@ -371,22 +345,12 @@ ul.list--hidden {
         margin-bottom: 63px
     }
 
-    .header-component__title {
-        font-size: 16px;
-        line-height: 32px
-    }
-
-    .header-component__title--big {
-        font-size: 32px
+    .header-component__title{
+        margin-bottom: 10px;
     }
 
     .header-component .nav-bar {
-        padding-right: 5%
-    }
-
-    .header-component .header-component__text {
-        font-size: 16px;
-        line-height: 22px
+        max-width: calc(300px + 32%);
     }
 
     .header-component__bottom-side::before {
@@ -397,26 +361,19 @@ ul.list--hidden {
 @media screen and (max-width: 1200px) {
     .header-component {
         margin-top: 0;
+        margin-bottom: 250px;
+
         background-image: url(../img/main-preview.jpg);
         background-repeat: no-repeat;
         background-position: right top;
         background-size: cover;
+
         padding-bottom: 0;
-        margin-bottom: 250px;
         padding-top: 1px
     }
 
     .header-component__left-side {
         margin: 0
-    }
-
-    .header-component__title {
-        font-size: 16px;
-        line-height: 32px
-    }
-
-    .header-component__title--big {
-        font-size: 32px
     }
 
     .header-component .header-component__bottom-side {
@@ -444,13 +401,6 @@ ul.list--hidden {
         margin-top: 0
     }
 
-    .header-component .header-component__text {
-        font-size: 16px;
-        line-height: 22px;
-        margin-top: 20px;
-        margin-left: 0
-    }
-
     .about-us-page .header-component {
         margin-bottom: 0
     }
@@ -462,7 +412,10 @@ ul.list--hidden {
 
 @media screen and (max-width: 768px) {
     .nav-list {
-        top: 100%
+        justify-content: flex-start;
+        top: 100%;
+        overflow: auto;
+        max-height: calc(100vh - 60px);
     }
 
     .nav-list__item a {
@@ -474,18 +427,12 @@ ul.list--hidden {
     }
 
     .header-component {
-        background-image: url(../img/main-preview-m.jpg);
         background-size: 100% 76%;
         margin-bottom: 0
     }
 
-    .header-component__title {
-        font-size: 12px;
-        line-height: 21px
-    }
-
-    .header-component__title--big {
-        font-size: 18px
+    .header-component__title{
+        font-size: 1rem;
     }
 
     .header-component .header-component__bottom-side {
@@ -497,19 +444,17 @@ ul.list--hidden {
 
     .header-component .nav-bar {
         padding: 0;
-        margin-right: 13.5%;
         height: auto
     }
 
-    .header-component .header-component__text {
-        font-size: 9px;
-        line-height: 11px;
-        margin-right: 0;
-        margin-top: 20px
-    }
 
     .about-us-page .header-component__bottom-side {
         padding-bottom: 62px
+    }
+}
+@media screen and (max-width: 500px){
+    .header-component__title--big {
+        font-size: 1.6rem
     }
 }
 
@@ -523,16 +468,17 @@ ul.list--hidden {
 
 .card__title {
     margin: 0 0 20px;
-    font-size: 52px;
-    line-height: 52px;
+    font-size: 2.89rem;
+    line-height: normal;
     text-transform: uppercase
 }
 
 .card__title--small {
+    max-width: 300px;
+    font-size: 1.33rem;
     font-weight: 300;
-    font-size: 18px;
-    line-height: 25px;
     display: block
+
 }
 
 @media screen and (max-width: 1920px) {
@@ -542,15 +488,12 @@ ul.list--hidden {
     }
 
     .card__title {
-        font-size: 42px;
-        line-height: 42px;
+        font-size: 2.5rem;
         margin-bottom: 15px
     }
 
     .card__title--small {
-        font-weight: 300;
-        font-size: 16px;
-        line-height: 23px
+        font-size: 1.2rem;
     }
 }
 
@@ -558,40 +501,6 @@ ul.list--hidden {
     .card__blur {
         padding-top: 25px;
         padding-bottom: 25px
-    }
-
-    .card__title {
-        font-size: 35px;
-        line-height: 35px;
-        margin-bottom: 10px
-    }
-
-    .card__title--small {
-        font-size: 14px;
-        line-height: 20px
-    }
-}
-
-@media screen and (max-width: 1200px) {
-    .card__blur {
-        padding-top: 25px;
-        padding-bottom: 25px
-    }
-
-    .card__title {
-        font-size: 22px;
-        line-height: 35px;
-        margin-bottom: 10px
-    }
-
-    .card__title--small {
-        font-weight: 300;
-        font-size: 14px;
-        line-height: 20px
-    }
-
-    .card__text {
-        font-size: 12px
     }
 }
 
@@ -602,20 +511,9 @@ ul.list--hidden {
     }
 
     .card__title {
-        font-size: 18px;
-        line-height: 22px;
         margin-bottom: 10px
     }
 
-    .card__title--small {
-        font-size: 12px;
-        line-height: 15px
-    }
-
-    .card__text {
-        font-size: 9px;
-        line-height: 11px
-    }
 }
 
 .container-min--filter {
@@ -637,8 +535,6 @@ ul.list--hidden {
 
 .filter-item {
     margin-right: 42px;
-    font-size: 18px;
-    line-height: 22px
 }
 
 .filter-item--active .filter-btn {
@@ -682,20 +578,18 @@ ul.list--hidden {
         margin-right: 3%
     }
 
-    .filter-btn {
-        font-size: 14px;
-        line-height: 18px
-    }
 }
 
 @media screen and (max-width: 768px) {
     .container-min--filter {
         max-width: 89.4%
     }
-
-    .filter-btn {
-        font-size: 9px;
-        line-height: 11px
+    .filter-list {
+        flex-wrap: wrap;
+        margin-bottom: 20px;
+    }
+    .filter-item {
+        margin-bottom: 10px;
     }
 
     .filter-item--active .filter-btn::before {
@@ -706,18 +600,17 @@ ul.list--hidden {
 
 .link {
     font-family: Proxima Nova, Serif;
-    font-size: 14px;
     line-height: 29px;
     text-decoration: none;
     text-transform: uppercase;
     color: #00456d;
     background-color: #fff;
-    display: inline-block
+    display: inline-block;
 }
 
 .svg__link-icon-before {
     position: relative;
-    padding-left: 80px
+    padding-left: 80px;
 }
 
 .svg__download-icon-before {
@@ -799,10 +692,6 @@ ul.list--hidden {
 }
 
 @media screen and (max-width: 768px) {
-    .link {
-        font-size: 9px;
-        line-height: 11px
-    }
 
     .svg__link-icon-before {
         padding-left: 47px
@@ -835,8 +724,6 @@ ul.list--hidden {
 
 .section-title__wrapper {
     font-family: Proxima Nova, sans-serifSerif;
-    font-size: 18px;
-    line-height: 25px;
     max-width: 540px;
     margin-left: 26.1%;
     margin-bottom: 5.2%;
@@ -879,27 +766,30 @@ ul.list--hidden {
 
 .section-title--small {
     font-weight: 300;
-    font-size: 24px;
-    line-height: 28px
+    font-size: 1.34rem;
+    line-height: normal;
 }
 
 .section-title--big {
     font-weight: 700;
-    font-size: 52px;
-    line-height: 52px
+    font-size: 2.89rem;
+    line-height: 1;
 }
 
 @media screen and (max-width: 1920px) {
     .section-title__wrapper.svg__adras-after::after, .section-title__wrapper.svg__adras-before::before {
         height: 64px
     }
+    .section-title--small {
+        font-size: 1.2rem;
+    }
+    .section-title--big {
+        font-size: 2.5rem;
+    }
+
 }
 
 @media screen and (max-width: 1440px) {
-    .section-title__wrapper {
-        font-size: 16px;
-        line-height: 20px
-    }
 
     .section-title__wrapper::before {
         height: 60px
@@ -909,11 +799,6 @@ ul.list--hidden {
         margin-bottom: 10px
     }
 
-    .section-title--big {
-        font-size: 42px;
-        line-height: 42px
-    }
-
     .section-title__wrapper.svg__adras-after::after, .section-title__wrapper.svg__adras-before::before {
         height: 53px
     }
@@ -921,8 +806,6 @@ ul.list--hidden {
 
 @media screen and (max-width: 1200px) {
     .section-title__wrapper {
-        font-size: 16px;
-        line-height: 20px;
         margin-left: 18%
     }
 
@@ -938,14 +821,6 @@ ul.list--hidden {
         margin-bottom: 10px
     }
 
-    .section-title--big {
-        font-size: 36px;
-        line-height: 36px
-    }
-
-    .section-title--small {
-        font-size: 18px
-    }
 
     .section-title__wrapper.svg__adras-after::after, .section-title__wrapper.svg__adras-before::before {
         height: 53px
@@ -955,8 +830,6 @@ ul.list--hidden {
 @media screen and (max-width: 768px) {
     .section-title__wrapper {
         max-width: 70%;
-        font-size: 12px;
-        line-height: 20px
     }
 
     .section-title__wrapper.svg__adras-before::before {
@@ -969,18 +842,15 @@ ul.list--hidden {
     }
 
     .section-title__header {
-        margin-bottom: 10px;
+        margin-bottom: 20px;
         margin-left: 70px
     }
 
     .section-title--big {
-        font-size: 18px;
-        line-height: 22px
+        font-size: 2rem;
     }
-
     .section-title--small {
-        font-size: 12px;
-        line-height: 15px
+        font-size: 1rem;
     }
 
     .section-title__text {
@@ -1063,181 +933,25 @@ ul.list--hidden {
     -ms-flex-item-align: end;
     align-self: flex-end
 }
-
-.vendors picture {
-    width: 300px;
-    -o-object-fit: cover;
-    object-fit: cover;
-    margin: auto
-}
-
-.vendors img {
-    -o-object-fit: cover;
-    object-fit: cover;
-    height: 100%;
+.vendors__item a{
     width: 100%;
-    margin: auto
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    padding: 20%;
+}
+.vendors img {
+    width: 100%;
+}
+.vendors .vendors__item picture {
+    object-fit: contain;
+    object-position: center center;
+    max-width: 100%;
+    width: auto;
+    max-height: 100px;
 }
 
-.vendors .img--hpEnterprise_logo {
-    width: 68%
-}
 
-.vendors .img--huawei_logo {
-    width: 34%
-}
-
-.vendors .img--icewarp_logo {
-    width: 68%
-}
-
-.vendors .img--extreme_logo {
-    width: 50%
-}
-
-.vendors .img--rittal_logo {
-    width: 26%
-}
-
-.vendors .img--sony_logo, .vendors .img--vertiv_logo {
-    width: 57%
-}
-
-.vendors .img--emerson_logo {
-    width: 60%
-}
-
-.vendors .img--zpas_logo {
-    width: 73%
-}
-
-.vendors .img--trippLite_logo {
-    width: 63%
-}
-
-.vendors .img--datapath_logo {
-    width: 71%
-}
-
-.vendors .img--optoma_logo {
-    width: 66%
-}
-
-.vendors .img--eyevis_logo {
-    width: 63%
-}
-
-.vendors .img--kramer_logo, .vendors .img--solidworks_logo {
-    width: 74%
-}
-
-.vendors .img--wallix_logo {
-    width: 53%
-}
-
-.vendors .img--microsoft_logo {
-    width: 76%
-}
-
-.vendors .img--audiocodes_logo {
-    width: 80%
-}
-
-.vendors .img--dahua_logo {
-    width: 60%
-}
-
-.vendors .img--videotec_logo {
-    width: 41%
-}
-
-.vendors .img--engenius_logo {
-    width: 67%
-}
-
-.vendors .img--planet_logo {
-    width: 52%
-}
-
-.vendors .img--dlink_logo {
-    width: 57%
-}
-
-.vendors .img--i3technologies_logo {
-    width: 78%
-}
-
-.vendors .img--jbl_logo {
-    width: 40%
-}
-
-.vendors .img--sennheiser_logo {
-    width: 67%
-}
-
-.vendors .img--nikon_logo {
-    width: 78%
-}
-
-.vendors .img--oppo_logo {
-    width: 64%
-}
-
-.vendors .img--panasonic_logo, .vendors .img--samsung_logo {
-    width: 61%
-}
-
-.vendors .img--lenovo_logo {
-    width: 54%
-}
-
-.vendors .img--acer_logo {
-    width: 53%
-}
-
-.vendors .img--cisco_logo {
-    width: 54%
-}
-
-.vendors .img--axis_logo, .vendors .img--realme_logo {
-    width: 61%
-}
-
-.vendors .img--APC_logo, .vendors .img--NEC_logo, .vendors .img--canon_logo, .vendors .img--dell_logo {
-    width: 50%
-}
-
-.vendors .img--HP_logo {
-    width: 20%
-}
-
-.vendors .img--pelco_logo, .vendors .img--telcred_logo {
-    width: 50%
-}
-
-.vendors .img--check_point_logo {
-    width: 66%
-}
-
-.vendors .img--citrix_logo {
-    width: 50%
-}
-
-.vendors .img--poly_logo {
-    width: 55%
-}
-
-.vendors .img--macroscop_logo {
-    width: 66%
-}
-
-.vendors .img--palit_logo {
-    width: 55%
-}
-
-.vendors .img--RAD_logo {
-    width: 37%
-}
 
 @media screen and (max-width: 1920px) {
     .vendors {
@@ -1291,8 +1005,8 @@ ul.list--hidden {
 }
 
 .breadcrumbs-item a {
-    font-size: 18px;
-    line-height: 22px
+    font-size: 1.2rem;
+    line-height: normal;
 }
 
 .breadcrumbs-item:not(:last-child) {
@@ -1370,7 +1084,8 @@ ul.list--hidden {
     margin-bottom: 133px
 }
 
-.main-logo {
+.main-logo,
+.main-logo__container{
     width: 242px;
     height: auto;
     margin-left: 162px
@@ -1392,16 +1107,17 @@ ul.list--hidden {
     position: relative;
     -webkit-box-pack: justify;
     -ms-flex-pack: justify;
-    justify-content: space-between;
+    justify-content: center;
     height: 45px;
     -webkit-box-align: center;
     -ms-flex-align: center;
     align-items: center;
-    padding: 0 293px 0 152px;
-    max-width: 1112px;
+    padding: 0 150px 0 100px;
+    max-width: 1110px;
+    width: 100%;
     background: rgba(255, 255, 255, .7);
     -webkit-backdrop-filter: blur(25px);
-    backdrop-filter: blur(25px)
+    backdrop-filter: blur(25px);
 }
 
 .nav-bar__right-wrapper {
@@ -1432,10 +1148,6 @@ ul.list--hidden {
     padding: 54px 122px 55px 0
 }
 
-.header__card-text {
-    max-width: 91%
-}
-
 .header__card-title {
     margin-bottom: 20px
 }
@@ -1460,21 +1172,18 @@ ul.list--hidden {
 
     .main-nav {
         margin-top: 40px;
-        margin-bottom: 100px
+        margin-bottom: 50px
     }
 
-    .main-logo {
+    .main-logo,
+    .main-logo__container{
         width: 182px;
         margin-left: 122px
     }
 
     .nav-bar {
-        padding: 0 126px 0 85px;
-        max-width: 95%
-    }
-
-    .main-page .nav-bar {
-        max-width: 58.6%
+        max-width: calc(430px + 32%);
+        padding: 0 55px;
     }
 
     .lang-list {
@@ -1487,7 +1196,7 @@ ul.list--hidden {
     }
 
     .header__card-blur {
-        padding: 40px 88px 42px 0
+        padding: 40px 70px 40px 0;
     }
 
     .header__card-title {
@@ -1498,10 +1207,6 @@ ul.list--hidden {
         margin-left: 26px
     }
 
-    .header__card-text {
-        font-size: 16px;
-        line-height: 19px
-    }
 }
 
 @media screen and (max-width: 1440px) {
@@ -1521,32 +1226,26 @@ ul.list--hidden {
         margin-bottom: 90px
     }
 
-    .main-logo {
+    .main-logo,
+    .main-logo__container{
         width: 151px;
         margin-left: 101px
     }
 
     .nav-bar {
-        padding: 0 55px;
-        max-width: 760px
+        padding: 0 30px;
+        max-width: calc(350px + 32%);
     }
 
-    .lang-list {
-        margin: 0 23px 0 0
-    }
 
     .header__card {
-        max-width: 425px;
+        max-width: 450px;
         margin-left: 180px
     }
 
     .header__card-blur {
         margin-bottom: 20px;
-        padding: 25px 20px 25px 0
-    }
-
-    .header__card-text {
-        max-width: 390px
+        padding: 25px 20px
     }
 
     .header__card-title {
@@ -1579,7 +1278,8 @@ ul.list--hidden {
         -webkit-transform: translate(-50%);
         -ms-transform: translate(-50%);
         transform: translate(-50%);
-        padding: 11px 0;
+
+        padding: 10px 55px;
         margin: 0 auto;
         max-width: 83.8%;
         background: rgba(255, 255, 255, .7);
@@ -1587,16 +1287,17 @@ ul.list--hidden {
         backdrop-filter: blur(25px)
     }
 
-    .main-logo {
+    .main-logo,
+    .main-logo__container{
         width: 102px;
-        margin-left: 55px
+        margin-left: 0
     }
 
     .header__menu-btn {
         background-color: transparent;
         border: none;
-        font-size: 20px;
-        line-height: 24px;
+        font-size: 1.429rem;
+        line-height: normal;
         text-align: center;
         text-transform: uppercase;
         color: #00456d;
@@ -1605,15 +1306,17 @@ ul.list--hidden {
 
     .nav-bar {
         position: static;
-        padding: 0 55px;
-        max-width: 760px;
+        padding: 0;
+        width: 102px;
+        justify-content: flex-end;
         background: 0 0;
         -webkit-backdrop-filter: none;
         backdrop-filter: none
     }
 
     .lang-list {
-        margin: 0
+        margin: 0;
+        font-size: 1.2rem;
     }
 
     .svg__search {
@@ -1630,11 +1333,6 @@ ul.list--hidden {
     .header__card-blur {
         margin-bottom: 40px;
         padding: 50px 75px 0
-    }
-
-    .header__card-text {
-        font-size: 12px;
-        max-width: 470px
     }
 
     .header__card-title {
@@ -1656,30 +1354,20 @@ ul.list--hidden {
     }
 
     .main-nav {
-        padding: 6px 0
+        padding: 10px 20px
     }
 
-    .main-logo {
-        width: 15.8%;
-        margin-left: 8.6%
-    }
-
-    .header__menu-btn {
-        font-size: 9px;
-        line-height: 11px;
-        padding: 0
+    .main-logo,
+    .main-logo__container{
+        width: calc(40px + 10%);
     }
 
     .nav-bar {
-        padding: 0;
-        margin-right: 13.5%;
+        width: calc(40px + 10%);
         height: auto
     }
 
-    .lang-list {
-        font-size: 9px;
-        line-height: 11px
-    }
+
 
     .header__card {
         max-width: 83.8%;
@@ -1694,26 +1382,10 @@ ul.list--hidden {
     }
 
     .header__card-text {
-        font-size: 9px;
-        line-height: 11px;
         max-width: 470px
     }
-
-    .header__card-title {
-        font-size: 18px;
-        line-height: 22px;
-        margin-bottom: 10px
-    }
-
-    .header__card-title--small {
-        font-size: 12px;
-        line-height: 15px
-    }
-
     .header__card-link {
-        font-size: 9px;
-        line-height: 29px;
-        margin-left: 15px
+        margin-left: 20px;
     }
 }
 
@@ -1777,11 +1449,11 @@ ul.list--hidden {
 }
 
 .advantages__item {
-    width: 35%;
+    width: 40%;
     color: #003056;
     font-weight: 400;
-    font-size: 24px;
-    line-height: 24px;
+    font-size: 1.45rem ;
+    line-height:1;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -1792,7 +1464,7 @@ ul.list--hidden {
 }
 
 .advantages__item:nth-child(2n-1) {
-    margin-right: 25%;
+    margin-right: 15%;
 }
 
 .advantages__item svg {
@@ -1816,8 +1488,8 @@ ul.list--hidden {
 
 .advantages__numbers {
     font-weight: 700;
-    font-size: 120px;
-    line-height: 120px;
+    font-size: 6.66rem;
+    line-height: 1;
     text-transform: uppercase
 }
 
@@ -1882,14 +1554,13 @@ ul.list--hidden {
     }
 
     .advantages__item {
-        font-size: 18px;
-        line-height: 18px;
-        margin-bottom: 75px
+        font-size: 1.34rem;
+        margin-bottom: 75px;
     }
 
     .advantages__numbers {
-        font-size: 90px;
-        line-height: 90px
+        font-size: 5rem;
+        line-height: 1
     }
 }
 
@@ -1918,15 +1589,10 @@ ul.list--hidden {
     }
 
     .advantages__item {
-        font-size: 16px;
-        line-height: 16px;
         margin-bottom: 62px
     }
 
-    .advantages__numbers {
-        font-size: 75px;
-        line-height: 75px
-    }
+
 }
 
 @media screen and (max-width: 1200px) {
@@ -1973,7 +1639,7 @@ ul.list--hidden {
     .advantages__list {
         position: relative;
         top: -80px;
-        padding: 0 75px;
+        padding: 0;
         background: rgba(255, 255, 255, .5);
         -webkit-backdrop-filter: blur(25px);
         backdrop-filter: blur(25px);
@@ -2008,11 +1674,6 @@ ul.list--hidden {
 
     .advantages__item:last-child {
         margin-bottom: 0;
-    }
-
-    .advantages__numbers {
-        font-size: 48px;
-        line-height: 58px
     }
 
     .advantages__item > span {
@@ -2065,7 +1726,7 @@ ul.list--hidden {
 
     .about-us__card::after {
         height: 53px;
-        left: 200px
+        left: 250px
     }
 
     .about-us__card-text--bottom, .about-us__card-text--top {
@@ -2094,11 +1755,6 @@ ul.list--hidden {
         margin-bottom: 50px
     }
 
-    .advantages__text {
-        font-size: 18px;
-        line-height: 22px
-    }
-
     .advantages__item > span {
         margin-right: 30px
     }
@@ -2117,7 +1773,8 @@ ul.list--hidden {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    position: relative
+    /* align-items: flex-start; */
+    position: relative;
 }
 
 .news__item:not(:last-child) {
@@ -2195,28 +1852,27 @@ ul.list--hidden {
 
 .news__date {
     font-weight: 300;
-    font-size: 24px;
-    line-height: 29px;
+    font-size:1.34rem;
+    line-height: normal;
     margin-bottom: 10px
 }
 
 .news__title {
     font-weight: 700;
-    font-size: 24px;
-    line-height: 29px;
+    font-size: 1.2rem;
+    line-height: normal;
     text-transform: uppercase;
     width: 400px;
     margin-bottom: 10px
 }
 
 .news__sub-title {
-    font-size: 14px;
-    line-height: 17px;
-    width: 360px
+    width: 360px;
 }
 
 .news__link {
-    position: absolute
+    position: absolute;
+    bottom: 7px;
 }
 
 @media screen and (max-width: 1920px) {
@@ -2237,7 +1893,7 @@ ul.list--hidden {
     }
 
     .news__item:nth-child(odd) .news__link {
-        left: 26%
+        left: 26%;
     }
 
     .news__item:nth-child(even) .news__wrapper {
@@ -2253,21 +1909,16 @@ ul.list--hidden {
     }
 
     .news__date {
-        font-size: 18px;
-        line-height: 22px
+        line-height: normal;
     }
 
     .news__title {
-        font-size: 18px;
-        line-height: 22px;
         width: 80%;
-        margin-bottom: 10px
+        margin-bottom: 10px;
     }
 
     .news__sub-title {
-        font-size: 14px;
-        line-height: 17px;
-        width: 85%
+        width: 85%;
     }
 }
 
@@ -2303,20 +1954,8 @@ ul.list--hidden {
         margin-bottom: 80px
     }
 
-    .news__date {
-        font-size: 14px;
-        line-height: 18px
-    }
-
     .news__title {
-        font-size: 14px;
-        line-height: 18px;
         margin-bottom: 10px
-    }
-
-    .news__sub-title {
-        font-size: 12px;
-        line-height: 12px
     }
 }
 
@@ -2339,16 +1978,17 @@ ul.list--hidden {
     }
 
     .news__title {
-        font-size: 10px;
-        line-height: 12px;
+        font-size: 1rem;
+        line-height: normal;
         width: 100%;
         margin-bottom: 10px
+    }
+    .news__sub-title{
+        font-size: 10px;
     }
 
     .news__sub-title {
         width: 100%;
-        font-size: 9px;
-        line-height: 11px
     }
 }
 
@@ -2371,11 +2011,7 @@ ul.list--hidden {
 }
 
 .our-goal__card-title {
-    font-weight: 700;
-    font-size: 36px;
-    line-height: 44px;
-    text-transform: uppercase;
-    margin-bottom: 20px
+    font-size: 2rem;
 }
 
 .our-goal__card-text {
@@ -2396,9 +2032,7 @@ ul.list--hidden {
     }
 
     .our-goal__card-title {
-        font-size: 27px;
-        line-height: 36px;
-        margin-bottom: 15px
+        font-size: 1.6rem;
     }
 
     .our-goal__card-text {
@@ -2419,11 +2053,7 @@ ul.list--hidden {
         padding: 37px 0 37px 112px
     }
 
-    .our-goal__card-title {
-        font-size: 22px;
-        line-height: 27px;
-        margin-bottom: 10px
-    }
+
 
     .our-goal__card-text {
         margin-bottom: 62px
@@ -2448,12 +2078,6 @@ ul.list--hidden {
         margin-left: auto;
         margin-right: auto;
         padding: 30px 75px 1px
-    }
-
-    .our-goal__card-title {
-        font-size: 22px;
-        line-height: 27px;
-        margin-bottom: 10px
     }
 
     .our-goal__card-text {
@@ -2481,15 +2105,10 @@ ul.list--hidden {
         padding: 23px 35px 36px
     }
 
-    .our-goal__card-title {
-        font-size: 10px;
-        line-height: 12px;
-        margin-bottom: 10px
+    .our-goal__card-title{
+        font-size: 1.2rem;
     }
-
     .our-goal__card-text {
-        font-size: 10px;
-        line-height: 12px;
         margin-bottom: 30px
     }
 }
@@ -2520,9 +2139,6 @@ ul.list--hidden {
     -webkit-box-align: start;
     -ms-flex-align: start;
     align-items: flex-start;
-    font-weight: 400;
-    font-size: 15px;
-    line-height: 25px
 }
 
 .our-values__item:not(:nth-child(3n)) {
@@ -2539,8 +2155,7 @@ ul.list--hidden {
 
 .our-values__item-title {
     font-weight: 700;
-    font-size: 24px;
-    line-height: 36px;
+    font-size: 1.34rem;
     text-transform: uppercase;
     max-width: 220px;
     min-height: 71px;
@@ -2587,9 +2202,6 @@ ul.list--hidden {
 
     .our-values__item {
         width: 25%;
-        font-weight: 400;
-        font-size: 15px;
-        line-height: 22px
     }
 
     .our-values__item:not(:nth-child(3n)) {
@@ -2601,10 +2213,7 @@ ul.list--hidden {
     }
 
     .our-values__item-title {
-        font-size: 18px;
-        line-height: 27px;
-        max-width: 165px;
-        min-height: 71px
+        font-size: 1.5rem;
     }
 
     .our-values__svg {
@@ -2624,8 +2233,6 @@ ul.list--hidden {
     .our-values__item {
         width: 45%;
         font-weight: 400;
-        font-size: 12px;
-        line-height: 22px;
         -webkit-box-align: center;
         -ms-flex-align: center;
         align-items: center;
@@ -2639,8 +2246,6 @@ ul.list--hidden {
 
     .our-values__item-title {
         margin-top: 15px;
-        font-size: 18px;
-        line-height: 27px;
         max-width: 165px;
         min-height: 71px
     }
@@ -2665,8 +2270,6 @@ ul.list--hidden {
 
     .our-values__item {
         width: 100%;
-        font-size: 12px;
-        line-height: 15px
     }
 
     .our-values__list .our-values__item {
@@ -2678,8 +2281,6 @@ ul.list--hidden {
     }
 
     .our-values__item-title {
-        font-size: 18px;
-        line-height: 27px;
         max-width: 165px;
         min-height: auto
     }
@@ -2751,8 +2352,8 @@ ul.list--hidden {
 
 .activities__title {
     font-weight: 700;
-    font-size: 24px;
-    line-height: 29px;
+    font-size: 1.34rem;
+    line-height: normal;
     text-transform: uppercase;
     margin-bottom: 30px
 }
@@ -2808,15 +2409,11 @@ ul.list--hidden {
     }
 
     .activities__title {
-        font-size: 18px;
-        line-height: 22px;
         margin-bottom: 10px;
         width: 350px
     }
 
     .activities__sub-title {
-        font-size: 14px;
-        line-height: 17px;
         width: 460px
     }
 }
@@ -2841,15 +2438,11 @@ ul.list--hidden {
     }
 
     .activities__title {
-        font-size: 16px;
-        line-height: 18px;
         margin-bottom: 10px;
         max-width: 300px
     }
 
     .activities__sub-title {
-        font-size: 10px;
-        line-height: 15px;
         max-width: 300px
     }
 }
@@ -2860,7 +2453,7 @@ ul.list--hidden {
     }
 
     .activities img {
-        max-height: 200px
+        max-height: 300px
     }
 
     .activities__list {
@@ -2890,15 +2483,11 @@ ul.list--hidden {
     }
 
     .activities__title {
-        font-size: 10px;
-        line-height: 12px;
         margin-bottom: 10px;
         max-width: 100%
     }
 
     .activities__sub-title {
-        font-size: 9px;
-        line-height: 11px;
         width: auto;
         max-width: 220px
     }
@@ -2941,8 +2530,6 @@ ul.list--hidden {
     -ms-flex-align: start;
     align-items: flex-start;
     width: 26.7%;
-    font-weight: 400;
-    line-height: 22px
 }
 
 .lead__item:first-child {
@@ -2960,8 +2547,7 @@ ul.list--hidden {
 .lead__item-title {
     margin-top: auto;
     font-weight: 700;
-    font-size: 24px;
-    line-height: 29px;
+    font-size: 1.5rem;
     text-transform: uppercase;
     margin-bottom: 14px
 }
@@ -3018,8 +2604,6 @@ ul.list--hidden {
     }
 
     .lead__item-title {
-        font-size: 18px;
-        line-height: 24px;
         max-width: 165px;
         margin-bottom: 14px
     }
@@ -3069,15 +2653,11 @@ ul.list--hidden {
     .lead__item-title {
         max-width: 100%;
         margin-top: auto;
-        font-size: 18px;
-        line-height: 20px;
         max-width: 100%;
         margin-bottom: 14px
     }
 
     .lead__item-text {
-        font-size: 12px;
-        line-height: 15px;
         width: 100%
     }
 }
@@ -3225,12 +2805,14 @@ ul.list--hidden {
     display: flex;
     -webkit-box-pack: justify;
     -ms-flex-pack: justify;
-    justify-content: space-between
+    justify-content: space-between;
+    flex-wrap: wrap;
 }
 
 .video__item {
     position: relative;
-    width: 45.8%
+    width: 45.8%;
+    margin-bottom: 50px;
 }
 
 .video__item::before {
@@ -3250,7 +2832,7 @@ ul.list--hidden {
 
 .video__time {
     font-weight: 700;
-    line-height: 22px;
+    font-size: 0.88rem;
     color: #ff8767;
     display: block;
     margin-bottom: 25px
@@ -3258,10 +2840,9 @@ ul.list--hidden {
 
 .video__title {
     font-weight: 700;
-    font-size: 24px;
-    line-height: 36px;
+    font-size: 1.34rem;
+    line-height: normal;
     text-transform: uppercase;
-    width: 400px
 }
 
 .video__text {
@@ -3287,8 +2868,6 @@ ul.list--hidden {
     }
 
     .vendor-info__card-text {
-        font-size: 16px;
-        line-height: 22px;
         margin-bottom: 75px
     }
 
@@ -3304,12 +2883,6 @@ ul.list--hidden {
         margin-right: 30px;
         margin-bottom: 30px
     }
-
-    .links__nav-link {
-        font-size: 16px;
-        line-height: 22px
-    }
-
     .links__list {
         width: 660px
     }
@@ -3331,21 +2904,10 @@ ul.list--hidden {
     }
 
     .video__time {
-        font-size: 16px;
-        line-height: 20px;
         margin-bottom: 20px
     }
 
-    .video__title {
-        font-size: 20px;
-        line-height: 30px;
-        width: 300px
-    }
-
     .video__text {
-        width: 300px;
-        font-size: 16px;
-        line-height: 25px;
         margin-bottom: 75px
     }
 }
@@ -3371,8 +2933,6 @@ ul.list--hidden {
     }
 
     .vendor-info__card-text {
-        font-size: 16px;
-        line-height: 22px;
         margin-bottom: 75px
     }
 
@@ -3405,19 +2965,10 @@ ul.list--hidden {
     }
 
     .video__time {
-        font-size: 14px;
-        line-height: 20px;
         margin-bottom: 20px
     }
 
-    .video__title {
-        font-size: 18px;
-        line-height: 22px
-    }
-
     .video__text {
-        font-size: 14px;
-        line-height: 22px;
         margin-bottom: 50px
     }
 }
@@ -3509,8 +3060,6 @@ ul.list--hidden {
     }
 
     .vendor-info__card-text {
-        font-size: 10px;
-        line-height: 12px;
         margin-bottom: 30px
     }
 
@@ -3526,17 +3075,14 @@ ul.list--hidden {
         margin-bottom: 40px
     }
 
-    .links__nav-link {
-        font-size: 9px;
-        line-height: 25px
-    }
 
     .links__list {
-        max-width: 232px
+        max-width: 300px
     }
 
     .links__item {
-        width: 50%
+        width: calc(50% - 20px);
+        margin-right: 20px;
     }
 
     .links__item:not(:nth-last-child(-n+2)) {
@@ -3559,21 +3105,15 @@ ul.list--hidden {
     }
 
     .video__time {
-        font-size: 9px;
-        line-height: 11px;
         margin-bottom: 20px
     }
 
     .video__title {
-        font-size: 10px;
-        line-height: 18px;
         margin-bottom: 10px
     }
 
     .video__text {
         max-width: 210px;
-        font-size: 9px;
-        line-height: 11px;
         margin-bottom: 50px
     }
 }
@@ -3639,7 +3179,7 @@ ul.list--hidden {
 }
 
 .products__item-title {
-    font-size: 24px;
+    font-size:1.2rem;
     text-transform: uppercase;
     margin-top: auto
 }
@@ -3689,7 +3229,6 @@ ul.list--hidden {
     }
 
     .products__item {
-        font-size: 16px;
         width: 32%;
         margin-bottom: 75px
     }
@@ -3702,10 +3241,6 @@ ul.list--hidden {
         margin-right: 15px
     }
 
-    .products__item-title {
-        font-size: 18px;
-        line-height: 20px
-    }
 
     .products__item-text {
         margin-bottom: 38px
@@ -3728,6 +3263,9 @@ ul.list--hidden {
 
     .products__item:last-child:nth-child(2n+1) {
         margin: 0 auto 75px
+    }
+    .products__item-title {
+        font-size:1.5rem;
     }
 }
 
@@ -4538,8 +4076,8 @@ ul.list--hidden {
 }
 
 .contacts__info-text {
-    font-size: 24px;
-    line-height: 29px;
+    font-size: 1.3rem;
+    line-height: normal;
     font-weight: 700
 }
 
@@ -4562,10 +4100,6 @@ ul.list--hidden {
         margin-bottom: 85px
     }
 
-    .contacts__info-text {
-        font-size: 22px;
-        line-height: 25px
-    }
 
     .contacts__map {
         height: 450px;
@@ -4619,22 +4153,7 @@ ul.list--hidden {
     }
 }
 
-@media screen and (max-width: 768px) {
-    .contacts__info-title {
-        font-size: 12px;
-        line-height: 15px
-    }
 
-    .contacts__info-text {
-        font-size: 14px;
-        line-height: 17px
-    }
-
-    .contacts__author {
-        font-size: 9px;
-        line-height: 11px
-    }
-}
 
 .footer__wrapper {
     position: relative;
@@ -4683,10 +4202,9 @@ ul.list--hidden {
 }
 
 .form__title {
-    font-family: Proxima Nova;
     font-weight: 700;
-    font-size: 24px;
-    line-height: 29px;
+    font-size:1.34rem;
+    line-height: normal;
     text-transform: uppercase;
     margin-bottom: 30px
 }
@@ -4717,9 +4235,8 @@ ul.list--hidden {
 }
 
 .form__input, .form__input::placeholder {
-    font-family: Proxima Nova;
-    font-size: 18px;
-    line-height: 22px;
+    font-size: 1rem;
+    line-height: normal;
     color: #00456d
 }
 
@@ -4728,30 +4245,26 @@ ul.list--hidden {
 }
 
 .form__input::-webkit-input-placeholder {
-    font-family: Proxima Nova;
-    font-size: 18px;
-    line-height: 22px;
+    font-size: 1rem;
+    line-height: normal;
     color: rgba(0, 69, 109, .5)
 }
 
 .form__input::-moz-placeholder {
-    font-family: Proxima Nova;
-    font-size: 18px;
-    line-height: 22px;
+    font-size: 1rem;
+    line-height: normal;
     color: rgba(0, 69, 109, .5)
 }
 
 .form__input:-ms-input-placeholder {
-    font-family: Proxima Nova;
-    font-size: 18px;
-    line-height: 22px;
+    font-size: 1rem;
+    line-height: normal;
     color: rgba(0, 69, 109, .5)
 }
 
 .form__input::-ms-input-placeholder {
-    font-family: Proxima Nova;
-    font-size: 18px;
-    line-height: 22px;
+    font-size: 1rem;
+    line-height: normal;
     color: rgba(0, 69, 109, .5)
 }
 
@@ -4761,11 +4274,10 @@ ul.list--hidden {
 
 .form__submit {
     color: #fff;
-    font-family: Proxima Nova;
     font-style: normal;
     font-weight: 400;
-    font-size: 14px;
-    line-height: 29px;
+    font-size: 1rem;
+    line-height: normal;
     text-align: center;
     text-transform: uppercase;
     border: none;
@@ -4777,8 +4289,6 @@ ul.list--hidden {
 .footer__info {
     margin: 160px 0 140px 100px;
     z-index: 1;
-    font-size: 18px;
-    line-height: 22px
 }
 
 .footer__info-list {
@@ -4796,8 +4306,8 @@ ul.list--hidden {
 }
 
 .footer__info-text {
-    font-size: 24px;
-    line-height: 29px;
+    font-size: 1.3rem;
+    line-height: normal;
     font-weight: 700
 }
 
@@ -4824,8 +4334,6 @@ ul.list--hidden {
     }
 
     .form__title {
-        font-size: 22px;
-        line-height: 25px;
         margin-bottom: 23px
     }
 
@@ -4841,35 +4349,6 @@ ul.list--hidden {
         margin-bottom: 23px
     }
 
-    .form__input::-webkit-input-placeholder {
-        font-family: Proxima Nova;
-        font-size: 16px;
-        line-height: 20px
-    }
-
-    .form__input::-moz-placeholder {
-        font-family: Proxima Nova;
-        font-size: 16px;
-        line-height: 20px
-    }
-
-    .form__input:-ms-input-placeholder {
-        font-family: Proxima Nova;
-        font-size: 16px;
-        line-height: 20px
-    }
-
-    .form__input::-ms-input-placeholder {
-        font-family: Proxima Nova;
-        font-size: 16px;
-        line-height: 20px
-    }
-
-    .form__input, .form__input::placeholder {
-        font-family: Proxima Nova;
-        font-size: 16px;
-        line-height: 20px
-    }
 
     .form__submit {
         padding: 8px 34px
@@ -4887,10 +4366,6 @@ ul.list--hidden {
         margin-bottom: 30px
     }
 
-    .footer__info-text {
-        font-size: 22px;
-        line-height: 25px
-    }
 }
 
 @media screen and (max-width: 1440px) {
@@ -4917,10 +4392,6 @@ ul.list--hidden {
         margin-bottom: 30px
     }
 
-    .footer__info-text {
-        font-size: 22px;
-        line-height: 25px
-    }
 }
 
 @media screen and (max-width: 1200px) {
@@ -4947,9 +4418,6 @@ ul.list--hidden {
         margin-top: 83px
     }
 
-    .form__submit {
-        padding: 8px 30px
-    }
 
     .footer__info {
         width: 100%;
@@ -4968,10 +4436,6 @@ ul.list--hidden {
         margin-bottom: 30px
     }
 
-    .footer__info-text {
-        font-size: 22px;
-        line-height: 25px
-    }
 }
 
 @media screen and (max-width: 768px) {
@@ -5000,23 +4464,17 @@ ul.list--hidden {
     }
 
     .form__title {
-        font-size: 10px;
-        line-height: 12px;
         margin-bottom: 10px
     }
 
     .form__submit {
         padding: 8px 16px;
-        font-size: 12px;
-        line-height: 15px
     }
 
     .footer__info {
         width: 83.8%;
         padding: 23px 35px 25px;
         margin: 120px auto 0;
-        font-size: 12px;
-        line-height: 15px;
         background: rgba(255, 255, 255, .7);
         -webkit-backdrop-filter: blur(25px);
         backdrop-filter: blur(25px)
@@ -5034,36 +4492,6 @@ ul.list--hidden {
         margin-bottom: 20px
     }
 
-    .form__input::-webkit-input-placeholder {
-        font-family: Proxima Nova;
-        font-size: 9px;
-        line-height: 11px
-    }
-
-    .form__input::-moz-placeholder {
-        font-family: Proxima Nova;
-        font-size: 9px;
-        line-height: 11px
-    }
-
-    .form__input:-ms-input-placeholder {
-        font-family: Proxima Nova;
-        font-size: 9px;
-        line-height: 11px
-    }
-
-    .form__input::-ms-input-placeholder {
-        font-family: Proxima Nova;
-        font-size: 9px;
-        line-height: 11px
-    }
-
-    .form__input, .form__input::placeholder {
-        font-family: Proxima Nova;
-        font-size: 9px;
-        line-height: 11px
-    }
-
     .form__list {
         margin-bottom: 20px
     }
@@ -5072,10 +4500,6 @@ ul.list--hidden {
         margin: 6px 0
     }
 
-    .footer__info-text {
-        font-size: 14px;
-        line-height: 17px
-    }
 }
 
 .lang-list a {
@@ -5095,7 +4519,7 @@ ul.list--hidden {
 }
 
 .news__item picture {
-    max-height: 300px
+    max-height: 300px;
 }
 
 @media only screen and (max-width: 768px) {

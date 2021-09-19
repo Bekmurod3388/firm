@@ -1,12 +1,15 @@
 <header class="{{url()->current() == route('index') ? 'header' : 'header-component' }}">
     {{$slot}}
     <nav class="main-nav">
-        <picture class="main-logo">
-            <a href="{{route('index')}}">
-                <source type="image/webp" srcset="{{asset('img/header-logo.webp')}}">
-                <img width="182" height="92" src="{{asset('img/header-logo.png')}}" alt="Central Asia Distribution">
-            </a>
-        </picture>
+        <div  class="main-logo__container">
+            <picture class="main-logo">
+
+                <a href="{{route('index')}}">
+                    <source type="image/webp" srcset="{{asset('img/header-logo.webp')}}">
+                    <img width="182" height="92" src="{{asset('img/header-logo.png')}}" alt="Central Asia Distribution">
+                </a>
+            </picture>
+        </div>
 
         <button class="header__menu-btn">{{__('index.menu.menu')}}</button>
 
@@ -15,32 +18,33 @@
                 <li class="nav-list__item @if (request()->is('index'))
                     nav-list__item--active
                 @endif">
-                    <a href="{{ route('index') }}">{{__('index.menu.gen')}}</a>
+                    <a href="{{ route('index') }}">
+                        <span>{{__('index.menu.gen')}}</span></a>
                 </li>
                 <li class="nav-list__item @if (request()->is('about-us'))
                     nav-list__item--active
                 @endif">
-                    <a href="{{route('about-us')}}">{{__('index.menu.about')}}</a>
+                    <a href="{{route('about-us')}}"><span>{{__('index.menu.about')}}</span></a>
                 </li>
                 <li class="nav-list__item @if (request()->is('vendors'))
                     nav-list__item--active
                 @endif">
-                    <a href="{{route('vendors')}}">{{__('index.menu.vendor')}}</a>
+                    <a href="{{route('vendors')}}"><span>{{__('index.menu.vendor')}}</span></a>
                 </li>
                 <li class="nav-list__item @if (request()->is('products'))
                     nav-list__item--active
                 @endif">
-                    <a href="{{route('products')}}">{{__('index.menu.product')}}</a>
+                    <a href="{{route('products')}}"><span>{{__('index.menu.product')}}</span></a>
                 </li>
                 <li class="nav-list__item @if (request()->is('news'))
                     nav-list__item--active
                 @endif">
-                    <a href="{{route('news')}}">{{__('index.menu.new')}}</a>
+                    <a href="{{route('news')}}"><span>{{__('index.menu.new')}}</span></a>
                 </li>
                 <li class="nav-list__item @if (request()->is('contact'))
                     nav-list__item--active
                 @endif">
-                    <a href="{{route('contact')}}">{{__('index.menu.contact')}}</a>
+                    <a href="{{route('contact')}}"><span>{{__('index.menu.contact')}}</span></a>
                 </li>
             </ul>
 
@@ -56,7 +60,7 @@
                     @endforeach
                 </ul>
 
-               {{-- <a href="search" class="svg__search"></a>--}}
+                {{-- <a href="search" class="svg__search"></a>--}}
             </div>
         </div>
     </nav>
@@ -79,7 +83,8 @@
             </h1>
             <p class="header-component__text">{{__('index.carousel.desc2')}}</p>
         </div>
-        <video autoplay="" muted="" loop="" id="myVideo" class="header-component__img" poster="{{asset('img/header-background.jpg')}}">
+        <video autoplay="" muted="" loop="" id="myVideo" class="header-component__img"
+               poster="{{asset('img/header-background.jpg')}}">
             <source src="{{asset('/img/videos/video-header.mp4')}}" type="video/mp4">
             <source src="{{asset('/img/videos/video-header.webm')}}" type="video/webm">
             <source src="{{asset('/img/videos/video-header.ogv')}}" type="video/ogg">
