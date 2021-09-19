@@ -32,7 +32,7 @@
 </head>
 
 
-<body class="main-page">
+<body class="{{url()->current() == route('index') ? 'main-page' : '' }} " >
 <div class="container">
     @yield('header')
     <main class="main">

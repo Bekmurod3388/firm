@@ -35,7 +35,6 @@
 	<header class="header-component">
 		<nav class="main-nav">
 			<picture class="main-logo">
-				<source srcset="img/header-logo.webp">
 				<img src="img/header-logo.png" alt="Central Asia Distribution">
 			</picture>
 
@@ -44,22 +43,34 @@
 			<div class="nav-bar">
 				<ul class="nav-list nav-list--disable">
 					<li class="nav-list__item">
-						<a href="../index.blade.php">Главная</a>
+						<a href="../index.blade.php">
+                            <span>Главная</span>
+                        </a>
 					</li>
 					<li class="nav-list__item">
-						<a href="../about-us.blade.php">О нас</a>
+						<a href="../about-us.blade.php">
+                            <span>О нас</span>
+                        </a>
 					</li>
 					<li class="nav-list__item nav-list__item--active">
-						<a href="../vendors.blade.php">Вендоры</a>
+						<a href="../vendors.blade.php">
+                            <span>Вендоры</span>
+                        </a>
 					</li>
 					<li class="nav-list__item">
-						<a href="../products.blade.php">Продукция</a>
+						<a href="../products.blade.php">
+                            <span>Продукты и Решения</span>
+                        </a>
 					</li>
 					<li class="nav-list__item">
-						<a href="../news.blade.php">Новости</a>
+						<a href="../news.blade.php">
+                            <span>Новости</span>
+                        </a>
 					</li>
 					<li class="nav-list__item">
-						<a href="../contact.blade.php">Контакты</a>
+						<a href="../contact.blade.php">
+                            <span>Контакты</span>
+                        </a>
 					</li>
 				</ul>
 
