@@ -39,6 +39,12 @@
                     <p>Продукты</p>
                 </a>
                 </li>
+                <li class="nav-item {{  request()->routeIs('admin.vendors.index') ? 'active' : '' }}">
+                    <a href="{{route('admin.vendors.index')}}">
+                        <i class="fas fa-project-diagram"></i>
+                        <p>Вендоры</p>
+                    </a>
+                </li>
 
             </ul>
 
