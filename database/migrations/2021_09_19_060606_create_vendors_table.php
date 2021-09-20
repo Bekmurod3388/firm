@@ -19,6 +19,7 @@ class CreateVendorsTable extends Migration
             $table->text('text');
             //$table->string('files');
             $table->text('links');
+            $table->bigInteger('category_id')->index();
             $table->timestamps();
         });
     }

@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Vendor;
+use App\Models\Category;
+use App\Models\VendorFiles;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
@@ -32,7 +34,8 @@ class VendorController extends Controller
      */
     public function create()
     {
-        return view('admin.vendors.create');
+        $categories = Category::all();
+        return view('admin.vendors.create')->with('categories',$categories);
     }
 
     /**
@@ -47,7 +50,7 @@ class VendorController extends Controller
         $data = [];
         if ($request->hasfile('files')) {
             foreach ($request->file('files') as $file) {
-                $data[] = ['path' => $this->createPath('vendor', $file)];
+                $data[] = ['path' => $this->createPath('vendor', $file),'file_name'=>$file->getClientOriginalName()];
             }
             unset($vendor['files']);
         }
@@ -72,9 +75,21 @@ class VendorController extends Controller
      */
     public function show(Vendor $vendor)
     {
-        //
+        $categories = Category::all();
+        $vendors = Vendor::all();
+        return view('vendors',['vendors'=> $vendors,'categories'=>$categories]);
     }
 
+    public function get_category_vendors(Category $category){
+
+        $categories = Category::all();
+        return view('vendors',['vendors'=>$category->vendors, 'categories'=>$categories]);
+    }
+    public function show_vendor(Vendor $vendor)
+    {
+        $vendor_files = VendorFiles::all();
+        return view('about-vendor.about-vendor', ['vendor'=>$vendor,'vendor_files'=>$vendor_files]);
+    }
     /**
      * Show the form for editing the specified resource.
      *
@@ -83,7 +98,8 @@ class VendorController extends Controller
      */
     public function edit(Vendor $vendor)
     {
-        return view('admin.vendors.edit', ['model' => $vendor]);
+        $categories = Category::all();
+        return view('admin.vendors.edit', ['model' => $vendor,'categories'=>$categories]);
     }
 
     /**

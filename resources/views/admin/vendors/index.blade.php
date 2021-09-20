@@ -31,7 +31,7 @@
                         @foreach($vendors as $vendor)
                         <tr>
                             <th scope="row" class="col-1">{{$vendor->id}}</th>
-                            <td>{{$vendor->img }}</td>
+                            <td><img src="/storage/{{$vendor->img}}" width="180px"></td>
                             <td>{{$vendor->text }}</td>
                             <td class="col-2">
                                 <form action="{{ route('admin.vendors.destroy',$vendor->id) }}" method="POST">

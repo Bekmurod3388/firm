@@ -42,6 +42,15 @@
                                 Поместите каждую ссылку в новую строку</label>
                             <textarea class="form-control" name="links" id="Links" rows="5"></textarea>
                         </div>
+                        <div class="form-group">
+                            <label for="category">Выберите категория</label>
+                            <select class="form-control" name="category_id">
+                                <option></option>
+                                @foreach($categories as $category)
+                                    <option value="{{$category->id}}" >{{$category->name}}</option>
+                                @endforeach
+                            </select>
+                        </div>
                         <button type="submit" id="alert" class="btn btn-primary">Сохранить</button>
                         <input type="reset" class="btn btn-danger" value="Очистить">
                     </form>

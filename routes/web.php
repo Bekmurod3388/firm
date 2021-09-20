@@ -10,8 +10,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::view('contact', 'contact')->name('contact');
 Route::view('about-us', 'about-us')->name('about-us');
-Route::view('vendors', 'vendors')->name('vendors');
-
+Route::get('vendors',[\App\Http\Controllers\VendorController::class,'show'])->name('vendors');
+Route::get('about-vendor/{vendor}', [\App\Http\Controllers\VendorController::class, 'show_vendor'])->name('about-vendor');
 Route::get('news', [PostController::class, 'news'])->name('news');
 Route::get('news-item/{post}', [PostController::class, 'show'])->name('news-item');
 Route::get('products', [\App\Http\Controllers\ProductController::class, 'products_show'])->name('products');
@@ -58,5 +58,6 @@ Route::get('/', function () {
     return redirect('index');
 });
 Route::get('products/categories/{category}', [\App\Http\Controllers\ProductController::class, 'get_category_products'])->name('get_category_products');
+Route::get('vendors/categories/{category}', [\App\Http\Controllers\VendorController::class, 'get_category_vendors'])->name('get_category_vendors');
 
 

@@ -20,6 +20,7 @@ class CreateVendorfilesTable extends Migration
                 ->cascadeOnUpdate()
                 ->cascadeOnDelete();
             $table->string('path');
+            $table->string('file_name');
             $table->timestamps();
         });
     }
