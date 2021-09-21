@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Vendor;
 use App\Models\Category;
 use App\Models\VendorFiles;
+use App\Models\VendorFilm;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
@@ -47,7 +48,7 @@ class VendorController extends Controller
     public function store(Request $request): RedirectResponse
     {
         $vendor = $request->all();
-        $data = [];
+        $vendor['text'] = $vendor['description'];
         if ($request->hasfile('files')) {
             foreach ($request->file('files') as $file) {
                 $data[] = ['path' => $this->createPath('vendor', $file),'file_name'=>$file->getClientOriginalName()];
@@ -62,8 +63,20 @@ class VendorController extends Controller
         $file = new Vendor();
         $file->fill($vendor);
         $file->save();
+
         if (!empty($data))
             $file->vendorFiles()->createMany($data);
+
+        /* This place needs to function */
+        $id = $file->id;
+        $links = json_decode($request->get('links'), true);
+        foreach ($links as $link) {
+            $link['vendor_id'] = $id;
+            $vendor_film = new VendorFilm();
+            $vendor_film->fill($link);
+            $vendor_film->save();
+        }
+        /* ~This place needs to function */
 
         return back()->with('success', 'Data Your files has been successfully added');
     }

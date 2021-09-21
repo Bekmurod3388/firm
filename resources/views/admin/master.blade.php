@@ -114,5 +114,6 @@
 
 <!-- Atlantis JS -->
 <script src="{{asset('/assets/js/atlantis.min.js')}}"></script>
+@yield('script')
 </body>
 </html>
