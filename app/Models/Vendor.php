@@ -18,4 +18,8 @@ class Vendor extends Model
     {
         return $this->hasMany(VendorFiles::class, 'vendor_id', 'id');
     }
+    public function vendorFilms()
+    {
+        return $this->hasMany(Vendorfilm::class, 'vendor_id', 'id');
+    }
 }
