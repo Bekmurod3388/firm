@@ -95,7 +95,7 @@
             constructor() {
                 this.path = '';
                 this.header = '';
-                this.text = null;
+                this.text = '';
             }
         }
 
@@ -159,7 +159,7 @@
         function setProperty(element, name, data = {}) {
             if (name) {
                 element.type = 'text';
-                element.id = name + '-' + (count + 1);
+                element.id = name + '_' + (count + 1);
                 element.name = name;
                 element.hint = count;
                 links[element.hint][name] = data[name];
@@ -169,10 +169,10 @@
                     Stringify(links);
                 }
 
-                element.onchange = function() {
-                    links[element.hint][name] = parseInt(element.value);
-                    Stringify(links);
-                }
+                // element.onchange = function() {
+                //     links[element.hint][name] = parseInt(element.value);
+                //     Stringify(links);
+                // }
 
                 return;
             }

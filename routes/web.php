@@ -19,7 +19,7 @@ Route::get('products', [\App\Http\Controllers\ProductController::class, 'product
 Route::get('products-item/{product}', [\App\Http\Controllers\ProductController::class, 'show'])->name('products-item');
 
 Route::group(['prefix' => 'about-vendor', 'as' => 'about-vendor.'], function () {
-    Route::view('about-vendor--axis', 'about-vendor.about-vendor--axis')->name('about-vendor--axis');
+    Route::view('axis', 'about-vendor.about-vendor--axis')->name('about-vendor--axis');
     Route::view('about-vendor--acer', 'about-vendor.about-vendor--acer')->name('about-vendor--acer');
     Route::view('about-vendor--canon', 'about-vendor.about-vendor--canon')->name('about-vendor--canon');
     Route::view('about-vendor--cisco', 'about-vendor.about-vendor--cisco')->name('about-vendor--cisco');
@@ -29,7 +29,7 @@ Route::group(['prefix' => 'about-vendor', 'as' => 'about-vendor.'], function () 
     Route::view('about-vendor--realme', 'about-vendor.about-vendor--realme')->name('about-vendor--realme');
     Route::view('about-vendor--samsung', 'about-vendor.about-vendor--samsung')->name('about-vendor--samsung');
 });
-
+Route::view('axis', 'about-vendor.about-vendor--axis')->name('about-vendor--axis');
 Auth::routes([
     'confirm' => false,
     'login' => true,

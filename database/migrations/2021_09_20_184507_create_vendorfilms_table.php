@@ -19,9 +19,9 @@ class CreateVendorfilmsTable extends Migration
                 ->constrained('vendors')
                 ->cascadeOnUpdate()
                 ->cascadeOnDelete();
-            $table->string('path');
-            $table->string('header');
-            $table->string('text');
+            $table->string('path')->nullable();
+            $table->string('header')->nullable();
+            $table->string('text')->nullable();
             $table->timestamps();
         });
     }

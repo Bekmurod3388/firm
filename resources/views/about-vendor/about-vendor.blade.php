@@ -55,26 +55,18 @@
             </div>
             <div class="container-min">
                 <ul class="video__list">
-                    <li class="video__item">
-                    <iframe class="video__img" width="560" height="300" src="https://www.youtube.com/embed/Ptk_1Dc2iPY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                        <time class="video__time">02.19.2021</time>
-                        <h3 class="video__title">
-                            Портативный сканер <br>
-                            canon image formula r10</h3>
-                        <p class="video__text">Прост в настройке и удобен в использовании
-                            в любом месте.</p>
-                    </li>
-                    <li class="video__item">
-                    <iframe class="video__img" width="560" height="300" src="https://www.youtube.com/embed/Ptk_1Dc2iPY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                        <time class="video__time">09.04.2020</time>
-                        <h3 class="video__title">
-                            Меняя будущее. Презентация <br>
-                            canon eos r5 и Eos r6</h3>
-                        <p class="video__text">Когда фотографы и видеооператоры видят
-                            творческий вызов, они воспринимают его
-                            как приглашение: это шанс проявить
-                            творческий подход и увидеть мир по-новому.</p>
-                    </li>
+
+                @if(!empty($vendor_films))
+                        @foreach($vendor_films as $vendor_film)
+                        <li class="video__item">
+                        <iframe class="video__img" width="560" height="300" src="{{$vendor_film->path}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                          <time class="video__time">{{$vendor_film->created_at}}</time>
+                            <h3 class="video__title">
+                            {{$vendor_film->header}} </h3>
+                            <p class="video__text">{{$vendor_film->text}}</p>
+                        </li>
+                        @endforeach
+                    @endif
                 </ul>
             </div>
         </section>
