@@ -60,6 +60,11 @@ class VendorController extends Controller
             unset($vendor['img']);
             $vendor['img'] = $img_name;
         }
+        if ($request->hasfile('back')) {
+            $img_name1 = $this->createPath('vendor', $request->file('back'));
+            unset($vendor['back']);
+            $vendor['back'] = $img_name1;
+        }
         $file = new Vendor();
         $file->fill($vendor);
         $file->save();

@@ -16,6 +16,7 @@ class CreateVendorsTable extends Migration
         Schema::create('vendors', function (Blueprint $table) {
             $table->id();
             $table->string('img')->nullable();
+            $table->string('back')->nullable();
             $table->text('text');
             //$table->string('files');
             $table->text('links');

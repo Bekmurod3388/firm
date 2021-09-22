@@ -3,7 +3,7 @@
         <x-header/>
     @endsection
         <section class="vendor-info about-vendor-page--acer">
-            <div class="vendor-info__wrapper">
+            <div class="vendor-info__wrapper" style="background-image: url({{asset('storage/'.$vendor->back)}})">
                 <div class=" vendor-info__card card__blur">
                     <img class="card__title vendor-info__card-title" src="{{asset('storage/'.$vendor->img)}}"
                          alt="acer">
