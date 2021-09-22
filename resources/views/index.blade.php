@@ -113,102 +113,19 @@
 			<div class="container-min">
 				<div class="vendors__wrapper">
 					<ul class="vendors__list">
-						<li class="vendors__item">
-							<a href="about-vendor/about-vendor--canon.blade.php">
+						@if(!empty($vendors))
+                            @foreach($vendors as $vendor)
+                        <li class="vendors__item">
+							<a href="{{route('about-vendor',$vendor->id)}}">
 								<picture class="img--samsung_logo">
-									<source srcset="img/logos/samsung_logo.webp"   type="image/webp">
-									<img  src="img/logos/samsung_logo.png" alt="samsung_logo">
+									<source srcset="{{asset('storage/'.$vendor->img)}}"   type="image/webp">
+									<img  src="{{asset('storage/'.$vendor->img)}}" alt="samsung_logo">
 								</picture>
 							</a>
 						</li>
-						<li class="vendors__item">
-							<a href="about-vendor/about-vendor--canon.blade.php">
-								<picture class="img--panasonic_logo">
-									<source srcset="img/logos/panasonic_logo.webp" type="image/webp">
-									<img  src="img/logos/panasonic_logo.png" alt="panasonic_logo">
-								</picture>
-							</a>
-						</li>
-						<li class="vendors__item">
-							<a href="about-vendor/about-vendor--canon.blade.php">
-								<picture class="img--lenovo_logo">
-									<source srcset="img/logos/lenovo_logo.webp" type="image/webp">
-									<img  src="img/logos/lenovo_logo.png" alt="lenovo_logo">
-								</picture>
-							</a>
-						</li>
-						<li class="vendors__item">
-							<a href="about-vendor/about-vendor--canon.blade.php">
-								<picture class="img--acer_logo">
-									<source srcset="img/logos/acer_logo.webp" type="image/webp">
-									<img  src="img/logos/acer_logo.png" alt="acer_logo">
-								</picture>
-							</a>
-						</li>
-						<li class="vendors__item">
-							<a href="about-vendor/about-vendor--canon.blade.php">
-								<picture class="img--cisco_logo">
-									<source srcset="img/logos/cisco_logo.webp" type="image/webp">
-									<img  src="img/logos/cisco_logo.png" alt="cisco_logo">
-								</picture>
-							</a>
-						</li>
-						<li class="vendors__item">
-							<a href="about-vendor/about-vendor--canon.blade.php">
-								<picture class="img--realme_logo">
-									<source srcset="img/logos/realme_logo.webp" type="image/webp">
-									<img  src="img/logos/realme_logo.png" alt="realme_logo">
-								</picture>
-							</a>
-						</li>
-						<li class="vendors__item">
-							<a href="about-vendor/about-vendor--canon.blade.php">
-								<picture class="img--axis_logo">
-									<source srcset="img/logos/axis_logo.webp" type="image/webp">
-									<img  src="img/logos/axis_logo.png" alt="axis_logo">
-								</picture>
-							</a>
-						</li>
-						<li class="vendors__item">
-							<a href="about-vendor/about-vendor--canon.blade.php">
-								<picture class="img--NEC_logo">
-									<source srcset="img/logos/NEC_logo.webp" type="image/webp">
-									<img  src="img/logos/NEC_logo.png" alt="NEC_logo">
-								</picture>
-							</a>
-						</li>
-						<li class="vendors__item">
-							<a href="about-vendor/about-vendor--canon.blade.php">
-								<picture class="img--APC_logo">
-									<source srcset="img/logos/APC_logo.webp" type="image/webp">
-									<img  src="img/logos/APC_logo.png" alt="APC_logo">
-								</picture>
-							</a>
-						</li>
-						<li class="vendors__item">
-							<a href="about-vendor/about-vendor--canon.blade.php">
-								<picture class="img--dell_logo">
-									<source srcset="img/logos/dell_logo.webp" type="image/webp">
-									<img  src="img/logos/dell_logo.png" alt="dell_logo">
-								</picture>
-							</a>
-						</li>
-						<li class="vendors__item">
-							<a href="about-vendor/about-vendor--canon.blade.php">
-								<picture class="img--canon_logo">
-									<source srcset="img/logos/canon_logo.webp" type="image/webp">
-									<img  src="img/logos/canon_logo.png" alt="canon_logo">
-								</picture>
-							</a>
-						</li>
-						<li class="vendors__item">
-							<a href="about-vendor/about-vendor--canon.blade.php">
-								<picture class="img--HP_logo">
-									<source srcset="img/logos/HP_logo.webp" type="image/webp">
-									<img  src="img/logos/HP_logo.png" alt="HP_logo">
-								</picture>
-							</a>
-						</li>
+                            @endforeach
+                            @endif
+
 					</ul>
 					<a href="vendors.blade.php" class="vendors__link link svg__link-icon-before">{{__('index.trust.vendors')}}</a>
 

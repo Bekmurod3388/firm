@@ -78,7 +78,7 @@ class VendorController extends Controller
         }
         /* ~This place needs to function */
 
-        return back()->with('success', 'Data Your files has been successfully added');
+        return redirect()->route('admin.vendors.index')->with('success', 'Data Your files has been successfully added');
     }
 
     /**

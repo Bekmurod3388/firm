@@ -19,8 +19,8 @@ class CreateVendorfilesTable extends Migration
                 ->constrained('vendors')
                 ->cascadeOnUpdate()
                 ->cascadeOnDelete();
-            $table->string('path');
-            $table->string('file_name');
+            $table->string('path')->nullable();
+            $table->string('file_name')->nullable();
             $table->timestamps();
         });
     }
