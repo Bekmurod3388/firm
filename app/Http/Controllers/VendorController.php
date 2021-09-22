@@ -105,9 +105,8 @@ class VendorController extends Controller
     }
     public function show_vendor(Vendor $vendor)
     {
-        $vendor_files = VendorFiles::where('id',$vendor->id)->get();
-        $vendor_films = VendorFilm::where('id',$vendor->id)->get();
-
+        $vendor_files = VendorFiles::where('vendor_id',$vendor->id)->get();
+        $vendor_films = VendorFilm::where('vendor_id',$vendor->id)->get();
         return view('about-vendor.about-vendor', ['vendor'=>$vendor,'vendor_files'=>$vendor_files,'vendor_films'=>$vendor_films]);
     }
     /**

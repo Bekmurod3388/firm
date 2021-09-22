@@ -59,7 +59,7 @@
                 @if(!empty($vendor_films))
                         @foreach($vendor_films as $vendor_film)
                         <li class="video__item">
-                        <iframe class="video__img" width="560" height="300" src="{{$vendor_film->path}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            <iframe width="560" height="315" src="{{$vendor_film->path}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                           <time class="video__time">{{$vendor_film->created_at}}</time>
                             <h3 class="video__title">
                             {{$vendor_film->header}} </h3>
