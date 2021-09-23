@@ -4542,6 +4542,10 @@ ul.list--hidden {
     }
 }
 
+.news-item__wrapper {
+    background-size: 100%
+}
+
 html {
     overflow-y: scroll;
     min-width: 360px
