@@ -77,8 +77,8 @@ class ProductController extends Controller
      */
     public function show(Product $product)
     {
-
-        return view('product-item.product-item', compact('product'));
+        $last_id = Product::latest('id')->first();
+        return view('product-item.product-item', compact('product','last_id'));
     }
 
     public function products_show()
@@ -86,6 +86,8 @@ class ProductController extends Controller
         $categories = Category::all();
         $products = Product::all();
         $p_array = $products->toArray();
+
+
         return view('products', compact('categories', 'products', 'p_array'));
     }
 
