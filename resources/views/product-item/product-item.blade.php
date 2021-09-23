@@ -52,6 +52,9 @@
                     </div>
 
                     <ul class="breadcrumbs-list">
+                        <li class="breadcrumbs-item breadcrumbs-item-prev ">
+                            <a href="{{route('products-item',[$product->id-1])}}" class="link svg__prev-icon-before">Назад</a>
+                        </li>
                         <li class="breadcrumbs-item breadcrumbs-item--active" ><a class="link ">{{$product->id}}</a></li>
                         @if($product->id!==$last_id->id)
                         <li class="breadcrumbs-item"><a class="link svg__next-icon-before"  href="{{route('products-item',[$product->id+1])}}"><span class="breadcrumbs-number">{{$product->id+1}}</span></a></li>
