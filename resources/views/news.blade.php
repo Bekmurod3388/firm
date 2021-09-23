@@ -41,7 +41,7 @@
                         </picture>
                         <div class="card news__wrapper">
                             <div class="card__blur">
-                                <p class="news__date">{{$post->created_at}}</p>
+                                <p class="news__date">{{$post->created_at->format('Y-m-d')}}</p>
                                 <h3 class="news__title">{{ $post->{'header_'.app()->getLocale()} }}</h3>
                                 <p class="news__sub-title">{{ $post->{'header2_'.app()->getLocale()} }}</p>
                             </div>
