@@ -3704,7 +3704,8 @@ ul.list--hidden {
 .news-item__wrapper {
     background-image: url(../img/news-item-img.jpg);
     background-repeat: no-repeat;
-    background-position: left top
+    background-position: left top;
+    background-size: 50% 100%;
 }
 
 .news-item__time {
@@ -3811,7 +3812,6 @@ ul.list--hidden {
     }
 
     .news-item__wrapper {
-        background-size: 50% 100%;
         margin-bottom: 75px
     }
 
@@ -4540,10 +4540,6 @@ ul.list--hidden {
     .news__item picture {
         max-height: 170px
     }
-}
-
-.news-item__wrapper {
-    background-size: 100%
 }
 
 html {
