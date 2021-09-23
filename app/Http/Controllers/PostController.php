@@ -67,6 +67,7 @@ class PostController extends Controller
             'description_en' => $request->description_en,
             'img' => $fileName,
 
+
         ]);
         addAlert('success');
         return redirect()->route('admin.posts.index')->with('success', 'Новости успешно созданы.');

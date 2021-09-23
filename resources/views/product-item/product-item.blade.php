@@ -3,35 +3,6 @@
         <x-header/>
     @endsection
 
-        @if (request()->is('index'))
-            <div class="header__card card">
-                <div class="header__card-blur card__blur">
-                    <h2 class="header__card-title card__title">
-                        <span class="card__title--small header__card-title--small">{{__('index.carousel.header')}}</span>
-                        <span class="header__card-title--big card__title--big">{{__('index.carousel.header2')}}</span></h2>
-                    <p class="header__card-text card__text">{{__('index.carousel.desc')}}</p>
-                </div>
-                <a href="{{route('about-us')}}" class="header__card-link link card__link svg__link-icon-before">{{__('index.carousel.about_button')}}</a>
-            </div>
-        @else
-            <div class="header-component__bottom-side svg__adras-before">
-                <div class="header-component__left-side wow slideInLeft">
-                    <h1 class="header-component__title">
-                        <span class="header-component__title--small">Central Asia Distribution</span>
-                        <span class="header-component__title--big">{{__('index.menu.product')}}</span>
-                    </h1>
-                    <p class="header-component__text">{{__('index.carousel.desc2')}}</p>
-                </div>
-                <video autoplay="" muted="" loop="" id="myVideo" class="header-component__img"
-                       poster="{{asset('img/header-background.jpg')}}">
-                    <source src="{{asset('/img/videos/video-header.mp4')}}" type="video/mp4">
-                    <source src="{{asset('/img/videos/video-header.webm')}}" type="video/webm">
-                    <source src="{{asset('/img/videos/video-header.ogv')}}" type="video/ogg">
-                </video>
-            </div>
-        @endif
-
-
         <div class="container-min products-item-page">
             <div class="products__wrapper">
                 <a class="link products-item-link svg__link-icon-before" href="{{url()->previous() }}">{{__('about.back')}}</a>
@@ -52,9 +23,12 @@
                     </div>
 
                     <ul class="breadcrumbs-list">
+                        @if($product->id!==1)
+
                         <li class="breadcrumbs-item breadcrumbs-item-prev ">
-                            <a href="{{route('products-item',[$product->id-1])}}" class="link svg__prev-icon-before">Назад</a>
+                            <a href="{{route('products-item',[$product->id-1])}}" class="link svg__prev-icon-before"></a>
                         </li>
+                        @endif
                         <li class="breadcrumbs-item breadcrumbs-item--active" ><a class="link ">{{$product->id}}</a></li>
                         @if($product->id!==$last_id->id)
                         <li class="breadcrumbs-item"><a class="link svg__next-icon-before"  href="{{route('products-item',[$product->id+1])}}"><span class="breadcrumbs-number">{{$product->id+1}}</span></a></li>

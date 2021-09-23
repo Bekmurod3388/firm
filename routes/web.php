@@ -29,7 +29,7 @@ Route::group(['prefix' => 'about-vendor', 'as' => 'about-vendor.'], function () 
     Route::view('about-vendor--realme', 'about-vendor.about-vendor--realme')->name('about-vendor--realme');
     Route::view('about-vendor--samsung', 'about-vendor.about-vendor--samsung')->name('about-vendor--samsung');
 });
-Route::view('axis', 'about-vendor.about-vendor--axis')->name('about-vendor--axis');
+
 Auth::routes([
     'confirm' => false,
     'login' => true,
