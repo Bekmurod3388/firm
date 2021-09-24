@@ -30,7 +30,7 @@
             $.get("{{route('vendor-by-category')}}" + `/${id}`, function (data) {
                 let ul = '';
                 for (let vendor of data)
-                    ul = `
+                    ul += `
                         <li class="vendors__item">
                             <a href="{{route('about-vendor')}}/${vendor.id}">
                                 <picture class="img--hpEnterprise_logo">
