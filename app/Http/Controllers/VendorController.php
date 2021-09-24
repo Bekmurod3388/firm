@@ -73,16 +73,7 @@ class VendorController extends Controller
         if (!empty($data))
             $file->vendorFiles()->createMany($data);
 
-        /* This place needs to function */
-        $id = $file->id;
-        $links = json_decode($request->get('links'), true);
-        foreach ($links as $link) {
-            $link['vendor_id'] = $id;
-            $vendor_film = new VendorFilm();
-            $vendor_film->fill($link);
-            $vendor_film->save();
-        }
-        /* ~This place needs to function */
+        $this->vendorFilmStore($file->id, $request->get('links'));
 
         return redirect()->route('admin.vendors.index')->with('success', 'Data Your files has been successfully added');
     }
@@ -165,6 +156,11 @@ class VendorController extends Controller
             $vendor->vendorFiles()->forceDelete();
             $vendor->vendorFiles()->createMany($data);
         }
+
+
+        VendorFilm::query()->where('vendor_id', $vendor->id)->delete();
+        $this->vendorFilmStore($vendor->id, $request->get('links'));
+
         return back()->with('success', 'Data Your files has been successfully updated');
     }
 
@@ -200,5 +196,15 @@ class VendorController extends Controller
         if ($path)
             return Storage::disk('public')->delete($path);
         return true;
+    }
+
+    private function vendorFilmStore($id, $links) {
+        $links = json_decode($links, true);
+        foreach ($links as $link) {
+            $link['vendor_id'] = $id;
+            $vendor_film = new VendorFilm();
+            $vendor_film->fill($link);
+            $vendor_film->save();
+        }
     }
 }
