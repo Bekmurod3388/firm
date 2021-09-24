@@ -103,11 +103,16 @@ class VendorController extends Controller
         $categories = Category::all();
         return view('vendors',['vendors'=>$category->vendors, 'categories'=>$categories]);
     }
+
     public function show_vendor(Vendor $vendor)
     {
-        $vendor_files = VendorFiles::where('vendor_id',$vendor->id)->get();
-        $vendor_films = VendorFilm::where('vendor_id',$vendor->id)->get();
-        return view('about-vendor.about-vendor', ['vendor'=>$vendor,'vendor_files'=>$vendor_files,'vendor_films'=>$vendor_films]);
+
+        return view('about-vendor.about-vendor', ['vendor'=>$vendor]);
+    }
+
+    public function getVendorsByCategories($category) {
+        return Vendor::query()->where('category_id', $category)->get();
+//        return ['a' => 5];
     }
     /**
      * Show the form for editing the specified resource.

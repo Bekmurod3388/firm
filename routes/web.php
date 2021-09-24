@@ -11,12 +11,14 @@ use Illuminate\Support\Facades\Route;
 Route::view('contact', 'contact')->name('contact');
 Route::view('about-us', 'about-us')->name('about-us');
 Route::get('vendors',[\App\Http\Controllers\VendorController::class,'show'])->name('vendors');
-Route::get('about-vendor/{vendor}', [\App\Http\Controllers\VendorController::class, 'show_vendor'])->name('about-vendor');
+Route::get('about-vendor/{vendor?}', [\App\Http\Controllers\VendorController::class, 'show_vendor'])->name('about-vendor');
+Route::get('vendors-by-category/{category?}', [\App\Http\Controllers\VendorController::class, 'getVendorsByCategories'])->name('vendor-by-category');
 Route::get('news', [PostController::class, 'news'])->name('news');
 Route::get('news-item/{post}', [PostController::class, 'show'])->name('news-item');
 Route::get('products', [\App\Http\Controllers\ProductController::class, 'products_show'])->name('products');
 
-Route::get('products-item/{product}', [\App\Http\Controllers\ProductController::class, 'show'])->name('products-item');
+Route::get('products-item/{product?}', [\App\Http\Controllers\ProductController::class, 'show'])->name('products-item');
+Route::get('products-by-category/{category?}', [\App\Http\Controllers\ProductController::class, 'products_by_categories'])->name('products-by-category');
 
 Route::group(['prefix' => 'about-vendor', 'as' => 'about-vendor.'], function () {
     Route::view('axis', 'about-vendor.about-vendor--axis')->name('about-vendor--axis');

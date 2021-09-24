@@ -8,36 +8,48 @@
             <div class="vendors__wrapper">
                 <ul class="filter-list">
                     @foreach($categories as $category)
-                        <li class="filter-item {{ request()->segment(3) == $category->id ? 'filter-item--active' : '' }}">
-                            <button data-listToggle="solution" onclick="categoryFilter({{$category->id}})"
-                                    class="filter-btn">
-                                <a href="{{route('get_category_vendors',['category'=>$category->id])}}">
+                        <li class="filter-item @if($loop->index == 0){{'filter-item--active'}}@endif">
+                            <button class="filter-btn" data-listToggle="solution"
+                                    onclick="categoryFilter({{$category->id}})">
                                     {{$category->name}}
-                                </a>
                             </button>
                         </li>
                     @endforeach
                 </ul>
-                <ul class="vendors__list" data-filteredlist data-list="solution">
-                    @if(!empty($vendors))
-                    @foreach($vendors as $vendor)
-                    <li class="vendors__item">
-                        <a href="{{route('about-vendor',$vendor->id)}}">
-                            <picture class="img--hpEnterprise_logo">
-                                <source srcset="{{asset('storage/'.$vendor->img)}}" type="image/webp">
-                                <img  src="{{asset('storage/'.$vendor->img)}}" alt="samsung_logo">
-                            </picture>
-                        </a>
-                    </li>
-                    @endforeach
-                    @endif
+                <ul id="vendors-part" class="vendors__list" data-filteredlist data-list="solution">
+
                 </ul>
                 <a href="{{route('vendors')}}" class="vendors__link link svg__link-icon-before"> {{__('index.trust.vendors')}}</a>
-
             </div>
         </div>
     </section>
     @section('footer')
     <x-footer/>
+    <script>
+        function categoryFilter(id) {
+            $.get("{{route('vendor-by-category')}}" + `/${id}`, function (data) {
+                let ul = '';
+                for (let vendor of data)
+                    ul = `
+                        <li class="vendors__item">
+                            <a href="{{route('about-vendor')}}/${vendor.id}">
+                                <picture class="img--hpEnterprise_logo">
+                                    <source srcset="{{asset('storage')}}/${vendor.img}" type="image/webp">
+                                    <img  src="{{asset('storage')}}/${vendor.img}" alt="samsung_logo">
+                                </picture>
+                            </a>
+                        </li>
+                    `
+
+                $('#vendors-part').html(ul);
+            });
+        }
+
+        @if(count($categories))
+            $(function () {
+                categoryFilter({{$categories[0]->id}})
+            })
+        @endif
+    </script>
     @endsection
 </x-layout>

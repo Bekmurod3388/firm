@@ -91,6 +91,10 @@ class ProductController extends Controller
         return view('products', compact('categories', 'products', 'p_array'));
     }
 
+    public function products_by_categories($category) {
+        return Product::query()->where('category_id', $category)->get();
+    }
+
     /**
      * Show the form for editing the specified resource.
      *
