@@ -9,7 +9,7 @@
                 <div class=" vendor-info__card card__blur">
                     <img class="card__title vendor-info__card-title" src="{{asset('storage/'.$vendor->img)}}"
                          alt="acer">
-                    <p class="card__text vendor-info__card-text ">{{$vendor->text}}</p>
+                    <p class="card__text vendor-info__card-text ">{{$vendor->{'text_'.app()->getLocale()} }}</p>
                 </div>
             </div>
         </section>
@@ -45,8 +45,8 @@
                             <iframe width="560" height="315" src="{{$vendor_film->path}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                           <time class="video__time">{{$vendor_film->created_at->format('Y-m-d')}}</time>
                             <h3 class="video__title">
-                            {{$vendor_film->header}} </h3>
-                            <p class="video__text">{{$vendor_film->text}}</p>
+                            {{$vendor_film->{'header_'.app()->getLocale()} }} </h3>
+                            <p class="video__text">{{$vendor_film->{'text_'.app()->getLocale()} }}</p>
                         </li>
                         @endforeach
                     @endif
