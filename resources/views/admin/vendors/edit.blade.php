@@ -30,7 +30,10 @@
                             <label for="img">Загрузите логотип</label>
                             <input type="file" name="img" class="form-control" id="img">
                         </div>
-
+                        <div class="form-group">
+                            <label for="back">Загрузите рисунок <b><i>РАЗМЕР РИСУНОК:(900x674)</i></b> </label>
+                            <input type="file" name="back" class="form-control" id="back">
+                        </div>
                         <div class="form-group">
                             <label for="text">Текст</label>
                             <textarea class="form-control" name="text" id="text"
