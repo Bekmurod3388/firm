@@ -31,10 +31,10 @@
         <section class="video">
             <div class="section-title__wrapper svg__adras-before">
                 <h2 class="section-title__header">
-                    <span class="section-title--small">Смотрите</span>
-                    <span class="section-title--big">Видео</span>
+                    <span class="section-title--small">{{__('vendor.see')}}</span>
+                    <span class="section-title--big">{{__('vendor.video')}}</span>
                 </h2>
-                <p class="section-title__text">Презентации, реклама и события</p>
+                <p class="section-title__text">{{__('vendor.advertising')}}</p>
             </div>
             <div class="container-min">
                 <ul class="video__list">
