@@ -15,26 +15,7 @@
         </section>
         <section class="links">
             <div class="container-min">
-                <ul class="links__nav-list">
-                    <li class="links__nav-item links__nav-item--active ">
-                        <a href="" class="links__nav-link">Ноутбуки</a>
-                    </li>
-                    <li class="links__nav-item">
-                        <a href="" class="links__nav-link">Планшеты</a>
-                    </li>
-                    <li class="links__nav-item">
-                        <a href="" class="links__nav-link">Смартфоны</a>
-                    </li>
-                    <li class="links__nav-item">
-                        <a href="" class="links__nav-link">Мониторы</a>
-                    </li>
-                    <li class="links__nav-item">
-                        <a href="" class="links__nav-link">Настольные компьютеры</a>
-                    </li>
-                    <li class="links__nav-item">
-                        <a href="" class="links__nav-link">Проекторы</a>
-                    </li>
-                </ul>
+
 
                 <ul class="links__list">
                     @if(!empty($vendor_files))

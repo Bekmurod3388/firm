@@ -63,7 +63,7 @@
                             <textarea  class="form-control" name="description_en" id="description" rows="10"></textarea>
                         </div>
                         <div class="form-group">
-                            <label for="img">Добавьте рисунок</label>
+                            <label for="img">Добавьте рисунок <b>РАЗМЕР РИСУНОК:(600x300)</b></label>
                             <input type="file" name="img" class="form-control" id="img">
                         </div>
 
