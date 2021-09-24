@@ -20,8 +20,10 @@ class CreateVendorfilmsTable extends Migration
                 ->cascadeOnUpdate()
                 ->cascadeOnDelete();
             $table->string('path')->nullable();
-            $table->string('header')->nullable();
-            $table->string('text')->nullable();
+            $table->string('header_ru')->nullable();
+            $table->string('header_en')->nullable();
+            $table->string('text_ru')->nullable();
+            $table->string('text_en')->nullable();
             $table->timestamps();
         });
     }

@@ -48,7 +48,8 @@ class VendorController extends Controller
     public function store(Request $request): RedirectResponse
     {
         $vendor = $request->all();
-        $vendor['text'] = $vendor['description'];
+        $vendor['text_ru'] = $vendor['description_ru'];
+        $vendor['text_en'] = $vendor['description_en'];
         if ($request->hasfile('files')) {
             foreach ($request->file('files') as $file) {
                 $data[] = ['path' => $this->createPath('vendor', $file),'file_name'=>$file->getClientOriginalName()];

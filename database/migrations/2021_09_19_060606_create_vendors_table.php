@@ -17,7 +17,8 @@ class CreateVendorsTable extends Migration
             $table->id();
             $table->string('img')->nullable();
             $table->string('back')->nullable();
-            $table->text('text');
+            $table->text('text_ru');
+            $table->text('text_en');
             //$table->string('files');
             $table->text('links');
             $table->bigInteger('category_id')->index();

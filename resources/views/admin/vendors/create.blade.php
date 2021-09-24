@@ -34,8 +34,12 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="descriptio  n">Текст</label>
-                            <textarea class="form-control" name="description" id="description" rows="10"></textarea>
+                            <label for="description_ru">Текст (RU)</label>
+                            <textarea class="form-control" name="description_ru" id="description_ru" rows="10"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="description_en">Текст (EN)</label>
+                            <textarea class="form-control" name="description_en" id="description_en" rows="10"></textarea>
                         </div>
                         <div class="form-group">
                             <label for="files">Загрузите файлы</label>
