@@ -17,7 +17,7 @@
                     @endforeach
                 </ul>
                 <ul id="products-part" class="products__list" data-filteredlist data-list="solution">
-                    @php($loc = request()->get('language') ?? 'ru')
+                    @php($loc = request()->get('language') ?? app()->getLocale())
                 </ul>
             </div>
         </div>
