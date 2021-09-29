@@ -28,6 +28,8 @@
           href="{{asset('css/libs.min.css')}}">
     <link rel="stylesheet"
           href="{{asset('css/style.min.css')}}">
+    <link rel="stylesheet"
+          href="{{asset('css/swiper-bundle.min.css')}}">
     <title>CA-DC</title>
 </head>
 
@@ -43,6 +45,7 @@
     </main>
 
     @yield('footer')
+    <script src="{{asset('js/swiper-bundle.min.js')}}"></script>
     <script src="{{asset('js/libs.min.js')}}"></script>
     <script src="{{asset('js/main.min.js')}}"></script>
     <script src="{{asset('/assets/js/plugin/sweetalert/sweetalert.min.js')}}"></script>

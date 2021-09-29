@@ -85,23 +85,25 @@
 
 
 			<div class="container-min">
-				<div class="vendors__wrapper">
-					<ul class="vendors__list">
-						@if(!empty($vendors))
+				<div class="vendors__wrapper ">
+                    <div class="swiper vendors__swiper">
+                        <ul class="vendors__list swiper-wrapper vendors__swiper">
+                            @if(!empty($vendors))
                             @foreach($vendors as $vendor)
-                        <li class="vendors__item">
-							<a href="{{route('about-vendor',$vendor->id)}}">
-								<picture class="img--samsung_logo">
-									<source srcset="{{asset('storage/'.$vendor->img)}}"   type="image/webp">
-									<img  src="{{asset('storage/'.$vendor->img)}}" alt="samsung_logo">
-								</picture>
-							</a>
-						</li>
+                            <li class="vendors__item swiper-slide">
+                                <a href="{{route('about-vendor',$vendor->id)}}">
+                                    <picture class="img--samsung_logo">
+                                        <source srcset="{{asset('storage/'.$vendor->img)}}"   type="image/webp">
+                                        <img  src="{{asset('storage/'.$vendor->img)}}" alt="samsung_logo">
+                                    </picture>
+                                </a>
+                            </li>
                             @endforeach
                             @endif
-
-					</ul>
-					<a href="vendors.blade.php" class="vendors__link link svg__link-icon-before">{{__('index.trust.vendors')}}</a>
+                        </ul>
+                        <div class="swiper-pagination"></div>
+                    </div>
+					<a href={{route('vendors')}} class="vendors__link link svg__link-icon-before">{{__('index.trust.vendors')}}</a>
 
 				</div>
 			</div>
