@@ -85,6 +85,24 @@
 
 
 			<div class="container-min">
+                <ul id="products-part" class="products__list" data-filteredlist data-list="solution">
+                    @foreach($products as $product)
+                        <li class="products__item">
+                            <div class="products__item-top">
+                                <img src="{{asset('/storage/products/'.$product->img)}}" class="products__svg" width="82" height="82">
+                                <h3 class="products__item-title">
+                                    <span class="products__item-title--big">{{$product->{'head_'.app()->getLocale()} }}</span>
+                                </h3>
+                            </div>
+                            <p class="products__item-text">{{Str::limit($product->{'description_'.app()->getLocale()},150) }}</p>
+                            <div class="products__item-bottom">
+                                <a class="products__more btn"
+                                   href="{{route('products-item')}}/${product.id}">Подробно</a>
+                                <button class="products__get btn">Запросить</button>
+                            </div>
+                        </li>
+                    @endforeach
+                </ul>
 				<div class="vendors__wrapper ">
                     <div class="swiper vendors__swiper">
                         <ul class="vendors__list swiper-wrapper vendors__swiper">
