@@ -69,59 +69,77 @@
 					<p class="card__text about-us__card-text--top ">{{__('index.about.desc1')}}</p>
 					<p class="card__text about-us__card-text--bottom wow slideInRight " data-wow-delay="0.8s" >
                     {{__('index.about.desc2')}}
-					</p>
-				</div>
-			</div>
-		</section>
-		<section class="vendors">
-			<div class="section-title__wrapper svg__adras-before wow slideInLeft">
-				<h2 class="section-title__header">
-					<span class="section-title--small">{{__('index.trust.header')}}</span>
-					<span class="section-title--big">{{__('index.trust.header2')}}</span>
-				</h2>
-				<p class="section-title__text">{{__('index.trust.desc')}}
-				</p>
-			</div>
-
-
-			<div class="container-min">
-                <ul id="products-part" class="products__list" data-filteredlist data-list="solution">
+                </p>
+            </div>
+        </div>
+    </section>
+    <section class="products products-page">
+        <div class="section-title__wrapper svg__adras-before wow slideInLeft">
+            <h2 class="section-title__header">
+                <span class="section-title--small">{{__('index.products.header')}}</span>
+                <span class="section-title--big">{{__('index.products.header2')}}</span>
+            </h2>
+            <p class="section-title__text">{{__('index.products.desc')}}
+            </p>
+        </div>
+        <div class="container-min">
+            <div class="swiper products__swiper">
+                <ul id="products-part" class="products__list swiper-wrapper products__swiper-wrapper" data-filteredlist
+                    data-list="solution">
                     @foreach($products as $product)
-                        <li class="products__item">
-                            <div class="products__item-top">
-                                <img src="{{asset('/storage/products/'.$product->img)}}" class="products__svg" width="82" height="82">
-                                <h3 class="products__item-title">
-                                    <span class="products__item-title--big">{{$product->{'head_'.app()->getLocale()} }}</span>
-                                </h3>
-                            </div>
-                            <p class="products__item-text">{{Str::limit($product->{'description_'.app()->getLocale()},150) }}</p>
-                            <div class="products__item-bottom">
-                                <a class="products__more btn"
-                                   href="{{route('products-item')}}/${product.id}">Подробно</a>
-                                <button class="products__get btn">Запросить</button>
-                            </div>
-                        </li>
+                    <li class="products__item swiper-slide">
+                        <div class="products__item-top">
+                            <img src="{{asset('/storage/products/'.$product->img)}}" class="products__svg" width="82"
+                                 height="82">
+                            <h3 class="products__item-title">
+                                <span
+                                    class="products__item-title--big">{{$product->{'head_'.app()->getLocale()} }}</span>
+                            </h3>
+                        </div>
+                        <p class="products__item-text">{{Str::limit($product->{'description_'.app()->getLocale()},150)
+                            }}</p>
+                        <div class="products__item-bottom">
+                            <a class="products__more btn"
+                               href="{{route('products-item')}}/${product.id}">{{__('index.products.more_info')}}</a>
+                            <button class="products__get btn">{{__('index.products.get')}}</button>
+                        </div>
+                    </li>
                     @endforeach
                 </ul>
-				<div class="vendors__wrapper ">
-                    <div class="swiper vendors__swiper">
-                        <ul class="vendors__list swiper-wrapper vendors__swiper">
-                            @if(!empty($vendors))
-                            @foreach($vendors as $vendor)
-                            <li class="vendors__item swiper-slide">
-                                <a href="{{route('about-vendor',$vendor->id)}}">
-                                    <picture class="img--samsung_logo">
-                                        <source srcset="{{asset('storage/'.$vendor->img)}}"   type="image/webp">
-                                        <img  src="{{asset('storage/'.$vendor->img)}}" alt="samsung_logo">
-                                    </picture>
-                                </a>
-                            </li>
-                            @endforeach
-                            @endif
-                        </ul>
-                        <div class="swiper-pagination"></div>
-                    </div>
-					<a href={{route('vendors')}} class="vendors__link link svg__link-icon-before">{{__('index.trust.vendors')}}</a>
+                <div class="swiper-pagination swiper-pagination--products"></div>
+            </div>
+        </div>
+    </section>
+    <section class="vendors">
+        <div class="section-title__wrapper svg__adras-before wow slideInLeft">
+            <h2 class="section-title__header">
+                <span class="section-title--small">{{__('index.trust.header')}}</span>
+                <span class="section-title--big">{{__('index.trust.header2')}}</span>
+            </h2>
+            <p class="section-title__text">{{__('index.trust.desc')}}
+            </p>
+        </div>
+
+        <div class="container-min">
+            <div class="vendors__wrapper ">
+                <div class="swiper vendors__swiper">
+                    <ul class="vendors__list swiper-wrapper vendors__swiper-wrapper">
+                        @if(!empty($vendors))
+                        @foreach($vendors as $vendor)
+                        <li class="vendors__item swiper-slide">
+                            <a href="{{route('about-vendor',$vendor->id)}}">
+                                <picture class="img--samsung_logo">
+                                    <source srcset="{{asset('storage/'.$vendor->img)}}" type="image/webp">
+                                    <img src="{{asset('storage/'.$vendor->img)}}" alt="samsung_logo">
+                                </picture>
+                            </a>
+                        </li>
+                        @endforeach
+                        @endif
+                    </ul>
+                    <div class="swiper-pagination swiper-pagination--vendors"></div>
+                </div>
+                <a href={{route('vendors')}} class="vendors__link link svg__link-icon-before">{{__('index.trust.vendors')}}</a>
 
 				</div>
 			</div>
@@ -158,6 +176,49 @@
 				</ul>
 			</div>
 		</section>
+    <div>
+        <div class="modal-back modal__disable">
+            <div class="card__blur form modal ">
+                <div class="modal__title">
+                    <p class="form__title">{{__('about.product.consult')}}</p>
+                    <button class="modal__close">x</button>
+                </div>
+                <form id="contactForm">
+                    <ul class="form__list">
+                        <li class="form__item"><input type="text" class="form__input" name="name"  id="name" required placeholder="{{__('index.contact.name')}}"></li>
+                        <li class="form__item"><input type="tel" class="form__input" name="phone" id="phone" required placeholder="+998 (__) ___-__-__"></li>
+                        <li class="form__item"><input type="email" class="form__input" name="email" id="email" required placeholder="Email"></li>
+                    </ul>
+                    <input type="submit" class="form__submit" value="{{__('index.contact.send')}}">
+                </form>
+            </div>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
+            <script type="text/javascript">
+                $('#contactForm').on('submit',function(e){
+                    e.preventDefault();
+                    let name = $('#name').val();
+                    let phone = $('#phone').val();
+                    let email = $('#email').val();
+                    $.ajax({
+                        url: "{{route('messages.store')}}",
+                        type:"POST",
+                        data:{
+                            "_token": "{{ csrf_token() }}",
+                            name:name,
+                            phone:phone,
+                            email:email,
+                        },
+                        success:function(response){
+                            Swal.fire({
+                                icon: 'success',
+                                title: '{{__("about.success")}}',
+                            })
+                        },
+                    });
+                });
+            </script>
+        </div>
+    </div><x></x>
     @section('footer')
         <x-footer></x-footer>
     @endsection

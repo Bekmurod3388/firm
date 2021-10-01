@@ -27,6 +27,13 @@ return [
         'desc'=>'Partnership with world leaders allows us to offer the best IT solutions on the market',
         'vendors'=>' All vendors',
     ],
+    'products'=>[
+        'header'=>'who trusts us',
+        'header2'=>'Products and services',
+        'desc'=>'Partnership with world leaders allows us to offer the best solutions in the Uzbek market',
+        'more_info' => 'Details ',
+        'get' => 'Send enquiry '
+    ],
     'news'=>[
         'header'=>'Stay up to date',
         'header2'=>'news',
