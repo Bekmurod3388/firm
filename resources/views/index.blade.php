@@ -100,7 +100,7 @@
                             }}</p>
                         <div class="products__item-bottom">
                             <a class="products__more btn"
-                               href="{{route('products-item')}}/${product.id}">{{__('index.products.more_info')}}</a>
+                               href="{{route('products-item',[$product->id])}}">{{__('index.products.more_info')}}</a>
                             <button class="products__get btn">{{__('index.products.get')}}</button>
                         </div>
                     </li>
