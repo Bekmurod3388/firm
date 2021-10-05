@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="ru" class="_no_js">
 
 <head lang="ru">
     <meta charset="UTF-8">
@@ -22,6 +22,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.6.9/sweetalert2.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.6.9/sweetalert2.min.js"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        document.documentElement.classList.remove("_no_js");
+    </script>
     <link rel="stylesheet"
           href="{{asset('css/fonts.css')}}" as="style">
     <link rel="stylesheet"

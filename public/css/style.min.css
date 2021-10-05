@@ -173,7 +173,7 @@ ul.list--hidden {
         align-items: center;
         left: 0;
         position: absolute;
-        top: 75px;
+        top: 77.9px;
         -webkit-transition: .5s;
         -o-transition: .5s;
         transition: .5s;
@@ -359,19 +359,25 @@ ul.list--hidden {
 }
 
 @media screen and (max-width: 1200px) {
+    ._webp .header-component {
+        background-image: url(../img/main-preview.webp);
+    }
+    ._no-webp .header-component,
+    ._no_js .header-component {
+        background-image: url(../img/main-preview.jpg);
+    }
+
     .header-component {
         margin-top: 0;
-        margin-bottom: 250px;
+        margin-bottom: 120px;
 
-        background-image: url(../img/main-preview.jpg);
         background-repeat: no-repeat;
-        background-position: right top;
+        background-position: center;
         background-size: cover;
 
         padding-bottom: 0;
         padding-top: 1px
     }
-
     .header-component__left-side {
         margin: 0
     }
@@ -381,13 +387,15 @@ ul.list--hidden {
         max-width: 644px;
         margin-left: auto;
         margin-right: auto;
+
+
+        transform: translateY(50%);
+    }
+    .header-component__left-side{
         background: rgba(255, 255, 255, .7);
         -webkit-backdrop-filter: blur(25px);
         backdrop-filter: blur(25px);
         padding: 50px 75px 0;
-
-        position: relative;
-        top: 60px;
     }
 
     .header-component .header-component__bottom-side::before, .header-component .header-component__img {
@@ -427,8 +435,7 @@ ul.list--hidden {
     }
 
     .header-component {
-        background-size: 100% 76%;
-        margin-bottom: 0
+        margin-bottom: 100px
     }
 
     .header-component__title{
@@ -436,10 +443,11 @@ ul.list--hidden {
     }
 
     .header-component .header-component__bottom-side {
-        margin-top: 290px;
+        margin-top: 210px;
         max-width: 83.8%;
+    }
+    .header-component__left-side{
         padding: 23px 35px 20px;
-        top: -30px
     }
 
     .header-component .nav-bar {
@@ -1404,8 +1412,14 @@ ul.list--hidden {
     }
 }
 
-.about-us__wrapper {
+._webp .about-us__wrapper {
+    background-image: url(../img/about-us.webp);
+}
+._no-webp .about-us__wrapper,
+._no_js .about-us__wrapper {
     background-image: url(../img/about-us.jpg);
+}
+.about-us__wrapper {
     background-position: left top;
     background-repeat: no-repeat;
     background-size: 960px 100%;
@@ -1726,7 +1740,6 @@ ul.list--hidden {
     }
 
     .about-us__wrapper {
-        background-image: url(../img/about-us-m.jpg);
         background-size: cover;
         margin-top: 40px;
         margin-bottom: 0;
@@ -2007,8 +2020,14 @@ ul.list--hidden {
     }
 }
 
-.our-goal__wrapper {
+._webp .our-goal__wrapper {
+    background-image: url(../img/about-us.webp);
+}
+._no-webp .our-goal__wrapper,
+._no_js .our-goal__wrapper {
     background-image: url(../img/about-us.jpg);
+}
+.our-goal__wrapper {
     background-position: left top;
     background-repeat: no-repeat;
     background-size: 960px 100%;
@@ -2057,7 +2076,7 @@ ul.list--hidden {
 
 @media screen and (max-width: 1440px) {
     .our-goal__wrapper {
-        background-size: 598px 100%;
+        background-size: 50% 100%;
         margin-bottom: 94px;
         padding-bottom: 62px
     }
@@ -2077,11 +2096,11 @@ ul.list--hidden {
 
 @media screen and (max-width: 1200px) {
     .our-goal {
-        margin-top: 150px
+        margin-top: 240px
     }
 
     .our-goal__wrapper {
-        background-size: 100% 561px;
+        background-size: cover;
         margin-bottom: 94px;
         padding-bottom: 62px
     }
@@ -2102,12 +2121,16 @@ ul.list--hidden {
 
 @media screen and (max-width: 768px) {
     .our-goal {
-        margin-top: 50px
+        margin-top: 150px
     }
-
-    .our-goal__wrapper {
+    ._webp .our-goal__wrapper {
+        background-image: url(../img/about-us-m.webp);
+    }
+    ._no-webp .our-goal__wrapper,
+    ._no_js .our-goal__wrapper {
         background-image: url(../img/about-us-m.jpg);
-        background-size: 100% 263px;
+    }
+    .our-goal__wrapper {
         margin-bottom: 94px;
         padding-bottom: 0
     }
@@ -2121,7 +2144,7 @@ ul.list--hidden {
     }
 
     .our-goal__card-title{
-        font-size: 1.2rem;
+        font-size: 1.6rem;
     }
     .our-goal__card-text {
         margin-bottom: 30px
@@ -2208,6 +2231,11 @@ ul.list--hidden {
 
 .our-values__svg--responsibility {
     width: 33%
+}
+@media screen and (max-width: 500px) {
+    .our-goal__card-title{
+        font-size: 1.2rem;
+    }
 }
 
 @media screen and (max-width: 1920px) {
@@ -2692,41 +2720,41 @@ ul.list--hidden {
     padding-bottom: 100px
 }
 
-.about-vendor-page--samsung .vendor-info__wrapper {
-    background-image: url(../img/about-vendors/about-vendor-samsung.jpg)
-}
+/*.about-vendor-page--samsung .vendor-info__wrapper {*/
+/*    background-image: url(../img/about-vendors/about-vendor-samsung.jpg)*/
+/*}*/
 
-.about-vendor-page--canon .vendor-info__wrapper {
-    background-image: url(../img/about-vendors/about-vendor-canon.jpg)
-}
+/*.about-vendor-page--canon .vendor-info__wrapper {*/
+/*    background-image: url(../img/about-vendors/about-vendor-canon.jpg)*/
+/*}*/
 
-.about-vendor-page--acer .vendor-info__wrapper {
-    background-image: url(../img/about-vendors/about-vendor-acer.jpg)
-}
+/*.about-vendor-page--acer .vendor-info__wrapper {*/
+/*    background-image: url(../img/about-vendors/about-vendor-acer.jpg)*/
+/*}*/
 
-.about-vendor-page--axis .vendor-info__wrapper {
-    background-image: url(../img/about-vendors/about-vendor-axis.jpg)
-}
+/*.about-vendor-page--axis .vendor-info__wrapper {*/
+/*    background-image: url(../img/about-vendors/about-vendor-axis.jpg)*/
+/*}*/
 
-.about-vendor-page--cisco .vendor-info__wrapper {
-    background-image: url(../img/about-vendors/about-vendor-cisco.jpg)
-}
+/*.about-vendor-page--cisco .vendor-info__wrapper {*/
+/*    background-image: url(../img/about-vendors/about-vendor-cisco.jpg)*/
+/*}*/
 
-.about-vendor-page--lenovo .vendor-info__wrapper {
-    background-image: url(../img/about-vendors/about-vendor-lenovo.jpg)
-}
+/*.about-vendor-page--lenovo .vendor-info__wrapper {*/
+/*    background-image: url(../img/about-vendors/about-vendor-lenovo.jpg)*/
+/*}*/
 
-.about-vendor-page--nec .vendor-info__wrapper {
-    background-image: url(../img/about-vendors/about-vendor-nec.jpg)
-}
+/*.about-vendor-page--nec .vendor-info__wrapper {*/
+/*    background-image: url(../img/about-vendors/about-vendor-nec.jpg)*/
+/*}*/
 
-.about-vendor-page--panasonic .vendor-info__wrapper {
-    background-image: url(../img/about-vendors/about-vendor-panasonic.jpg)
-}
+/*.about-vendor-page--panasonic .vendor-info__wrapper {*/
+/*    background-image: url(../img/about-vendors/about-vendor-panasonic.jpg)*/
+/*}*/
 
-.about-vendor-page--realme .vendor-info__wrapper {
-    background-image: url(../img/about-vendors/about-vendor-realme.jpg)
-}
+/*.about-vendor-page--realme .vendor-info__wrapper {*/
+/*    background-image: url(../img/about-vendors/about-vendor-realme.jpg)*/
+/*}*/
 
 .vendor-info__card {
     width: 850px;
@@ -4163,10 +4191,16 @@ ul.list--hidden {
 }
 
 
+._webp .footer__wrapper {
+    background-image: url(../img/footer-image.webp);
+}
+._no-webp .footer__wrapper,
+._no_js .footer__wrapper{
+    background-image: url(../img/footer-image.jpg);
+}
 
 .footer__wrapper {
     position: relative;
-    background-image: url(../img/footer-image.jpg);
     background-repeat: no-repeat;
     background-position: right;
     background-size: 1273px 100%
@@ -4457,7 +4491,6 @@ ul.list--hidden {
     }
 
     .footer__wrapper {
-        background-image: url(../img/footer-image-m.jpg);
         background-size: 100% 45%;
         background-position: 0 29%
     }
@@ -4572,26 +4605,16 @@ html {
     background-color: #FFFFFF;
     z-index: 10;
 }
-.products__list  .products__item{
+.products__list  .products__item,
+.vendors__list .vendors__item{
     height: auto;
 }
 body.lock{
     overflow: hidden;
 }
-
-function testWebP(callback) {
-    var webP = new Image();
-webP.onload = webP.onerror = function () {
-callback(webP.height == 2);
-};
-webP.src = 'data:image/webp;base64,UklGRjoAAABXRUJQVlA4IC4AAACyAgCdASoCAAIALmk0mk0iIiIiIgBoSygABc6WWgAA/veff/0PP8bA//LwYAAA';
+.products__swiper  .products__item:last-child:nth-child(2n+1){
+    margin-left: 0;
+    margin-right: 0;
 }
 
-testWebP(function (support) {
-if (support === true) {
-    document.querySelector('html').classList.add('_webp');
-} else {
-      document.querySelector('html').classList.add('_no-webp');
-  }
-});
 
