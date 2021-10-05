@@ -24,6 +24,22 @@
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script>
         document.documentElement.classList.remove("_no_js");
+
+        function testWebP(callback) {
+            var webP = new Image();
+            webP.onload = webP.onerror = function () {
+                callback(webP.height == 2);
+            };
+            webP.src = 'data:image/webp;base64,UklGRjoAAABXRUJQVlA4IC4AAACyAgCdASoCAAIALmk0mk0iIiIiIgBoSygABc6WWgAA/veff/0PP8bA//LwYAAA';
+        }
+
+        testWebP(function (support) {
+            if (support === true) {
+                document.querySelector('html').classList.add('_webp');
+            } else {
+                document.querySelector('html').classList.add('_no-webp');
+            }
+        });
     </script>
     <link rel="stylesheet"
           href="{{asset('css/fonts.css')}}" as="style">
