@@ -55,7 +55,7 @@
 						</span>
 						<p class="advantages__text-wrapper">
 							<span class="advantages__numbers" data-calc="80+">0+</span>
-							<span class="advantages__text">{{__('index.services.worker')}}</span>
+                                <span class="advantages__text">{{__('index.services.worker')}}</span>
 						</p>
 					</li>
 				</ul>
@@ -73,43 +73,27 @@
             </div>
         </div>
     </section>
-    <section class="products products-page">
-        <div class="section-title__wrapper svg__adras-before wow slideInLeft">
-            <h2 class="section-title__header">
-                <span class="section-title--small">{{__('index.products.header')}}</span>
-                <span class="section-title--big">{{__('index.products.header2')}}</span>
-            </h2>
-            <p class="section-title__text">{{__('index.products.desc')}}
-            </p>
-        </div>
-        <div class="container-min">
-            <div class="swiper products__swiper">
-                <ul id="products-part" class="products__list swiper-wrapper products__swiper-wrapper" data-filteredlist
-                    data-list="solution">
-                    @foreach($products as $product)
-                    <li class="products__item swiper-slide">
-                        <div class="products__item-top">
-                            <img src="{{asset('/storage/products/'.$product->img)}}" class="products__svg" width="82"
-                                 height="82">
-                            <h3 class="products__item-title">
-                                <span
-                                    class="products__item-title--big">{{$product->{'head_'.app()->getLocale()} }}</span>
-                            </h3>
-                        </div>
-                        <p class="products__item-text">{{Str::limit($product->{'description_'.app()->getLocale()},150)
-                            }}</p>
-                        <div class="products__item-bottom">
-                            <a class="products__more btn"
-                               href="{{route('products-item',[$product->id])}}">{{__('index.products.more_info')}}</a>
-                            <button class="products__get btn">{{__('index.products.get')}}</button>
-                        </div>
-                    </li>
-                    @endforeach
-                </ul>
-                <div class="swiper-pagination swiper-pagination--products"></div>
+
+        <section class="products products-page">
+            <div class="container-min">
+                <div class="products__wrapper">
+                    <ul class="filter-list">
+                        @foreach($categories as $category)
+                            <li class="filter-item @if($loop->index == 0){{'filter-item--active'}}@endif">
+                                <button class="filter-btn" data-listToggle="solution"
+                                        onclick="categoryFilter({{$category->id}})">
+                                    {{$category->name}}
+                                </button>
+                            </li>
+                        @endforeach
+                    </ul>
+                    <ul id="products-part" class="products__list" data-filteredlist data-list="solution">
+                        @php($loc = request()->get('language') ?? app()->getLocale())
+                    </ul>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
+
     <section class="vendors">
         <div class="section-title__wrapper svg__adras-before wow slideInLeft">
             <h2 class="section-title__header">
@@ -223,3 +207,39 @@
         <x-footer></x-footer>
     @endsection
 </x-layout>
+<script>
+    function categoryFilter(id) {
+        $.get("{{route('products-by-category')}}" + `/${id}`, function (data) {
+            let ul = '';
+            for (let product of data)
+                ul += `
+                            <li class="products__item">
+                                <div class="products__item-top">
+                                    <img src="/storage/products/${product.img}" class="products__svg" width="82" height="82">
+                                    <h3 class="products__item-title">
+                                        <span class="products__item-title--big">${product.head_{{$loc}}}</span>
+                                    </h3>
+                                </div>
+                                <p class="products__item-text">${fromBegin(product.description_{{$loc}})}</p>
+                                <div class="products__item-bottom">
+                                    <a class="products__more btn"
+                                       href="{{route('products-item')}}/${product.id}">{{__('index.products.more_info')}}</a>
+                                    <button class="products__get btn">{{__('index.products.get')}}</button>
+                                </div>
+                            </li>
+                        `
+
+            $('#products-part').html(ul);
+        });
+    }
+
+    function fromBegin(srt) {
+        return srt.substr(0, 150);
+    }
+
+    @if(count($categories))
+    $(function () {
+        categoryFilter({{$categories[0]->id}})
+    })
+    @endif
+</script>
