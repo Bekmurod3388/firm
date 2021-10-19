@@ -3,18 +3,19 @@
         <x-header/>
     @endsection
 
-
-        <section class="vendor-info about-vendor-page--acer">
-            <div class="vendor-info__wrapper" style="background-image: url({{asset('storage/'.$vendor->back)}})">
-                <div class=" vendor-info__card card__blur">
-                    <img class="card__title vendor-info__card-title" src="{{asset('storage/'.$vendor->img)}}"
-                         alt="acer">
-                    <p class="card__text vendor-info__card-text ">{{$vendor->{'text_'.app()->getLocale()} }}</p>
+        <div class="container-content">
+            <section class="vendor-info about-vendor-page--acer">
+                <div class="vendor-info__wrapper">
+                    <div class=" vendor-info__card card__blur">
+                        <img class="vendor-info__photo" src="http://cadc.w3soft.uz/storage/vendor/1632387504.jpg"
+                             alt="acer">
+                        <p class="card__text vendor-info__card-text ">Datapath Limited - мировой лидер в области компьютерной графики, видео захвата и цифровых дисплеев. Компания Datapath, основанная в 1982 году и в настоящее время распространяющая продукцию на 5 континентах, имеет конечных клиентов более чем в 100 странах по всему миру; охватывает множество отраслей, таких как визуальные СМИ, военная промышленность, образование, безопасность и здравоохранение.</p>
+                    </div>
                 </div>
-            </div>
-        </section>
+            </section>
+        </div>
         <section class="links">
-            <div class="container-min">
+            <div class="container-content">
 
 
                 <ul class="links__list">
@@ -36,7 +37,7 @@
                 </h2>
                 <p class="section-title__text">{{__('vendor.advertising')}}</p>
             </div>
-            <div class="container-min">
+            <div class="container-content">
                 <ul class="video__list">
 
                 @if(!empty($vendor_films))
