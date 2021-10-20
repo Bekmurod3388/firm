@@ -3621,7 +3621,8 @@ ul.list--hidden {
 .news-item__photo,
 .vendor-info__photo
 {
-    width: 100%;
+    width: 450px;
+    max-width: 100%;
     margin-bottom: 50px;
 }
 
