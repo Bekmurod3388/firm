@@ -7,7 +7,7 @@
             <section class="vendor-info about-vendor-page--acer">
                 <div class="vendor-info__wrapper">
                     <div class=" vendor-info__card card__blur">
-                        <img class="vendor-info__photo" src="http://abris.usoftdev.uz/uploads/vendor/yHIDXuWQmMATaRlcJM3ykIDIay6PtlezDvQksEnh.png"
+                        <img class="vendor-info__photo" src="{{asset("storage/".$vendor->back)}}"
                              alt="acer">
                         <p class="card__text vendor-info__card-text ">Datapath Limited - мировой лидер в области компьютерной графики, видео захвата и цифровых дисплеев. Компания Datapath, основанная в 1982 году и в настоящее время распространяющая продукцию на 5 континентах, имеет конечных клиентов более чем в 100 странах по всему миру; охватывает множество отраслей, таких как визуальные СМИ, военная промышленность, образование, безопасность и здравоохранение.</p>
                     </div>
