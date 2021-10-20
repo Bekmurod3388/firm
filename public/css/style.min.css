@@ -3618,7 +3618,11 @@ ul.list--hidden {
 .news-item__wrapper {
     background-img:none !important;
 }
-.news-item__photo,
+.news-item__photo{
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 50px;
+}
 .vendor-info__photo
 {
     width: 450px;
