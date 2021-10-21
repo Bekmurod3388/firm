@@ -25,11 +25,11 @@
                           enctype="multipart/form-data">
                         @csrf
                         <div class="form-group">
-                            <label for="img">Загрузите логотип</label>
+                            <label for="img">Добавить лого</label>
                             <input type="file" name="img" class="form-control" id="img">
                         </div>
                         <div class="form-group">
-                            <label for="back">Загрузите рисунок <b><i>РАЗМЕР РИСУНОК:(900x674)</i></b> </label>
+                            <label for="back">Добавить изображение <b><i>Размер изображения:(900x674)</i></b> </label>
                             <input type="file" name="back" class="form-control" id="back">
                         </div>
 
@@ -42,12 +42,12 @@
                             <textarea class="form-control" name="description_en" id="description_en" rows="10"></textarea>
                         </div>
                         <div class="form-group">
-                            <label for="files">Загрузите файлы</label>
+                            <label for="files">Добавить файлы</label>
                             <input type="file" name="files[]" class="form-control" id="files" multiple>
                         </div>
 
                         <div class="form-group">
-                            <label for="category">Выберите категория</label>
+                            <label for="category">Выберите категорию</label>
                             <select class="form-control" name="category_id">
                                 <option></option>
                                 @foreach($categories as $category)

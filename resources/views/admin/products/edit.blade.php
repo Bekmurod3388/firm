@@ -49,7 +49,7 @@
                             <textarea  class="form-control"  name="description_en" id="description_en" rows="10">{{$product->description_en}}</textarea>
                         </div>
                         <div class="form-group">
-                            <label for="category">Выберите категория</label>
+                            <label for="category">Выбрать категорию</label>
                             <select class="form-control" name="category_id">
                                 <option></option>
                                 @foreach($categories as $category)
@@ -58,11 +58,11 @@
                             </select>
                         </div>
                         <div class="form-group">
-                        <label for="img">Добавьте иконок</label>
+                        <label for="img">Добавить Лого</label>
                         <input type="file" name="img" class="form-control" id="img">
                     </div>
                         <div class="form-group">
-                            <label for="img2">Добавьте рисунок</label>
+                            <label for="img2">Добавить изображение</label>
                             <input type="file" name="img2" class="form-control" id="img2">
                         </div>
                     <button type="submit" class="btn btn-primary">Сохранить</button>
