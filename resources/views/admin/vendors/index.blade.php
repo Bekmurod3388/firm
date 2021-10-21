@@ -23,7 +23,7 @@
                         <tr>
                             <th scope="col">#</th>
                             <th scope="col">Рисунок</th>
-                            <th scope="col">Текст</th>
+                            <th scope="col">Имя</th>
                             <th scope="col">Действие</th>
                         </tr>
                         </thead>
@@ -32,7 +32,7 @@
                         <tr>
                             <th scope="row" class="col-1">{{$vendor->id}}</th>
                             <td><img src="/storage/{{$vendor->img}}" width="180px"></td>
-                            <td>{{$vendor->text }}</td>
+                            <td>{{$vendor->name }}</td>
                             <td class="col-2">
                                 <form action="{{ route('admin.vendors.destroy',$vendor->id) }}" method="POST">
                                 <a class="btn btn-warning btn-sm" href="{{ route('admin.vendors.edit',$vendor->id) }}">

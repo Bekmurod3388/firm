@@ -66,6 +66,22 @@
                             <input type="file" name="img2" class="form-control" id="img2">
                         </div>
 
+                        <div class="form-group">
+                            <label>Вендоры</label>
+                            <div class="row">
+                            @foreach($vendors as $vendor)
+                                <div class="col-md-2">
+                                    <div class="form-check">
+                                    <label class="form-check-label">
+                                        <input class="form-check-input" type="checkbox" name="vendor_id[]" value="{{$vendor->id}}">
+                                        <span class="form-check-sign">{{$vendor->name}}</span>
+                                    </label>
+                                </div>
+                                </div>
+                            @endforeach
+                            </div>
+                        </div>
+
                         <button type="submit" id="alert" class="btn btn-primary">Сохранить</button>
                         <input type="reset" class="btn btn-danger" value="Очистить">
                     </form>

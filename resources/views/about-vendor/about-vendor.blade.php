@@ -54,6 +54,7 @@
                 </ul>
             </div>
         </section>
+
     @section('footer')
         <x-footer/>
         @endsection

@@ -27,6 +27,10 @@
                         @csrf
                         @method('put')
                         <div class="form-group">
+                            <label for="name">Наименование</label>
+                            <input type="text" name="name" class="form-control" id="name" value="{{old('text', $model->name)}}" >
+                        </div>
+                        <div class="form-group">
                             <label for="img">Добавить лого</label>
                             <input type="file" name="img" class="form-control" id="img">
                         </div>

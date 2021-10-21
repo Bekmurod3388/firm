@@ -5,7 +5,10 @@ namespace App\Http\Controllers;
 use App\Models\Category;
 use App\Models\Post;
 use App\Models\Product;
+use App\Models\ProductVendors;
+use App\Models\Vendor;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 
 class ProductController extends Controller
@@ -18,6 +21,7 @@ class ProductController extends Controller
     public function index()
     {
         $products = Product::all();
+
         return view('admin.products.index')->with('products', $products);
     }
 
@@ -29,7 +33,8 @@ class ProductController extends Controller
     public function create()
     {
         $categories = Category::all();
-        return view('admin.products.create')->with('categories', $categories);
+        $vendors = Vendor::all();
+        return view('admin.products.create',compact('categories', 'vendors'));
 
     }
 
@@ -54,7 +59,8 @@ class ProductController extends Controller
         $fileName2 = $uuid . '-' . time() . '.' . $request->img2->extension();
         $request->img->move(public_path('../storage/app/public/products'), $fileName);
         $request->img2->move(public_path('../storage/app/public/products'), $fileName2);
-        Product::create([
+        $product = new Product();
+        $product->fill([
             'head_ru' => $request->head_ru,
             'head2_ru' => $request->head2_ru,
             'description_ru' => $request->description_ru,
@@ -65,6 +71,12 @@ class ProductController extends Controller
             'img2' => $fileName,
             'category_id' => $request->category_id
         ]);
+        $product->save();
+        $vendors=$request->input('vendor_id');
+        if(isset($vendors)){
+
+            $product->vendors()->sync($vendors);
+        }
         addAlert('success');
         return redirect()->route('admin.products.index')->with('success', 'Продукт успешно созданы.');
     }
@@ -77,8 +89,10 @@ class ProductController extends Controller
      */
     public function show(Product $product)
     {
+
         $last_id = Product::latest('id')->first();
-        return view('product-item.product-item', compact('product','last_id'));
+        $vendors = $product->vendors()->get();
+        return view('product-item.product-item', compact('product','last_id','vendors'));
     }
 
     public function products_show()
@@ -104,7 +118,8 @@ class ProductController extends Controller
     public function edit(Product $product)
     {
         $categories = Category::all();
-        return view('admin.products.edit', compact('product', 'categories'));
+        $vendors = Vendor::all();
+        return view('admin.products.edit', compact('product', 'categories','vendors'));
     }
     public function get_category_products(Category $category){
 
@@ -120,9 +135,11 @@ class ProductController extends Controller
      */
     public function update(Request $request, Product $product)
     {
+
         $request->validate([
             'head_ru' => 'required',
             'description_ru' => 'required',
+            'category_id'=>'required',
         ]);
         if ($request->hasFile('img')) {
             $uuid = Str::uuid()->toString();
@@ -138,7 +155,8 @@ class ProductController extends Controller
                 'img' => $fileName,
                 'category_id' => $request->category_id
             ]);
-        } elseif($request->hasFile('img2')) {
+        }
+        if($request->hasFile('img2')) {
             $uuid = Str::uuid()->toString();
             $fileName2 = $uuid . '-' . time() . '.' . $request->img2->extension();
             $request->img2->move(public_path('../storage/app/public/products'), $fileName2);
@@ -151,9 +169,14 @@ class ProductController extends Controller
                 'description_en' => $request->description_en,
                 'img2' => $fileName2,
                 'category_id' => $request->category_id
-            ]);
-        }else{
+            ]);}
+        else{
             $product->update($request->all());
+
+        }
+        $vendors=$request->input('vendor_id');
+        if(isset($vendors)){
+            $product->vendors()->sync($vendors);
         }
         return redirect()->route('admin.products.index')
             ->with('success', 'Продукт успешно обновлено');

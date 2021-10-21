@@ -12,7 +12,7 @@ class Vendor extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['img', 'text_ru','text_en', 'files', 'links','category_id','back'];
+    protected $fillable = ['img', 'text_ru','text_en', 'files', 'links','category_id','back','name'];
 
     public function vendorFiles()
     {
@@ -21,5 +21,8 @@ class Vendor extends Model
     public function vendorFilms()
     {
         return $this->hasMany(Vendorfilm::class, 'vendor_id', 'id');
+    }
+    public function products(){
+        return $this->belongsToMany(Product::class, 'product_vendors');
     }
 }
