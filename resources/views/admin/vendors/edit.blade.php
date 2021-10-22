@@ -74,6 +74,7 @@
                                 </div>
                             </div>
                         </div>
+                       
                         <button type="submit" id="alert" class="btn btn-primary">Сохранить</button>
                         <input type="reset" class="btn btn-danger" value="Очистить">
                     </form>

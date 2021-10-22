@@ -9,7 +9,7 @@ class VendorFiles extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['vendor_id', 'path','file_name'];
+    protected $fillable = ['vendor_id', 'path','file_name','status'];
     protected $table = 'vendor_files';
 
 }
