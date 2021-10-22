@@ -116,7 +116,9 @@ function setProperty(element, name, data = {}) {
                 $(this).remove();
                 links.pop();
                 count --;
+                Stringify(links);
             });
+
         } else {
             Swal.fire({
                 icon: 'warning',
