@@ -60,6 +60,29 @@
                             </select>
                         </div>
                         <div class="form-group">
+                            <label>Файлы</label>
+                            <table class="table table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>Названия</th>
+                                        <th style="width: 0">Действия</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach($files as $file)
+                                        <tr>
+                                            <td>{{$file->file_name}}</td>
+                                            <td>
+                                                <button type="button" onclick="del({{$file->id}}, this)" class="btn btn-danger">
+                                                    <i class="fas fa-trash"></i>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="form-group">
                             <label for="links">Поместите каждую ссылку в новую строку</label>
 
                             <div class="row">
@@ -74,7 +97,7 @@
                                 </div>
                             </div>
                         </div>
-                       
+
                         <button type="submit" id="alert" class="btn btn-primary">Сохранить</button>
                         <input type="reset" class="btn btn-danger" value="Очистить">
                     </form>
@@ -93,6 +116,18 @@
 
             Stringify(links)
         })
+
+        function del(id, btn) {
+            $.ajax(`{{route('ven_delete')}}/${id}`, {
+                method: 'POST',
+                headers: {
+                    'X-CSRF-TOKEN': '{{csrf_token()}}'
+                },
+                success: function (data) {
+                    btn.parentNode.parentNode.remove()
+                }
+            })
+        }
     </script>
 @stop
 @endsection

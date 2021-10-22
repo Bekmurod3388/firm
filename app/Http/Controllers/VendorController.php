@@ -98,8 +98,8 @@ class VendorController extends Controller
 
     public function show_vendor(Vendor $vendor)
     {
-        $vendor_files = VendorFiles::where('vendor_id',$vendor->id)->get();
-        $vendor_films = VendorFilm::where('vendor_id',$vendor->id)->get();
+        $vendor_files = VendorFiles::where('vendor_id',$vendor->id)->where('status', 1)->get();
+        $vendor_films = VendorFilm::query()->where('vendor_id',$vendor->id)->get();
         return view('about-vendor.about-vendor', ['vendor'=>$vendor,'vendor_files'=>$vendor_files,'vendor_films'=>$vendor_films]);
     }
 
@@ -116,7 +116,8 @@ class VendorController extends Controller
     public function edit(Vendor $vendor)
     {
         $categories = Category::all();
-        return view('admin.vendors.edit', ['model' => $vendor,'categories'=>$categories]);
+        $files = VendorFiles::query()->where('vendor_id', $vendor->id)->where('status', 1)->get();
+        return view('admin.vendors.edit', ['model' => $vendor,'categories'=>$categories, 'files' => $files]);
     }
 
     /**
@@ -207,5 +208,9 @@ class VendorController extends Controller
             $vendor_film->fill($link);
             $vendor_film->save();
         }
+    }
+
+    public function deleteFile($file) {
+        VendorFiles::query()->find($file)->update(['status' => 0]);
     }
 }

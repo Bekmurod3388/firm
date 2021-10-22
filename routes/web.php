@@ -53,6 +53,7 @@ Route::prefix('admin')->name('admin.')->middleware(['web', 'auth'])->group(funct
     Route::resource('users', \App\Http\Controllers\UserController::class);
 
 });
+Route::post('vendor/delete-file/{file?}', [\App\Http\Controllers\VendorController::class, 'deleteFile'])->name('ven_delete');
 Route::post('index', [MessageController::class, 'store'])->name('messages.store');
 Route::get('index', [LocalizationController::class, 'index'])->name('index');
 Route::get('change/lang', [LocalizationController::class, 'lang_change'])->name('LangChange');
