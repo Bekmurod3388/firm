@@ -68,16 +68,16 @@ function create(data) {
     link_part.append(row);
     $(`#row-${count}`).show(300);
 
-    function append(root, element, name, label, classes = 'form-control') {
+    function append(root, element, title, label, classes = 'form-control') {
         let div = document.createElement('div');
 
-        setProperty(element, name, data);
+        setProperty(element, title, data);
 
         if (label) {
-            div.classList.add(name === 'path' ? 'col-12' : 'col-6');
+            div.classList.add(title === 'path' ? 'col-12' : 'col-6');
             let l = document.createElement('label');
             l.textContent = label;
-            l.htmlFor = name;
+            l.htmlFor = title;
             div.append(l);
         }
 
@@ -90,16 +90,16 @@ function create(data) {
     }
 }
 
-function setProperty(element, name, data = {}) {
-    if (name) {
+function setProperty(element, title, data = {}) {
+    if (title) {
         element.type = 'text';
-        element.id = name + '_' + (count + 1);
-        element.name = name;
+        element.id = title + '_' + (count + 1);
+        element.title = title;
         element.hint = count;
-        links[element.hint][name] = data[name];
-        element.value = data[name];
+        links[element.hint][title] = data[title];
+        element.value = data[title];
         element.onkeyup = function() {
-            links[element.hint][name] = element.value;
+            links[element.hint][title] = element.value;
             Stringify(links);
         }
 
