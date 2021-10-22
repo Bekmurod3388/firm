@@ -163,7 +163,7 @@ class VendorController extends Controller
         VendorFilm::query()->where('vendor_id', $vendor->id)->delete();
         $this->vendorFilmStore($vendor->id, $request->get('links'));
 
-        return back()->with('success', 'Data Your files has been successfully updated');
+        return redirect()->back()->with('success', 'Data Your files has been successfully updated');
     }
 
     /**
