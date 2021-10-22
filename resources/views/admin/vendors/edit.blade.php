@@ -40,11 +40,11 @@
                         </div>
                         <div class="form-group">
                             <label for="description_ru">Текст (RU)</label>
-                            <textarea class="form-control" name="description_ru" id="description_ru" rows="10">{{old('text', $model->text_ru)}}</textarea>
+                            <textarea class="form-control" name="text_ru" id="description_ru" rows="10">{{ $model->text_ru}}</textarea>
                         </div>
                         <div class="form-group">
                             <label for="description_en">Текст (EN)</label>
-                            <textarea class="form-control" name="description_en" id="description_en" rows="10">{{old('text', $model->text_en)}}</textarea>
+                            <textarea class="form-control" name="text_en" id="description_en" rows="10">{{ $model->text_en}}</textarea>
                         </div>
                         <div class="form-group">
                             <label for="files">Добавить файлы</label>
