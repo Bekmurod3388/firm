@@ -49,7 +49,10 @@
 
         $('#contactForm').on('submit',function(e){
             e.preventDefault();
-
+            var modalAjax = document.querySelector('.modal-back')
+            modalAjax.classList.add("modal__disable");
+            document.documentElement.style.removeProperty('overflow');
+            document.documentElement.style.paddingRight = '0';
             let name = $('#name').val();
             let phone = $('#phone').val();
             let email = $('#email').val();

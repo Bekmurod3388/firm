@@ -89,5 +89,7 @@
                         <input type="submit" class="form__submit" value="{{__('index.contact.send')}}">
                     </form>
                 </div>
+            </div>
+        </div>
 </x-layout>
 
