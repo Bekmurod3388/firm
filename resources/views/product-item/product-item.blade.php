@@ -64,7 +64,7 @@
                         </ul>
                         <div class="swiper-pagination swiper-pagination--vendors"></div>
                     </div>
-                    <a href={{route('vendors')}} class="vendors__link link svg__link-icon-before">{{__('index.trust.vendors')}}</a>
+                    <a href="{{route('vendors')}}" class="vendors__link link svg__link-icon-before">{{__('index.trust.vendors')}}</a>
 
                 </div>
             </div>
@@ -89,5 +89,7 @@
                         <input type="submit" class="form__submit" value="{{__('index.contact.send')}}">
                     </form>
                 </div>
+            </div>
+        </div>
 </x-layout>
 
