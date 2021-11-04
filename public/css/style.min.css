@@ -3657,6 +3657,8 @@ ul.list--hidden {
 .news-item__card-text--top{
     font-size: 1rem;
     line-height: normal;
+    white-space: pre;
+    unicode-bidi: embed;
 }
 
 
