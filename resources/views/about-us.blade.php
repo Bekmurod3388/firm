@@ -155,8 +155,5 @@
                 </ul>
             </div>
         </section>
-
-
         <x-footer></x-footer>
-
 </x-layout>

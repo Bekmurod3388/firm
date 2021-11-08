@@ -47,45 +47,45 @@
             </div>
         </div>
     </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
-    <script type="text/javascript">
-
-        $('#contactForm').on('submit', function (e) {
-            e.preventDefault();
-            var modalAjax = document.querySelector('.modal-back')
-            modalAjax.classList.add("modal__disable");
-            document.documentElement.style.removeProperty('overflow');
-            document.documentElement.style.paddingRight = '0';
-            let name = $('#name').val();
-            let phone = $('#phone').val();
-            let email = $('#email').val();
-
-            $.ajax({
-                url: "{{route('messages.store')}}",
-                type: "POST",
-                data: {
-                    "_token": "{{ csrf_token() }}",
-                    name: name,
-                    phone: phone,
-                    email: email,
-                },
-                success: function (response) {
-                    Swal.fire({
-                        icon: 'success',
-
-                        title: '{{__("about.success")}}',
-
-                    })
-                },
-                fail: function (response) {
-                    Swal.fire({
-                        icon: 'fail',
-
-                        title: '{{__("about.success")}}',
-
-                    })
-                }
-            });
-        });
-    </script>
 </footer>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
+<script type="text/javascript">
+
+    $('#contactForm').on('submit', function (e) {
+        e.preventDefault();
+        var modalAjax = document.querySelector('.modal-back')
+        if(modalAjax)modalAjax.classList.add("modal__disable");
+        document.documentElement.style.removeProperty('overflow');
+        document.documentElement.style.paddingRight = '0';
+        let name = $('#name').val();
+        let phone = $('#phone').val();
+        let email = $('#email').val();
+
+        $.ajax({
+            url: "{{route('messages.store')}}",
+            type: "POST",
+            data: {
+                "_token": "{{ csrf_token() }}",
+                name: name,
+                phone: phone,
+                email: email,
+            },
+            success: function (response) {
+                Swal.fire({
+                    icon: 'success',
+
+                    title: '{{__("about.success")}}',
+
+                })
+            },
+            fail: function (response) {
+                Swal.fire({
+                    icon: 'fail',
+
+                    title: '{{__("about.success")}}',
+
+                })
+            }
+        });
+    });
+</script>
