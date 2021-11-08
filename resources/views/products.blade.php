@@ -1,8 +1,5 @@
 <x-layout>
-    @section('header')
-        <x-header/>
-    @endsection
-
+    <x-header></x-header>
     <section class="products products-page">
         <div class="container-min">
             <div class="products__wrapper">
@@ -41,8 +38,7 @@
             </div>
         </div>
     </div>
-    @section('footer')
-        <x-footer/>
+    <x-footer></x-footer>
         <script>
             function categoryFilter(id) {
                 $.get("{{route('products-by-category')}}" + `/${id}`, function (data) {
@@ -79,6 +75,6 @@
             })
             @endif
         </script>
-    @endsection
+
 
 </x-layout>

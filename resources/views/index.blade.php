@@ -1,14 +1,14 @@
 <x-layout>
 
-    @section('header')
+
         <x-header>
-            <video autoplay muted loop id="myVideo" class="header__video" poster="{{asset('img/main-preview.jpg')}}">
-                <source src="{{asset('img/videos/video_banner.mp4')}}" type="video/mp4">
-                <source src="{{asset('img/videos/video_banner.webm')}}" type="video/webm">
-                <source src="{{asset('img/videos/video_banner.ogv')}}" type="video/ogg">
+            <video autoplay muted loop id="myVideo" class="header__video" poster="{{asset('/img/main-preview.jpg')}}">
+                <source src="{{asset('/img/videos/video_banner.mp4')}}" type="video/mp4">
+                <source src="{{asset('/img/videos/video_banner.webm')}}" type="video/webm">
+                <source src="{{asset('/img/videos/video_banner.ogv')}}" type="video/ogg">
             </video>
         </x-header>
-    @endsection
+
 
 
 		<section class="about-us">
@@ -161,9 +161,9 @@
 			</div>
 		</section>
 
-    @section('footer')
+
         <x-footer></x-footer>
-    @endsection
+
     <div>
         <div class="modal-back modal__disable">
             <div class="card__blur form modal ">

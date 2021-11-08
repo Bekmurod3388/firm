@@ -69,9 +69,9 @@
                 </div>
             </div>
         </section>
-    @section('footer')
-        <x-footer/>
-    @endsection
+
+        <x-footer></x-footer>
+
         <div>
             <div class="modal-back modal__disable">
                 <div class="card__blur form modal ">

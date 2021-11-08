@@ -12,23 +12,26 @@
         <div class="container-min">
             <div class="card__blur form">
                 <p class="form__title">{{__('index.contact.form')}}</p>
-                <form id="contactForm"  accept-charset="UTF-8">
+                <form id="contactForm" accept-charset="UTF-8">
                     <ul class="form__list">
-                        <li class="form__item"><input type="text" class="form__input" name="name" required id="name" placeholder="{{__('index.contact.name')}}"></li>
-                        <li class="form__item"><input type="tel" class="form__input" name="phone" required id="phone" placeholder="+998 (__) ___-__-__"></li>
-                        <li class="form__item"><input type="email" class="form__input" name="email" required id="email" placeholder="Email"></li>
+                        <li class="form__item"><input type="text" class="form__input" name="name" required id="name"
+                                                      placeholder="{{__('index.contact.name')}}"></li>
+                        <li class="form__item"><input type="tel" class="form__input" name="phone" required id="phone"
+                                                      placeholder="+998 (__) ___-__-__"></li>
+                        <li class="form__item"><input type="email" class="form__input" name="email" required id="email"
+                                                      placeholder="Email"></li>
                     </ul>
                     <input type="submit" class="form__submit" value="{{__('index.contact.send')}}">
                 </form>
             </div>
             @php
-            $contact = \App\Models\Contact::first();
+                $contact = \App\Models\Contact::first();
             @endphp
             <div class="footer__info">
                 <ul class="footer__info-list">
                     <li class="footer__info-item">
-                        <p  class="footer__info-title">{{__('index.contact.address')}}</p>
-                        <p  class="footer__info-text">{{$contact->{'address_'.app()->getLocale()} }}</p>
+                        <p class="footer__info-title">{{__('index.contact.address')}}</p>
+                        <p class="footer__info-text">{{$contact->{'address_'.app()->getLocale()} }}</p>
                     </li>
                     <li class="footer__info-item">
                         <p class="footer__info-title">{{__('index.contact.phone')}}</p>
@@ -47,7 +50,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
     <script type="text/javascript">
 
-        $('#contactForm').on('submit',function(e){
+        $('#contactForm').on('submit', function (e) {
             e.preventDefault();
             var modalAjax = document.querySelector('.modal-back')
             modalAjax.classList.add("modal__disable");
@@ -59,14 +62,14 @@
 
             $.ajax({
                 url: "{{route('messages.store')}}",
-                type:"POST",
-                data:{
+                type: "POST",
+                data: {
                     "_token": "{{ csrf_token() }}",
-                    name:name,
-                    phone:phone,
-                    email:email,
+                    name: name,
+                    phone: phone,
+                    email: email,
                 },
-                success:function(response){
+                success: function (response) {
                     Swal.fire({
                         icon: 'success',
 
@@ -74,7 +77,7 @@
 
                     })
                 },
-                fail:function (response){
+                fail: function (response) {
                     Swal.fire({
                         icon: 'fail',
 

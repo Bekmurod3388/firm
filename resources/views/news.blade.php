@@ -1,9 +1,5 @@
 <x-layout>
-    @section('header')
-        <x-header/>
-    @endsection
-
-
+    <x-header></x-header>
         <section class="news">
             <div class="container-min">
                 <ul class="news__list">
@@ -27,8 +23,5 @@
                 </ul>
             </div>
         </section>
-
-    @section('footer')
-        <x-footer/>
-        @endsection
+        <x-footer></x-footer>
 </x-layout>

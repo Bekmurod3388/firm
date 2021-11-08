@@ -1,8 +1,5 @@
 <x-layout>
-    @section('header')
-    <x-header/>
-    @endsection
-
+    <x-header></x-header>
     <section class="vendors">
         <div class="container-min">
             <div class="vendors__wrapper">
@@ -11,7 +8,7 @@
                         <li class="filter-item @if($loop->index == 0){{'filter-item--active'}}@endif">
                             <button class="filter-btn" data-listToggle="solution"
                                     onclick="categoryFilter({{$category->id}})">
-                                    {{$category->name}}
+                                {{$category->name}}
                             </button>
                         </li>
                     @endforeach
@@ -19,12 +16,12 @@
                 <ul id="vendors-part" class="vendors__list" data-filteredlist data-list="solution">
 
                 </ul>
-                <a href="{{route('vendors')}}" class="vendors__link link svg__link-icon-before"> {{__('index.trust.vendors')}}</a>
+                <a href="{{route('vendors')}}"
+                   class="vendors__link link svg__link-icon-before"> {{__('index.trust.vendors')}}</a>
             </div>
         </div>
     </section>
-    @section('footer')
-    <x-footer/>
+    <x-footer></x-footer>
     <script>
         function categoryFilter(id) {
             $.get("{{route('vendor-by-category')}}" + `/${id}`, function (data) {
@@ -46,10 +43,9 @@
         }
 
         @if(count($categories))
-            $(function () {
-                categoryFilter({{$categories[0]->id}})
-            })
+        $(function () {
+            categoryFilter({{$categories[0]->id}})
+        })
         @endif
     </script>
-    @endsection
 </x-layout>

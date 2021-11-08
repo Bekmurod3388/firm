@@ -1,7 +1,7 @@
 <x-layout>
-    @section('header')
-        <x-header/>
-    @endsection
+
+    <x-header></x-header>
+
 
         <section class="our-goal">
             <div class="our-goal__wrapper">
@@ -156,7 +156,7 @@
             </div>
         </section>
 
-    @section('footer')
-        <x-footer/>
-        @endsection
+
+        <x-footer></x-footer>
+
 </x-layout>

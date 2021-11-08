@@ -1,9 +1,5 @@
 <x-layout>
-@section('header')
-    <x-header/>
-    @endsection
-
-
+    <x-header></x-header>
 		<section class="contacts">
 			<div class="container-min">
 				<ul class="contacts__info-list">
