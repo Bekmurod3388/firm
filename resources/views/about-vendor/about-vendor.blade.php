@@ -7,8 +7,10 @@
             <section class="vendor-info about-vendor-page--acer">
                 <div class="vendor-info__wrapper">
                     <div class=" vendor-info__card card__blur">
+                        <a href="link of vendor">
                         <img class="vendor-info__photo" src="{{asset("storage/".$vendor->img)}}"
                              alt="acer">
+                        </a>
                         <p class="card__text vendor-info__card-text ">{{$vendor->{'text_'.app()->getLocale()} }}</p>
                     </div>
                 </div>

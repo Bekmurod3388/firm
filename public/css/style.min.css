@@ -2727,6 +2727,7 @@ ul.list--hidden {
     line-height: normal;
     white-space: pre;
     unicode-bidi: embed;
+    white-space: pre-wrap;
 }
 
 .links {
@@ -3654,6 +3655,7 @@ ul.list--hidden {
     line-height: normal;
     white-space: pre;
     unicode-bidi: embed;
+    white-space: pre-wrap;
 }
 
 
