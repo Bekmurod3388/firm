@@ -7,7 +7,7 @@
             <section class="vendor-info about-vendor-page--acer">
                 <div class="vendor-info__wrapper">
                     <div class=" vendor-info__card card__blur">
-                        <a href="link of vendor">
+                        <a href="{{$vendor->url}}">
                         <img class="vendor-info__photo" src="{{asset("storage/".$vendor->img)}}"
                              alt="acer">
                         </a>
