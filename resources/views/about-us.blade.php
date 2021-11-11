@@ -114,7 +114,7 @@
                     <span class="section-title--small">{{__('about.benefit.header')}}</span>
                     <span class="section-title--big">{{__('about.benefit.header2')}}</span>
                 </h2>
-            </div>
+            </div>+-
             <div class="container-min">
                 <ul class="lead__list">
                     <li class="lead__item wow fadeIn">

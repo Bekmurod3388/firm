@@ -36,7 +36,10 @@
                             <label for="back">Добавить изображение <b><i>Размер изображения:(900x674)</i></b> </label>
                             <input type="file" name="back" class="form-control" id="back">
                         </div>
-
+                        <div class="form-group">
+                            <label for="url">Добавить УРЛ </label>
+                            <input type="text" name="url" class="form-control" id="url">
+                        </div>
                         <div class="form-group">
                             <label for="description_ru">Текст (RU)</label>
                             <textarea class="form-control" name="description_ru" id="description_ru" rows="10"></textarea>

@@ -12,7 +12,7 @@ class Vendor extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['img', 'text_ru','text_en', 'files', 'links','category_id','back','name'];
+    protected $fillable = ['img', 'text_ru','text_en', 'files', 'links','category_id','back','name','url'];
 
     public function vendorFiles()
     {

@@ -39,6 +39,10 @@
                             <input type="file" name="back" class="form-control" id="back">
                         </div>
                         <div class="form-group">
+                            <label for="url">Добавить УРЛ</label>
+                            <input type="text" name="url" class="form-control" id="url" value="{{$model->url}}">
+                        </div>
+                        <div class="form-group">
                             <label for="description_ru">Текст (RU)</label>
                             <textarea class="form-control" name="text_ru" id="description_ru" rows="10">{{old('text',$model->text_ru) }}</textarea>
                         </div>

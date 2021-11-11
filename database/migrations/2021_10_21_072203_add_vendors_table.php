@@ -15,6 +15,7 @@ class AddVendorsTable extends Migration
     {
         Schema::table('vendors', function (Blueprint $table) {
             $table->string("name")->after("id")->nullable();
+            $table->string("url")->after("links")->nullable();
         });
     }
 
