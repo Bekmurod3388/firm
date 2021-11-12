@@ -13,7 +13,7 @@
 
                 <div class=" news-item__card">
                     <h2 class="news-item__title-second">{{ $post->{'header2_'.app()->getLocale()} }}</h2>
-                    <p class="card__text news-item__card-text--top  ">{{ $post->{'description_'.app()->getLocale()} }}</p>
+                    <p class="card__text news-item__card-text--top  ">{!! $post->{'description_'.app()->getLocale()} !!}</p>
                 </div>
             </div>
         </section>

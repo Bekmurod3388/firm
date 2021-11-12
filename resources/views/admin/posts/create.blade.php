@@ -35,7 +35,7 @@
                         </div>
                         <div class="form-group">
                             <label for="description">Текст (Ру)</label>
-                            <textarea class="form-control" name="description_ru" id="description" rows="10"></textarea>
+                            <textarea class="ckeditor form-control" name="description_ru" id="description" rows="10"></textarea>
                         </div>
                         <div class="form-group">
                             <label for="header">Титул (En)</label>
@@ -47,7 +47,7 @@
                         </div>
                         <div class="form-group">
                             <label for="description">Текст (En)</label>
-                            <textarea  class="form-control" name="description_en" id="description" rows="10"></textarea>
+                            <textarea  class="ckeditor form-control" name="description_en" id="description" rows="10"></textarea>
                         </div>
                         <div class="form-group">
                             <label for="img">Добавить изображение <b><i>Размер изображения:(600x300)</i></b></label>
@@ -66,4 +66,12 @@
 
 
 
+@endsection
+@section('script')
+    <script src="//cdn.ckeditor.com/4.14.1/standard/ckeditor.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('.ckeditor').ckeditor();
+        });
+    </script>
 @endsection
